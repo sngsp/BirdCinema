@@ -7,36 +7,42 @@
 
 import Foundation
 
-
-
+// MARK: - Welcome
 struct Welcome: Codable {
-    let boxOfficeResult: BoxOfficeResult
-}
-
-
-struct BoxOfficeResult: Codable {
-    let boxofficeType, showRange: String
-    let BoxOfficeList: [BoxOfficeList]
-}
-
-
-struct BoxOfficeList: Codable {
-    let rnum, movieRank: String
-    let rankOldAndNew: RankOldAndNew
-    let movieCD, movieName, openDate: String
-    let todayAudiCount, totalAudiCount : String
+    let page: Int
+    let results: [Result]
+    let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
-        case rnum
-        case movieRank = "rank", rankOldAndNew
-        case movieCD = "movieCd"
-        case movieName = "movieNm"
-        case openDate = "openDt"
-        case todayAudiCount = "audiCnt" //오늘 관객 수
-        case totalAudiCount = "audiAcc" //누적 관객 수
+        case page, results
+        case totalPages = "total_pages"
+        case totalResults = "total_results"
     }
 }
 
-enum RankOldAndNew: String, Codable {
-    case old = "OLD"
+// MARK: - Result
+struct Result: Codable {
+    let adult: Bool
+    let backdropPath: String
+    let genreIDS: [Int]
+    let id: Int
+    let originalTitle, overview: String
+    let popularity: Double
+    let posterPath, releaseDate, title: String
+    let voteAverage: Double
+    let voteCount: Int
+
+    enum CodingKeys: String, CodingKey {
+        case adult
+        case backdropPath = "backdrop_path"
+        case genreIDS = "genre_ids"
+        case id
+        case originalTitle = "original_title"
+        case overview, popularity
+        case posterPath = "poster_path"
+        case releaseDate = "release_date"
+        case title
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
+    }
 }
