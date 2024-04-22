@@ -28,17 +28,27 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         NetworkingManager.shared.fetchPopularMovies { result in
-            switch result {
-            case .success(let data):
-                if let jsonString = String(data: data, encoding: .utf8) {
-                    print("Received data: \(jsonString)")
-                } else {
-                    print("Failed to convert data to string.")
+                switch result {
+                case .success(let data):
+                    
+                    if let jsonString = String(data: data, encoding: .utf8) {
+                        print("Received data: \(jsonString)")
+                    } else {
+                        print("Failed to convert data to string.")
+                    }
+        
+                    do {
+                        let decoder = JSONDecoder()
+                        let decodedData = try decoder.decode(Welcome.self, from: data)
+                        print("Parsed data: \(decodedData)")
+                    } catch {
+                        print("Failed to decode data: \(error.localizedDescription)")
+                    }
+                    
+                case .failure(let error):
+                    print("Error fetching popular movies: \(error.localizedDescription)")
                 }
-            case .failure(let error):
-                print("Error fetching popular movies: \(error.localizedDescription)")
             }
-        }
     }
 
     
