@@ -28,7 +28,8 @@
 		4DD8A7EE2BD602000027438E /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7ED2BD602000027438E /* MyPageViewController.swift */; };
 		4DD8A7F02BD6031F0027438E /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7EF2BD6031F0027438E /* MovieData.swift */; };
 		4DD8A7F32BD6337E0027438E /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7F22BD6337E0027438E /* NetworkingManager.swift */; };
-		4DD8A7F62BD633990027438E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4DD8A7F52BD633990027438E /* Alamofire */; };
+		4DD8A7F82BD6795F0027438E /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7F72BD6795F0027438E /* JoinViewController.swift */; };
+		4DD8A7FA2BD6A2BC0027438E /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7F92BD6A2BC0027438E /* MainCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		4DD8A7ED2BD602000027438E /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		4DD8A7EF2BD6031F0027438E /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		4DD8A7F22BD6337E0027438E /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		4DD8A7F72BD6795F0027438E /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		4DD8A7F92BD6A2BC0027438E /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DD8A7F62BD633990027438E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +109,7 @@
 			children = (
 				4DD8A7C12BD600610027438E /* MainViewController.swift */,
 				4DD8A7E32BD6018E0027438E /* LoginViewController.swift */,
+				4DD8A7F72BD6795F0027438E /* JoinViewController.swift */,
 				4DD8A7E52BD601BE0027438E /* MovieListViewController.swift */,
 				4DD8A7E72BD601CF0027438E /* MovieDetailViewController.swift */,
 				4DD8A7E92BD601E00027438E /* MovieReservationViewController.swift */,
@@ -120,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD8A7C32BD600610027438E /* Main.storyboard */,
+				4DD8A7F92BD6A2BC0027438E /* MainCollectionViewCell.swift */,
 				4DD8A7D72BD600BB0027438E /* Login.storyboard */,
 				4DD8A7D92BD600CD0027438E /* MovieList.storyboard */,
 				4DD8A7DB2BD600DF0027438E /* MovieDetail.storyboard */,
@@ -163,7 +167,6 @@
 			);
 			name = BirdCinema;
 			packageProductDependencies = (
-				4DD8A7F52BD633990027438E /* Alamofire */,
 			);
 			productName = BirdCinema;
 			productReference = 4DD8A7BA2BD600610027438E /* BirdCinema.app */;
@@ -194,7 +197,6 @@
 			);
 			mainGroup = 4DD8A7B12BD600610027438E;
 			packageReferences = (
-				4DD8A7F42BD633990027438E /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 4DD8A7BB2BD600610027438E /* Products */;
 			projectDirPath = "";
@@ -235,6 +237,8 @@
 				4DD8A7C82BD600610027438E /* BirdCinema.xcdatamodeld in Sources */,
 				4DD8A7BE2BD600610027438E /* AppDelegate.swift in Sources */,
 				4DD8A7F32BD6337E0027438E /* NetworkingManager.swift in Sources */,
+				4DD8A7F82BD6795F0027438E /* JoinViewController.swift in Sources */,
+				4DD8A7FA2BD6A2BC0027438E /* MainCollectionViewCell.swift in Sources */,
 				4DD8A7E62BD601BE0027438E /* MovieListViewController.swift in Sources */,
 				4DD8A7EE2BD602000027438E /* MyPageViewController.swift in Sources */,
 				4DD8A7E82BD601CF0027438E /* MovieDetailViewController.swift in Sources */,
@@ -463,25 +467,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4DD8A7F42BD633990027438E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.9.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4DD8A7F52BD633990027438E /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4DD8A7F42BD633990027438E /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		4DD8A7C62BD600610027438E /* BirdCinema.xcdatamodeld */ = {
