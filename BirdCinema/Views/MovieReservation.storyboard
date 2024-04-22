@@ -5,6 +5,8 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,21 +29,74 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.22816337564235006" green="0.22806354128209366" blue="0.55430840542822168" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="adc-ef-3EG"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOS-hP-boo">
+                                <rect key="frame" x="40" y="748" width="313" height="50"/>
+                                <color key="backgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2Ms-Ib-WFp"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="결제하기"/>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SBe-wQ-L3A">
+                                <rect key="frame" x="10" y="543" width="393" height="70"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="DDW-kH-mFc"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gnS-Qy-XgZ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iee-OW-xJJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4Sg-ca-8rn">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="UX4-fg-k0V">
+                                <rect key="frame" x="36" y="223" width="320" height="270"/>
+                                <color key="tintColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="I3f-Ac-3w7"/>
+                                </constraints>
+                                <locale key="locale" localeIdentifier="ko_KR"/>
+                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" red="0.12156862745098039" green="0.11372549019607843" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Mc2-1S-stB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="4En-km-6bE"/>
+                            <constraint firstItem="SBe-wQ-L3A" firstAttribute="top" secondItem="UX4-fg-k0V" secondAttribute="bottom" constant="50" id="CHz-xe-yQs"/>
+                            <constraint firstItem="sOS-hP-boo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="DOJ-0F-5kQ"/>
                             <constraint firstItem="Mc2-1S-stB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Qzj-ZG-wlG"/>
+                            <constraint firstItem="SBe-wQ-L3A" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="ZIb-ss-0xQ"/>
                             <constraint firstItem="Mc2-1S-stB" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="gmy-9i-j8M"/>
+                            <constraint firstItem="UX4-fg-k0V" firstAttribute="top" secondItem="Mc2-1S-stB" secondAttribute="bottom" constant="20" id="jTU-em-hXk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sOS-hP-boo" secondAttribute="trailing" constant="40" id="q59-4U-uE2"/>
+                            <constraint firstItem="SBe-wQ-L3A" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="10" id="sDu-U2-s01"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="sOS-hP-boo" secondAttribute="bottom" constant="20" id="v7X-YL-KID"/>
+                            <constraint firstItem="UX4-fg-k0V" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="wyk-8P-9pk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="결제" id="u80-Ce-e2L"/>
+                    <connections>
+                        <outlet property="collectionView" destination="SBe-wQ-L3A" id="M57-wB-eLv"/>
+                        <outlet property="datePicker" destination="UX4-fg-k0V" id="jMj-xQ-dhQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -66,4 +121,9 @@
             <point key="canvasLocation" x="54.198473282442748" y="-34.507042253521128"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
