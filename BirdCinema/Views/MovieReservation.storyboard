@@ -44,12 +44,17 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="결제하기"/>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SBe-wQ-L3A">
-                                <rect key="frame" x="10" y="543" width="393" height="70"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="UX4-fg-k0V">
+                                <rect key="frame" x="36.666666666666657" y="223" width="320" height="320"/>
+                                <color key="tintColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="DDW-kH-mFc"/>
+                                    <constraint firstAttribute="height" constant="320" id="I3f-Ac-3w7"/>
                                 </constraints>
+                                <locale key="locale" localeIdentifier="ko_KR"/>
+                            </datePicker>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SBe-wQ-L3A">
+                                <rect key="frame" x="0.0" y="573" width="393" height="165"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gnS-Qy-XgZ">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -67,27 +72,20 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="UX4-fg-k0V">
-                                <rect key="frame" x="36" y="223" width="320" height="270"/>
-                                <color key="tintColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="270" id="I3f-Ac-3w7"/>
-                                </constraints>
-                                <locale key="locale" localeIdentifier="ko_KR"/>
-                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Mc2-1S-stB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="4En-km-6bE"/>
-                            <constraint firstItem="SBe-wQ-L3A" firstAttribute="top" secondItem="UX4-fg-k0V" secondAttribute="bottom" constant="50" id="CHz-xe-yQs"/>
+                            <constraint firstItem="SBe-wQ-L3A" firstAttribute="top" secondItem="UX4-fg-k0V" secondAttribute="bottom" constant="30" id="CHz-xe-yQs"/>
                             <constraint firstItem="sOS-hP-boo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="DOJ-0F-5kQ"/>
+                            <constraint firstItem="sOS-hP-boo" firstAttribute="top" secondItem="SBe-wQ-L3A" secondAttribute="bottom" constant="10" id="PLD-Ig-WuN"/>
                             <constraint firstItem="Mc2-1S-stB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Qzj-ZG-wlG"/>
-                            <constraint firstItem="SBe-wQ-L3A" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="ZIb-ss-0xQ"/>
+                            <constraint firstItem="SBe-wQ-L3A" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ZIb-ss-0xQ"/>
                             <constraint firstItem="Mc2-1S-stB" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="gmy-9i-j8M"/>
                             <constraint firstItem="UX4-fg-k0V" firstAttribute="top" secondItem="Mc2-1S-stB" secondAttribute="bottom" constant="20" id="jTU-em-hXk"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sOS-hP-boo" secondAttribute="trailing" constant="40" id="q59-4U-uE2"/>
-                            <constraint firstItem="SBe-wQ-L3A" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="10" id="sDu-U2-s01"/>
+                            <constraint firstItem="SBe-wQ-L3A" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="sDu-U2-s01"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="sOS-hP-boo" secondAttribute="bottom" constant="20" id="v7X-YL-KID"/>
                             <constraint firstItem="UX4-fg-k0V" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="wyk-8P-9pk"/>
                         </constraints>
@@ -96,6 +94,7 @@
                     <connections>
                         <outlet property="collectionView" destination="SBe-wQ-L3A" id="M57-wB-eLv"/>
                         <outlet property="datePicker" destination="UX4-fg-k0V" id="jMj-xQ-dhQ"/>
+                        <outlet property="titleView" destination="Mc2-1S-stB" id="LfV-36-DlT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -122,8 +121,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
