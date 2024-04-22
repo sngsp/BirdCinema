@@ -1,0 +1,461 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4DD8A7BE2BD600610027438E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7BD2BD600610027438E /* AppDelegate.swift */; };
+		4DD8A7C02BD600610027438E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7BF2BD600610027438E /* SceneDelegate.swift */; };
+		4DD8A7C22BD600610027438E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7C12BD600610027438E /* MainViewController.swift */; };
+		4DD8A7C52BD600610027438E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8A7C42BD600610027438E /* Base */; };
+		4DD8A7C82BD600610027438E /* BirdCinema.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7C62BD600610027438E /* BirdCinema.xcdatamodeld */; };
+		4DD8A7CA2BD600630027438E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8A7C92BD600630027438E /* Assets.xcassets */; };
+		4DD8A7CD2BD600630027438E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8A7CC2BD600630027438E /* Base */; };
+		4DD8A7D82BD600BB0027438E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8A7D72BD600BB0027438E /* Login.storyboard */; };
+		4DD8A7DA2BD600CD0027438E /* MovieList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8A7D92BD600CD0027438E /* MovieList.storyboard */; };
+		4DD8A7DC2BD600DF0027438E /* MovieDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8A7DB2BD600DF0027438E /* MovieDetail.storyboard */; };
+		4DD8A7DE2BD601010027438E /* MovieReservation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8A7DD2BD601010027438E /* MovieReservation.storyboard */; };
+		4DD8A7E02BD601230027438E /* MovieSecrch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8A7DF2BD601230027438E /* MovieSecrch.storyboard */; };
+		4DD8A7E22BD601330027438E /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8A7E12BD601330027438E /* MyPage.storyboard */; };
+		4DD8A7E42BD6018E0027438E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7E32BD6018E0027438E /* LoginViewController.swift */; };
+		4DD8A7E62BD601BE0027438E /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7E52BD601BE0027438E /* MovieListViewController.swift */; };
+		4DD8A7E82BD601CF0027438E /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7E72BD601CF0027438E /* MovieDetailViewController.swift */; };
+		4DD8A7EA2BD601E00027438E /* MovieReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7E92BD601E00027438E /* MovieReservationViewController.swift */; };
+		4DD8A7EC2BD601F10027438E /* MovieSecrchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7EB2BD601F10027438E /* MovieSecrchViewController.swift */; };
+		4DD8A7EE2BD602000027438E /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7ED2BD602000027438E /* MyPageViewController.swift */; };
+		4DD8A7F02BD6031F0027438E /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7EF2BD6031F0027438E /* MovieData.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4DD8A7BA2BD600610027438E /* BirdCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirdCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DD8A7BD2BD600610027438E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4DD8A7BF2BD600610027438E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4DD8A7C12BD600610027438E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4DD8A7C42BD600610027438E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4DD8A7C72BD600610027438E /* BirdCinema.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BirdCinema.xcdatamodel; sourceTree = "<group>"; };
+		4DD8A7C92BD600630027438E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4DD8A7CC2BD600630027438E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4DD8A7CE2BD600630027438E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DD8A7D72BD600BB0027438E /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		4DD8A7D92BD600CD0027438E /* MovieList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieList.storyboard; sourceTree = "<group>"; };
+		4DD8A7DB2BD600DF0027438E /* MovieDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieDetail.storyboard; sourceTree = "<group>"; };
+		4DD8A7DD2BD601010027438E /* MovieReservation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieReservation.storyboard; sourceTree = "<group>"; };
+		4DD8A7DF2BD601230027438E /* MovieSecrch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieSecrch.storyboard; sourceTree = "<group>"; };
+		4DD8A7E12BD601330027438E /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		4DD8A7E32BD6018E0027438E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4DD8A7E52BD601BE0027438E /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
+		4DD8A7E72BD601CF0027438E /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		4DD8A7E92BD601E00027438E /* MovieReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReservationViewController.swift; sourceTree = "<group>"; };
+		4DD8A7EB2BD601F10027438E /* MovieSecrchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSecrchViewController.swift; sourceTree = "<group>"; };
+		4DD8A7ED2BD602000027438E /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		4DD8A7EF2BD6031F0027438E /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4DD8A7B72BD600610027438E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4DD8A7B12BD600610027438E = {
+			isa = PBXGroup;
+			children = (
+				4DD8A7BC2BD600610027438E /* BirdCinema */,
+				4DD8A7BB2BD600610027438E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4DD8A7BB2BD600610027438E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DD8A7BA2BD600610027438E /* BirdCinema.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4DD8A7BC2BD600610027438E /* BirdCinema */ = {
+			isa = PBXGroup;
+			children = (
+				4DD8A7BD2BD600610027438E /* AppDelegate.swift */,
+				4DD8A7BF2BD600610027438E /* SceneDelegate.swift */,
+				4DD8A7D62BD6008B0027438E /* Models */,
+				4DD8A7D52BD600890027438E /* Views */,
+				4DD8A7D42BD600870027438E /* Controllers */,
+				4DD8A7C92BD600630027438E /* Assets.xcassets */,
+				4DD8A7CB2BD600630027438E /* LaunchScreen.storyboard */,
+				4DD8A7CE2BD600630027438E /* Info.plist */,
+				4DD8A7C62BD600610027438E /* BirdCinema.xcdatamodeld */,
+			);
+			path = BirdCinema;
+			sourceTree = "<group>";
+		};
+		4DD8A7D42BD600870027438E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4DD8A7C12BD600610027438E /* MainViewController.swift */,
+				4DD8A7E32BD6018E0027438E /* LoginViewController.swift */,
+				4DD8A7E52BD601BE0027438E /* MovieListViewController.swift */,
+				4DD8A7E72BD601CF0027438E /* MovieDetailViewController.swift */,
+				4DD8A7E92BD601E00027438E /* MovieReservationViewController.swift */,
+				4DD8A7EB2BD601F10027438E /* MovieSecrchViewController.swift */,
+				4DD8A7ED2BD602000027438E /* MyPageViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4DD8A7D52BD600890027438E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4DD8A7C32BD600610027438E /* Main.storyboard */,
+				4DD8A7D72BD600BB0027438E /* Login.storyboard */,
+				4DD8A7D92BD600CD0027438E /* MovieList.storyboard */,
+				4DD8A7DB2BD600DF0027438E /* MovieDetail.storyboard */,
+				4DD8A7DD2BD601010027438E /* MovieReservation.storyboard */,
+				4DD8A7DF2BD601230027438E /* MovieSecrch.storyboard */,
+				4DD8A7E12BD601330027438E /* MyPage.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4DD8A7D62BD6008B0027438E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4DD8A7EF2BD6031F0027438E /* MovieData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4DD8A7B92BD600610027438E /* BirdCinema */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DD8A7D12BD600630027438E /* Build configuration list for PBXNativeTarget "BirdCinema" */;
+			buildPhases = (
+				4DD8A7B62BD600610027438E /* Sources */,
+				4DD8A7B72BD600610027438E /* Frameworks */,
+				4DD8A7B82BD600610027438E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BirdCinema;
+			productName = BirdCinema;
+			productReference = 4DD8A7BA2BD600610027438E /* BirdCinema.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4DD8A7B22BD600610027438E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					4DD8A7B92BD600610027438E = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = 4DD8A7B52BD600610027438E /* Build configuration list for PBXProject "BirdCinema" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4DD8A7B12BD600610027438E;
+			productRefGroup = 4DD8A7BB2BD600610027438E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4DD8A7B92BD600610027438E /* BirdCinema */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4DD8A7B82BD600610027438E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DD8A7DC2BD600DF0027438E /* MovieDetail.storyboard in Resources */,
+				4DD8A7D82BD600BB0027438E /* Login.storyboard in Resources */,
+				4DD8A7CA2BD600630027438E /* Assets.xcassets in Resources */,
+				4DD8A7DA2BD600CD0027438E /* MovieList.storyboard in Resources */,
+				4DD8A7E22BD601330027438E /* MyPage.storyboard in Resources */,
+				4DD8A7CD2BD600630027438E /* Base in Resources */,
+				4DD8A7E02BD601230027438E /* MovieSecrch.storyboard in Resources */,
+				4DD8A7C52BD600610027438E /* Base in Resources */,
+				4DD8A7DE2BD601010027438E /* MovieReservation.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4DD8A7B62BD600610027438E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DD8A7EA2BD601E00027438E /* MovieReservationViewController.swift in Sources */,
+				4DD8A7F02BD6031F0027438E /* MovieData.swift in Sources */,
+				4DD8A7C22BD600610027438E /* MainViewController.swift in Sources */,
+				4DD8A7C82BD600610027438E /* BirdCinema.xcdatamodeld in Sources */,
+				4DD8A7BE2BD600610027438E /* AppDelegate.swift in Sources */,
+				4DD8A7E62BD601BE0027438E /* MovieListViewController.swift in Sources */,
+				4DD8A7EE2BD602000027438E /* MyPageViewController.swift in Sources */,
+				4DD8A7E82BD601CF0027438E /* MovieDetailViewController.swift in Sources */,
+				4DD8A7EC2BD601F10027438E /* MovieSecrchViewController.swift in Sources */,
+				4DD8A7E42BD6018E0027438E /* LoginViewController.swift in Sources */,
+				4DD8A7C02BD600610027438E /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4DD8A7C32BD600610027438E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DD8A7C42BD600610027438E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4DD8A7CB2BD600630027438E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DD8A7CC2BD600630027438E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4DD8A7CF2BD600630027438E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4DD8A7D02BD600630027438E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4DD8A7D22BD600630027438E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BirdCinema/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sj.BirdCinema;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4DD8A7D32BD600630027438E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BirdCinema/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sj.BirdCinema;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4DD8A7B52BD600610027438E /* Build configuration list for PBXProject "BirdCinema" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DD8A7CF2BD600630027438E /* Debug */,
+				4DD8A7D02BD600630027438E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DD8A7D12BD600630027438E /* Build configuration list for PBXNativeTarget "BirdCinema" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DD8A7D22BD600630027438E /* Debug */,
+				4DD8A7D32BD600630027438E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4DD8A7C62BD600610027438E /* BirdCinema.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4DD8A7C72BD600610027438E /* BirdCinema.xcdatamodel */,
+			);
+			currentVersion = 4DD8A7C72BD600610027438E /* BirdCinema.xcdatamodel */;
+			path = BirdCinema.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4DD8A7B22BD600610027438E /* Project object */;
+}
