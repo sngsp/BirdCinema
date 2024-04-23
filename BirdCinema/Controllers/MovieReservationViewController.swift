@@ -10,6 +10,7 @@ import UIKit
 class MovieReservationViewController: UIViewController {
   
     @IBOutlet weak var titleView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var timeCollectionView: UICollectionView!
     @IBOutlet weak var adultCountLabel: UILabel!
@@ -20,9 +21,10 @@ class MovieReservationViewController: UIViewController {
     let afternoonItems = ["13:00", "14:00", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "19:30", "20:00", "20:30", "21:00", "22:00"]
     let adultPrice = 14000
     let youthPrice = 10000
+    var totalPrice = 0
     
     var selectedIndexPath: IndexPath?
-    var selectedData: String?
+    var selectedTime: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +35,8 @@ class MovieReservationViewController: UIViewController {
     
     // MARK: - Configure
     func configureUI() {
-        //        self.navigationController?.navigationBar.tintColor = .white
-        //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//        self.navigationController?.navigationBar.tintColor = .white
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
         // 오늘 날짜 이전의 날짜는 선택할 수 없도록 설정
         datePicker.minimumDate = Date()
@@ -62,9 +64,9 @@ class MovieReservationViewController: UIViewController {
         guard let adultCount = Int(adultCountLabel.text ?? "0"),
               let youthCount = Int(youthCountLabel.text ?? "0") else { return }
         
-        let total = (adultPrice * adultCount) + (youthPrice * youthCount)
+        totalPrice = (adultPrice * adultCount) + (youthPrice * youthCount)
 
-        totalPriceLabel.text = "\(total)원"
+        totalPriceLabel.text = "\(totalPrice)원"
     }
     
     // adultCountLabel 값이 변경
@@ -111,6 +113,45 @@ class MovieReservationViewController: UIViewController {
         youthCountDidChange()
     }
     
+    // MARK: - PayButton
+    @IBAction func tappedPayButton(_ sender: UIButton) {
+        // 선택된 날짜와 시간, 그리고 총 가격을 가져옵니다.
+        let movieTitle = titleLabel.text ?? ""
+        let selectedDate = datePicker.date
+        let selectedTime = selectedTime ?? ""
+        let adultCount = Int(adultCountLabel.text ?? "0") ?? 0
+        let youthCount = Int(youthCountLabel.text ?? "0") ?? 0
+        let totalPrice = totalPrice
+        
+        print(movieTitle)
+        print(selectedDate)
+        print(selectedTime)
+        print(adultCount)
+        print(youthCount)
+        print(totalPrice)
+        
+        // AlertAction
+        if selectedTime.isEmpty {
+            // 알림창을 표시합니다.
+            let alertController = UIAlertController(title: "Notice", message: "시간을 선택해주세요.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        if totalPrice == 0 {
+            let alertController = UIAlertController(title: "Notice", message: "인원을 선택해주세요.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        // 구조체에 데이터 채워넣기
+        let reservationData = ReservationData(movieTitle: movieTitle, date: selectedDate, time: selectedTime, adultCount: adultCount, youthCount: youthCount, totalPrice: totalPrice)
+        print("예약 데이터: \(reservationData)")
+    }
 }
 
 extension MovieReservationViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -160,8 +201,9 @@ extension MovieReservationViewController: UICollectionViewDataSource, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // 선택된 셀의 스타일 변경
         if let cell = collectionView.cellForItem(at: indexPath) as? TimeCell {
-            cell.borderView.backgroundColor = .systemIndigo // 선택된 셀의 배경색을 변경하거나 원하는 스타일을 적용
-            print("Selected time: \(cell.titleLabel.text ?? "")") // 선택된 셀의 데이터 출력
+            cell.borderView.backgroundColor = .systemIndigo
+            print("Selected time: \(cell.titleLabel.text ?? "")")
+            selectedTime = cell.titleLabel.text ?? ""
         }
         
         // 이전에 선택된 셀이 있다면 선택 해제
@@ -172,10 +214,16 @@ extension MovieReservationViewController: UICollectionViewDataSource, UICollecti
                 }
             }
         }
-        
         // 선택된 셀의 인덱스 저장
         selectedIndexPath = indexPath
-        
-        // 여기서 선택된 셀을 이용하여 예매 등의 작업
     }
+}
+
+struct ReservationData {
+    var movieTitle: String
+    var date: Date
+    var time: String
+    var adultCount: Int
+    var youthCount: Int
+    var totalPrice: Int
 }

@@ -11,12 +11,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--결제-->
+        <!--예매-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="MovieReservationViewController" id="Y6W-OH-hqX" customClass="MovieReservationViewController" customModule="BirdCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="1300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mc2-1S-stB">
@@ -36,7 +36,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWz-iu-CkF">
-                                <rect key="frame" x="0.0" y="203" width="393" height="1063"/>
+                                <rect key="frame" x="0.0" y="203" width="393" height="1263"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C47-rl-KUF" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1137"/>
@@ -173,6 +173,9 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="결제하기"/>
+                                                <connections>
+                                                    <action selector="tappedPayButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Aon-gJ-Oda"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bmc-2g-c9d" userLabel="Youth Count Stack View">
                                                 <rect key="frame" x="258" y="935" width="115" height="36"/>
@@ -267,7 +270,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mWz-iu-CkF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3JN-QS-0kd"/>
                             <constraint firstItem="Mc2-1S-stB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="4En-km-6bE"/>
@@ -278,12 +281,13 @@
                             <constraint firstItem="mWz-iu-CkF" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="kvb-rn-Zao"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="결제" id="u80-Ce-e2L"/>
-                    <size key="freeformSize" width="393" height="1300"/>
+                    <navigationItem key="navigationItem" title="예매" id="u80-Ce-e2L"/>
+                    <size key="freeformSize" width="393" height="1500"/>
                     <connections>
                         <outlet property="adultCountLabel" destination="3SW-cx-RPQ" id="vQP-NQ-EtD"/>
                         <outlet property="datePicker" destination="UX4-fg-k0V" id="jMj-xQ-dhQ"/>
                         <outlet property="timeCollectionView" destination="SBe-wQ-L3A" id="GxT-xO-2l6"/>
+                        <outlet property="titleLabel" destination="cf9-JH-WlM" id="eDU-7G-eI5"/>
                         <outlet property="titleView" destination="Mc2-1S-stB" id="LfV-36-DlT"/>
                         <outlet property="totalPriceLabel" destination="xek-cK-dAz" id="Zqa-V6-6oW"/>
                         <outlet property="youthCountLabel" destination="92s-A2-sNh" id="vRk-oK-YF9"/>
