@@ -104,7 +104,7 @@ extension MovieReservationViewController: UICollectionViewDataSource, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // 선택된 셀의 스타일 변경
         if let cell = collectionView.cellForItem(at: indexPath) as? TimeCell {
-            cell.contentView.backgroundColor = .systemIndigo // 선택된 셀의 배경색을 변경하거나 원하는 스타일을 적용
+            cell.borderView.backgroundColor = .systemIndigo // 선택된 셀의 배경색을 변경하거나 원하는 스타일을 적용
             print("Selected time: \(cell.titleLabel.text ?? "")") // 선택된 셀의 데이터 출력
         }
         
@@ -112,7 +112,7 @@ extension MovieReservationViewController: UICollectionViewDataSource, UICollecti
         if collectionView == collectionView {
             if let selectedIndexPath = selectedIndexPath {
                 if let cell = collectionView.cellForItem(at: selectedIndexPath) as? TimeCell {
-                    cell.contentView.backgroundColor = .clear // 이전에 선택된 셀의 스타일 초기화
+                    cell.borderView.backgroundColor = .clear // 이전에 선택된 셀의 스타일 초기화
                 }
             }
         }
