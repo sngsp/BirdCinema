@@ -13,11 +13,13 @@ class MovieReservationViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var timeCollectionView: UICollectionView!
     @IBOutlet weak var adultCountLabel: UILabel!
+    @IBOutlet weak var youthCountLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
     
     let morningItems = ["9:30", "10:00", "10:30", "11:00", "11:30", "12:00"]
     let afternoonItems = ["13:00", "14:00", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "19:30", "20:00", "20:30", "21:00", "22:00"]
     let adultPrice = 14000
+    let youthPrice = 10000
     
     var selectedIndexPath: IndexPath?
     var selectedData: String?
@@ -57,13 +59,22 @@ class MovieReservationViewController: UIViewController {
     
     // MARK: - CountButton
     func updateTotalPrice() {
-        guard let count = Int(adultCountLabel.text ?? "0") else { return }
-        let total = adultPrice * count
+        guard let adultCount = Int(adultCountLabel.text ?? "0"),
+              let youthCount = Int(youthCountLabel.text ?? "0") else { return }
+        
+        let total = (adultPrice * adultCount) + (youthPrice * youthCount)
+
         totalPriceLabel.text = "\(total)원"
     }
     
     // adultCountLabel 값이 변경
     func adultCountDidChange() {
+        updateTotalPrice()
+    }
+    
+    // youthCountLabel 값이 변경
+    func youthCountDidChange() {
+        // 총 가격 업데이트
         updateTotalPrice()
     }
     
@@ -82,6 +93,24 @@ class MovieReservationViewController: UIViewController {
         adultCountLabel.text = "\(count)"
         adultCountDidChange()
     }
+    
+    @IBAction func tappedYouthMinus(_ sender: UIButton) {
+        guard var count = Int(youthCountLabel.text ?? "0") else { return }
+        
+        if count > 0 {
+            count -= 1
+            youthCountLabel.text = "\(count)"
+            youthCountDidChange()
+        }
+    }
+    
+    @IBAction func tappedYouthPlus(_ sender: UIButton) {
+        guard var count = Int(youthCountLabel.text ?? "0") else { return }
+        count += 1
+        youthCountLabel.text = "\(count)"
+        youthCountDidChange()
+    }
+    
 }
 
 extension MovieReservationViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

@@ -185,6 +185,9 @@
                                                         <buttonConfiguration key="configuration" style="plain">
                                                             <imageReference key="image" image="minus" catalog="system" symbolScale="small"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="tappedYouthMinus:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="s9x-NJ-R6K"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92s-A2-sNh">
                                                         <rect key="frame" x="38.333333333333314" y="0.0" width="38.333333333333343" height="36"/>
@@ -201,6 +204,9 @@
                                                         <buttonConfiguration key="configuration" style="plain">
                                                             <imageReference key="image" image="plus" catalog="system" symbolScale="small"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="tappedYouthPlus:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="w1w-zd-cij"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -280,6 +286,7 @@
                         <outlet property="timeCollectionView" destination="SBe-wQ-L3A" id="GxT-xO-2l6"/>
                         <outlet property="titleView" destination="Mc2-1S-stB" id="LfV-36-DlT"/>
                         <outlet property="totalPriceLabel" destination="xek-cK-dAz" id="Zqa-V6-6oW"/>
+                        <outlet property="youthCountLabel" destination="92s-A2-sNh" id="vRk-oK-YF9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
