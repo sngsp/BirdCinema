@@ -30,6 +30,8 @@
 		4DD8A7F32BD6337E0027438E /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7F22BD6337E0027438E /* NetworkingManager.swift */; };
 		F3F011862BD65C6100578A9B /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F011842BD65C6000578A9B /* TimeCell.swift */; };
 		F3F011872BD65C6100578A9B /* TimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3F011852BD65C6000578A9B /* TimeCell.xib */; };
+		F3F95A582BD79062007C7A7E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F95A562BD79062007C7A7E /* HeaderView.swift */; };
+		F3F95A592BD79062007C7A7E /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3F95A572BD79062007C7A7E /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		4DD8A7F22BD6337E0027438E /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		F3F011842BD65C6000578A9B /* TimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
 		F3F011852BD65C6000578A9B /* TimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCell.xib; sourceTree = "<group>"; };
+		F3F95A562BD79062007C7A7E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F3F95A572BD79062007C7A7E /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 				4DD8A7EB2BD601F10027438E /* MovieSecrchViewController.swift */,
 				4DD8A7ED2BD602000027438E /* MyPageViewController.swift */,
 				F3F011842BD65C6000578A9B /* TimeCell.swift */,
+				F3F95A562BD79062007C7A7E /* HeaderView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 				4DD8A7DF2BD601230027438E /* MovieSecrch.storyboard */,
 				4DD8A7E12BD601330027438E /* MyPage.storyboard */,
 				F3F011852BD65C6000578A9B /* TimeCell.xib */,
+				F3F95A572BD79062007C7A7E /* HeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +221,7 @@
 				4DD8A7DC2BD600DF0027438E /* MovieDetail.storyboard in Resources */,
 				4DD8A7D82BD600BB0027438E /* Login.storyboard in Resources */,
 				4DD8A7CA2BD600630027438E /* Assets.xcassets in Resources */,
+				F3F95A592BD79062007C7A7E /* HeaderView.xib in Resources */,
 				4DD8A7DA2BD600CD0027438E /* MovieList.storyboard in Resources */,
 				4DD8A7E22BD601330027438E /* MyPage.storyboard in Resources */,
 				4DD8A7CD2BD600630027438E /* Base in Resources */,
@@ -245,6 +252,7 @@
 				4DD8A7EC2BD601F10027438E /* MovieSecrchViewController.swift in Sources */,
 				4DD8A7E42BD6018E0027438E /* LoginViewController.swift in Sources */,
 				4DD8A7C02BD600610027438E /* SceneDelegate.swift in Sources */,
+				F3F95A582BD79062007C7A7E /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
