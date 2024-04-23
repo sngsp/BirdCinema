@@ -12,27 +12,28 @@ class MovieReservationViewController: UIViewController {
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var timeCollectionView: UICollectionView!
-
+    @IBOutlet weak var adultCountLabel: UILabel!
+    @IBOutlet weak var totalPriceLabel: UILabel!
     
     let morningItems = ["9:30", "10:00", "10:30", "11:00", "11:30", "12:00"]
     let afternoonItems = ["13:00", "14:00", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "19:30", "20:00", "20:30", "21:00", "22:00"]
+    let adultPrice = 14000
     
     var selectedIndexPath: IndexPath?
-    var selectedIndexPathForMorning: IndexPath?
-    var selectedIndexPathForAfternoon: IndexPath?
-    // 선택된 데이터를 저장할 변수 선언
     var selectedData: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerCells() // 셀 등록 메서드 호출
+        register() // 셀 등록 메서드 호출
         configureUI()
         configureCollectionView()
     }
     
+    // MARK: - Configure
     func configureUI() {
         //        self.navigationController?.navigationBar.tintColor = .white
         //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
         // 오늘 날짜 이전의 날짜는 선택할 수 없도록 설정
         datePicker.minimumDate = Date()
     }
@@ -40,20 +41,46 @@ class MovieReservationViewController: UIViewController {
     func configureCollectionView() {
         // UICollectionViewFlowLayout 설정
         let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 0 // 셀 간의 수평 간격
-        layout.minimumLineSpacing = 0 // 셀 간의 수직 간격
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        
         // 컬렉션 뷰 설정
         timeCollectionView.collectionViewLayout = layout
         timeCollectionView.dataSource = self
         timeCollectionView.delegate = self
-        
-        timeCollectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
-        
     }
     
-    func registerCells() {
-        // TimeCell을 "TimeCell" 식별자와 함께 등록
+    func register() {
         timeCollectionView.register(UINib(nibName: "TimeCell", bundle: nil), forCellWithReuseIdentifier: "TimeCell")
+        timeCollectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
+    }
+    
+    // MARK: - CountButton
+    func updateTotalPrice() {
+        guard let count = Int(adultCountLabel.text ?? "0") else { return }
+        let total = adultPrice * count
+        totalPriceLabel.text = "\(total)원"
+    }
+    
+    // adultCountLabel 값이 변경
+    func adultCountDidChange() {
+        updateTotalPrice()
+    }
+    
+    @IBAction func tappedAdultMinus(_ sender: UIButton) {
+        guard var count = Int(adultCountLabel.text ?? "0") else { return }
+        if count > 0 {
+            count -= 1
+            adultCountLabel.text = "\(count)"
+            adultCountDidChange()
+        }
+    }
+    
+    @IBAction func tappedAdultPlus(_ sender: UIButton) {
+        guard var count = Int(adultCountLabel.text ?? "0") else { return }
+        count += 1
+        adultCountLabel.text = "\(count)"
+        adultCountDidChange()
     }
 }
 
