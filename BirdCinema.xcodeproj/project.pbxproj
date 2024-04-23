@@ -32,6 +32,8 @@
 		F3F011872BD65C6100578A9B /* TimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3F011852BD65C6000578A9B /* TimeCell.xib */; };
 		F3F95A582BD79062007C7A7E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F95A562BD79062007C7A7E /* HeaderView.swift */; };
 		F3F95A592BD79062007C7A7E /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3F95A572BD79062007C7A7E /* HeaderView.xib */; };
+		F3F95A5C2BD7C96A007C7A7E /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F95A5A2BD7C96A007C7A7E /* ReservationCell.swift */; };
+		F3F95A5D2BD7C96A007C7A7E /* ReservationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3F95A5B2BD7C96A007C7A7E /* ReservationCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		F3F011852BD65C6000578A9B /* TimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCell.xib; sourceTree = "<group>"; };
 		F3F95A562BD79062007C7A7E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F3F95A572BD79062007C7A7E /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		F3F95A5A2BD7C96A007C7A7E /* ReservationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationCell.swift; sourceTree = "<group>"; };
+		F3F95A5B2BD7C96A007C7A7E /* ReservationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReservationCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 				4DD8A7ED2BD602000027438E /* MyPageViewController.swift */,
 				F3F011842BD65C6000578A9B /* TimeCell.swift */,
 				F3F95A562BD79062007C7A7E /* HeaderView.swift */,
+				F3F95A5A2BD7C96A007C7A7E /* ReservationCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 				4DD8A7E12BD601330027438E /* MyPage.storyboard */,
 				F3F011852BD65C6000578A9B /* TimeCell.xib */,
 				F3F95A572BD79062007C7A7E /* HeaderView.xib */,
+				F3F95A5B2BD7C96A007C7A7E /* ReservationCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 				F3F95A592BD79062007C7A7E /* HeaderView.xib in Resources */,
 				4DD8A7DA2BD600CD0027438E /* MovieList.storyboard in Resources */,
 				4DD8A7E22BD601330027438E /* MyPage.storyboard in Resources */,
+				F3F95A5D2BD7C96A007C7A7E /* ReservationCell.xib in Resources */,
 				4DD8A7CD2BD600630027438E /* Base in Resources */,
 				4DD8A7E02BD601230027438E /* MovieSecrch.storyboard in Resources */,
 				4DD8A7C52BD600610027438E /* Base in Resources */,
@@ -251,6 +258,7 @@
 				4DD8A7E82BD601CF0027438E /* MovieDetailViewController.swift in Sources */,
 				4DD8A7EC2BD601F10027438E /* MovieSecrchViewController.swift in Sources */,
 				4DD8A7E42BD6018E0027438E /* LoginViewController.swift in Sources */,
+				F3F95A5C2BD7C96A007C7A7E /* ReservationCell.swift in Sources */,
 				4DD8A7C02BD600610027438E /* SceneDelegate.swift in Sources */,
 				F3F95A582BD79062007C7A7E /* HeaderView.swift in Sources */,
 			);

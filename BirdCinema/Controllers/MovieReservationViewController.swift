@@ -219,6 +219,7 @@ extension MovieReservationViewController: UICollectionViewDataSource, UICollecti
     }
 }
 
+// 임시 예약 구조체
 struct ReservationData {
     var movieTitle: String
     var date: Date
