@@ -68,8 +68,56 @@ class NetworkingManager {
         task.resume()
     }
     
+    
+    
+    func fetchTopRatedMovies(completion: @escaping (Swift.Result<Data, Error>) -> Void) {
+        guard let movieURL2 = URL(string: "https://api.themoviedb.org/3/movie/top_rated") else {
+            let error = NSError(domain: "InvalidURL", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid movie URL"])
+            completion(.failure(error))
+            return
+        }
+        
+        var request = URLRequest(url: movieURL2)
+        request.httpMethod = "GET"
+        
+        
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        
+        
+        var components = URLComponents(url: movieURL2, resolvingAgainstBaseURL: true)!
+        components.queryItems = [
+            URLQueryItem(name: "language", value: "ko-KR"),
+            URLQueryItem(name: "page", value: "1")
+        ]
+        guard let url = components.url else {
+            let error = NSError(domain: "InvalidURL", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid movie URL"])
+            completion(.failure(error))
+            return
+        }
+        request.url = url
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                let error = NSError(domain: "HTTPError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid HTTP response"])
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                let error = NSError(domain: "InvalidData", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])
+                completion(.failure(error))
+                return
+            }
+            
+            completion(.success(data))
+        }
+        task.resume()
+    }
 }
-
-
-
 
