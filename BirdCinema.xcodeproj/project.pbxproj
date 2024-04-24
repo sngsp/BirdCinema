@@ -31,6 +31,7 @@
 		4DD8A7F82BD6795F0027438E /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7F72BD6795F0027438E /* JoinViewController.swift */; };
 		4DD8A7FA2BD6A2BC0027438E /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7F92BD6A2BC0027438E /* MainCollectionViewCell.swift */; };
 		4DD8A7FC2BD7A8B40027438E /* UpRateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7FB2BD7A8B40027438E /* UpRateCollectionViewCell.swift */; };
+		4DD8A8212BD8C9020027438E /* UpComingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A8202BD8C9020027438E /* UpComingCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		4DD8A7F72BD6795F0027438E /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		4DD8A7F92BD6A2BC0027438E /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DD8A7FB2BD7A8B40027438E /* UpRateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpRateCollectionViewCell.swift; sourceTree = "<group>"; };
+		4DD8A8202BD8C9020027438E /* UpComingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				4DD8A7C32BD600610027438E /* Main.storyboard */,
 				4DD8A7F92BD6A2BC0027438E /* MainCollectionViewCell.swift */,
 				4DD8A7FB2BD7A8B40027438E /* UpRateCollectionViewCell.swift */,
+				4DD8A8202BD8C9020027438E /* UpComingCollectionViewCell.swift */,
 				4DD8A7D72BD600BB0027438E /* Login.storyboard */,
 				4DD8A7D92BD600CD0027438E /* MovieList.storyboard */,
 				4DD8A7DB2BD600DF0027438E /* MovieDetail.storyboard */,
@@ -242,6 +245,7 @@
 				4DD8A7BE2BD600610027438E /* AppDelegate.swift in Sources */,
 				4DD8A7F32BD6337E0027438E /* NetworkingManager.swift in Sources */,
 				4DD8A7F82BD6795F0027438E /* JoinViewController.swift in Sources */,
+				4DD8A8212BD8C9020027438E /* UpComingCollectionViewCell.swift in Sources */,
 				4DD8A7FA2BD6A2BC0027438E /* MainCollectionViewCell.swift in Sources */,
 				4DD8A7E62BD601BE0027438E /* MovieListViewController.swift in Sources */,
 				4DD8A7EE2BD602000027438E /* MyPageViewController.swift in Sources */,

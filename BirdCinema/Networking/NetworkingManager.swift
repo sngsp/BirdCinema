@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkingManager {
     
-    static let shared = NetworkingManager() // Singleton 인스턴스
+    static let shared = NetworkingManager()
     
     private let moiveURL = "https://api.themoviedb.org/3/movie/popular"
     private let apiKey = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MjVlZDdlZjAxOTM2NWI4ZjFiMWFkMjRjOTQ4NDkzOSIsInN1YiI6IjY2MjYwMTEwYWY5NTkwMDE3ZDZhMDBmOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.F9AOBDGvoS2XnYPcxL6L2i4tw6n-27xbikaDh4YB_Qo"
@@ -86,6 +86,56 @@ class NetworkingManager {
         
         
         var components = URLComponents(url: movieURL2, resolvingAgainstBaseURL: true)!
+        components.queryItems = [
+            URLQueryItem(name: "language", value: "ko-KR"),
+            URLQueryItem(name: "page", value: "1")
+        ]
+        guard let url = components.url else {
+            let error = NSError(domain: "InvalidURL", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid movie URL"])
+            completion(.failure(error))
+            return
+        }
+        request.url = url
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                let error = NSError(domain: "HTTPError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid HTTP response"])
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                let error = NSError(domain: "InvalidData", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])
+                completion(.failure(error))
+                return
+            }
+            
+            completion(.success(data))
+        }
+        task.resume()
+    }
+    
+    func fetchUpComingMovies(completion: @escaping (Swift.Result<Data, Error>) -> Void) {
+        guard let movieURL3 = URL(string: "https://api.themoviedb.org/3/movie/upcoming") else {
+            let error = NSError(domain: "InvalidURL", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid movie URL"])
+            completion(.failure(error))
+            return
+        }
+        
+        var request = URLRequest(url: movieURL3)
+        request.httpMethod = "GET"
+        
+        
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        
+        
+        var components = URLComponents(url: movieURL3, resolvingAgainstBaseURL: true)!
         components.queryItems = [
             URLQueryItem(name: "language", value: "ko-KR"),
             URLQueryItem(name: "page", value: "1")
