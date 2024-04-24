@@ -16,8 +16,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     
     
-
-
+    
     @IBAction func collectionButtonTapped(_ sender: UIButton) {
     }
     
