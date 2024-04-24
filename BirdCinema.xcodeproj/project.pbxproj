@@ -31,6 +31,7 @@
 		52479F7D2BD75DBE00BD36FF /* SelectedMovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52479F7C2BD75DBE00BD36FF /* SelectedMovieData.swift */; };
 		4DD8A7F82BD6795F0027438E /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7F72BD6795F0027438E /* JoinViewController.swift */; };
 		4DD8A7FA2BD6A2BC0027438E /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7F92BD6A2BC0027438E /* MainCollectionViewCell.swift */; };
+		4DD8A7FC2BD7A8B40027438E /* UpRateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7FB2BD7A8B40027438E /* UpRateCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		52479F7C2BD75DBE00BD36FF /* SelectedMovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMovieData.swift; sourceTree = "<group>"; };
 		4DD8A7F72BD6795F0027438E /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		4DD8A7F92BD6A2BC0027438E /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		4DD8A7FB2BD7A8B40027438E /* UpRateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpRateCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				4DD8A7C32BD600610027438E /* Main.storyboard */,
 				4DD8A7F92BD6A2BC0027438E /* MainCollectionViewCell.swift */,
+				4DD8A7FB2BD7A8B40027438E /* UpRateCollectionViewCell.swift */,
 				4DD8A7D72BD600BB0027438E /* Login.storyboard */,
 				4DD8A7D92BD600CD0027438E /* MovieList.storyboard */,
 				4DD8A7DB2BD600DF0027438E /* MovieDetail.storyboard */,
@@ -236,6 +239,7 @@
 			files = (
 				4DD8A7EA2BD601E00027438E /* MovieReservationViewController.swift in Sources */,
 				4DD8A7F02BD6031F0027438E /* MovieData.swift in Sources */,
+				4DD8A7FC2BD7A8B40027438E /* UpRateCollectionViewCell.swift in Sources */,
 				4DD8A7C22BD600610027438E /* MainViewController.swift in Sources */,
 				4DD8A7C82BD600610027438E /* BirdCinema.xcdatamodeld in Sources */,
 				4DD8A7BE2BD600610027438E /* AppDelegate.swift in Sources */,
