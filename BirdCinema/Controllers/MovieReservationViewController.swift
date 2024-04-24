@@ -66,7 +66,7 @@ class MovieReservationViewController: UIViewController {
         
         totalPrice = (adultPrice * adultCount) + (youthPrice * youthCount)
 
-        totalPriceLabel.text = "\(totalPrice)원"
+        totalPriceLabel.text = totalPrice.formattedPriceWithWon()
     }
     
     // adultCountLabel 값이 변경
