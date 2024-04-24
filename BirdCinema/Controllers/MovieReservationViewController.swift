@@ -38,8 +38,15 @@ class MovieReservationViewController: UIViewController {
 //        self.navigationController?.navigationBar.tintColor = .white
 //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        // 오늘 날짜 이전의 날짜는 선택할 수 없도록 설정
-        datePicker.minimumDate = Date()
+        // 날짜 선택 범위 설정
+        let currentDate = Date()
+        datePicker.minimumDate = currentDate
+        
+        if let oneMonthAfterDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) {
+            datePicker.maximumDate = oneMonthAfterDate
+        }
+        
+        
     }
     
     func configureCollectionView() {

@@ -20,8 +20,8 @@ class MyPageViewController: UIViewController {
     }
     
     func configureUI() {
-        self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//        self.navigationController?.navigationBar.tintColor = .white
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
        
         profileView.layer.cornerRadius = 16
         profileView.clipsToBounds = true
