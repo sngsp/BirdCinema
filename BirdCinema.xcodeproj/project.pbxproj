@@ -39,6 +39,8 @@
 		F3F95A5C2BD7C96A007C7A7E /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F95A5A2BD7C96A007C7A7E /* ReservationCell.swift */; };
 		F3F95A5D2BD7C96A007C7A7E /* ReservationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3F95A5B2BD7C96A007C7A7E /* ReservationCell.xib */; };
 		F3F95A5F2BD8D84C007C7A7E /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F95A5E2BD8D84C007C7A7E /* Int+.swift */; };
+		F3F95A622BD8DA88007C7A7E /* ReservationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F95A612BD8DA88007C7A7E /* ReservationData.swift */; };
+		F3F95A662BD8DE63007C7A7E /* ReservationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F95A652BD8DE63007C7A7E /* ReservationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		F3F95A5A2BD7C96A007C7A7E /* ReservationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationCell.swift; sourceTree = "<group>"; };
 		F3F95A5B2BD7C96A007C7A7E /* ReservationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReservationCell.xib; sourceTree = "<group>"; };
 		F3F95A5E2BD8D84C007C7A7E /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
+		F3F95A612BD8DA88007C7A7E /* ReservationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationData.swift; sourceTree = "<group>"; };
+		F3F95A652BD8DE63007C7A7E /* ReservationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,8 @@
 			children = (
 				4DD8A7EF2BD6031F0027438E /* MovieData.swift */,
 				52479F7C2BD75DBE00BD36FF /* SelectedMovieData.swift */,
+				F3F95A612BD8DA88007C7A7E /* ReservationData.swift */,
+				F3F95A652BD8DE63007C7A7E /* ReservationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 				4DD8A7C22BD600610027438E /* MainViewController.swift in Sources */,
 				4DD8A7C82BD600610027438E /* BirdCinema.xcdatamodeld in Sources */,
 				F3F011862BD65C6100578A9B /* TimeCell.swift in Sources */,
+				F3F95A662BD8DE63007C7A7E /* ReservationManager.swift in Sources */,
 				4DD8A7BE2BD600610027438E /* AppDelegate.swift in Sources */,
 				F3F95A5F2BD8D84C007C7A7E /* Int+.swift in Sources */,
 				4DD8A7F32BD6337E0027438E /* NetworkingManager.swift in Sources */,
@@ -282,6 +289,7 @@
 				4DD8A7FA2BD6A2BC0027438E /* MainCollectionViewCell.swift in Sources */,
 				4DD8A7E62BD601BE0027438E /* MovieListViewController.swift in Sources */,
 				4DD8A7EE2BD602000027438E /* MyPageViewController.swift in Sources */,
+				F3F95A622BD8DA88007C7A7E /* ReservationData.swift in Sources */,
 				4DD8A7E82BD601CF0027438E /* MovieDetailViewController.swift in Sources */,
 				52479F7D2BD75DBE00BD36FF /* SelectedMovieData.swift in Sources */,
 				4DD8A7EC2BD601F10027438E /* MovieSecrchViewController.swift in Sources */,

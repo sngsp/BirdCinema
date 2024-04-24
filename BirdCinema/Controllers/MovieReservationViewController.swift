@@ -117,19 +117,12 @@ class MovieReservationViewController: UIViewController {
     @IBAction func tappedPayButton(_ sender: UIButton) {
         // 선택된 날짜와 시간, 그리고 총 가격을 가져옵니다.
         let movieTitle = titleLabel.text ?? ""
-        let selectedDate = datePicker.date
+        let selectedDate = formatDate(date: datePicker.date)
         let selectedTime = selectedTime ?? ""
         let adultCount = Int(adultCountLabel.text ?? "0") ?? 0
         let youthCount = Int(youthCountLabel.text ?? "0") ?? 0
         let totalPrice = totalPrice
-        
-        print(movieTitle)
-        print(selectedDate)
-        print(selectedTime)
-        print(adultCount)
-        print(youthCount)
-        print(totalPrice)
-        
+    
         // AlertAction
         if selectedTime.isEmpty {
             // 알림창을 표시합니다.
@@ -148,10 +141,25 @@ class MovieReservationViewController: UIViewController {
             return
         }
         
-        // 구조체에 데이터 채워넣기
+        // 예약 데이터 생성 후 추가
         let reservationData = ReservationData(movieTitle: movieTitle, date: selectedDate, time: selectedTime, adultCount: adultCount, youthCount: youthCount, totalPrice: totalPrice)
+        ReservationManager.shared.addReservation(reservationData)
+        
+        // 확인용
         print("예약 데이터: \(reservationData)")
     }
+    
+    func formatDate(date: Date?) -> String {
+        guard let date = date else {
+            return ""
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: date)
+    }
+
+
 }
 
 extension MovieReservationViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -219,12 +227,3 @@ extension MovieReservationViewController: UICollectionViewDataSource, UICollecti
     }
 }
 
-// 임시 예약 구조체
-struct ReservationData {
-    var movieTitle: String
-    var date: Date
-    var time: String
-    var adultCount: Int
-    var youthCount: Int
-    var totalPrice: Int
-}
