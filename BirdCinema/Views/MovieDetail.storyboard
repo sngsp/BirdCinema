@@ -29,7 +29,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="08B-dx-jkZ">
-                                <rect key="frame" x="56.666666666666657" y="434" width="280" height="20"/>
+                                <rect key="frame" x="101.66666666666669" y="434" width="190" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sK-e3-FPP">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
@@ -44,15 +44,6 @@
                                         <rect key="frame" x="120" y="0.0" width="70" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="d6d-68-TPL"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQt-SS-VKZ">
-                                        <rect key="frame" x="210.00000000000003" y="0.0" width="69.999999999999972" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="ybS-f4-esr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -107,6 +98,7 @@
                                     <constraint firstAttribute="width" constant="100" id="3FC-gm-jkb"/>
                                     <constraint firstAttribute="height" constant="20" id="gWH-LR-bvb"/>
                                 </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
@@ -137,7 +129,6 @@
                     <connections>
                         <outlet property="blurredImageView" destination="bey-s6-bQG" id="Gm3-An-AVr"/>
                         <outlet property="detailSummaryTextLabel" destination="bM6-Oh-Krf" id="dtV-6x-nSg"/>
-                        <outlet property="genreLabel" destination="rQt-SS-VKZ" id="yFu-TN-IK0"/>
                         <outlet property="movieNameLabel" destination="eKJ-kV-qvB" id="ng6-sP-PSB"/>
                         <outlet property="moviePosterImageView" destination="4jf-uV-f0t" id="BcU-4h-D4r"/>
                         <outlet property="releaseYear" destination="1sK-e3-FPP" id="QUJ-5K-eSP"/>
