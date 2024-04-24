@@ -162,6 +162,9 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="house.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="tappedHomeButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4bP-CQ-giQ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOS-hP-boo">
                                                 <rect key="frame" x="163" y="1065" width="200" height="42"/>

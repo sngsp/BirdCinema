@@ -28,7 +28,6 @@ class MyPageViewController: UIViewController {
         
         profileView.layer.borderWidth = 1
         profileView.layer.borderColor = UIColor.systemGray.cgColor
-//        profileView.layer.borderColor = UIColor(red: 37/255, green: 40/255, blue: 54/255, alpha: 1.0).cgColor
     }
     
     func configureTableView() {
@@ -41,12 +40,14 @@ class MyPageViewController: UIViewController {
 }
 extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return ReservationManager.shared.reservations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReservationCell", for: indexPath) as? ReservationCell else { return UITableViewCell() }
         
+        let reservation = ReservationManager.shared.reservations[indexPath.row]
+        cell.configureCell(reservation)
         return cell
     }
     

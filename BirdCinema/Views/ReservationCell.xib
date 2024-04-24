@@ -50,8 +50,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일반 2명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDC-th-YVE">
-                        <rect key="frame" x="245" y="48" width="59" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일반 2명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDC-th-YVE">
+                        <rect key="frame" x="245.66666666666666" y="48" width="58.333333333333343" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -62,13 +62,18 @@
                     <constraint firstItem="Dcb-pC-cWm" firstAttribute="top" secondItem="iXA-rr-oGi" secondAttribute="bottom" constant="10" id="TUk-tY-CRu"/>
                     <constraint firstItem="iXA-rr-oGi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Tfz-E9-8yd"/>
                     <constraint firstItem="iXA-rr-oGi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="WeZ-Zd-YL8"/>
-                    <constraint firstItem="rDC-th-YVE" firstAttribute="centerY" secondItem="Dcb-pC-cWm" secondAttribute="centerY" id="Yhz-mL-PTT"/>
                     <constraint firstAttribute="trailing" secondItem="rDC-th-YVE" secondAttribute="trailing" constant="16" id="g6z-WC-Kjv"/>
                     <constraint firstItem="J2H-vg-Dmn" firstAttribute="top" secondItem="Dcb-pC-cWm" secondAttribute="bottom" constant="16" id="lSc-Zb-ohJ"/>
                     <constraint firstItem="Dcb-pC-cWm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="m0u-Dy-Gh4"/>
+                    <constraint firstItem="rDC-th-YVE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="48" id="mwY-iS-9Rh"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="countLabel" destination="rDC-th-YVE" id="ONp-kV-hvG"/>
+                <outlet property="dateLabel" destination="J2H-vg-Dmn" id="fPg-j5-5Cc"/>
+                <outlet property="titleLabel" destination="Dcb-pC-cWm" id="dSL-VN-1C0"/>
+            </connections>
             <point key="canvasLocation" x="-27.480916030534349" y="11.619718309859156"/>
         </tableViewCell>
     </objects>

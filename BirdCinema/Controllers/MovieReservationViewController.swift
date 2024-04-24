@@ -141,12 +141,29 @@ class MovieReservationViewController: UIViewController {
             return
         }
         
-        // 예약 데이터 생성 후 추가
-        let reservationData = ReservationData(movieTitle: movieTitle, date: selectedDate, time: selectedTime, adultCount: adultCount, youthCount: youthCount, totalPrice: totalPrice)
-        ReservationManager.shared.addReservation(reservationData)
-        
-        // 확인용
-        print("예약 데이터: \(reservationData)")
+        let alertController = UIAlertController(title: "Notice", message: "결제하시겠습니까?", preferredStyle: .alert)
+
+        // 확인 액션 추가
+        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+            // 예약 데이터 생성 후 추가
+            let reservationData = ReservationData(movieTitle: movieTitle, date: selectedDate, time: selectedTime, adultCount: adultCount, youthCount: youthCount, totalPrice: totalPrice)
+            ReservationManager.shared.addReservation(reservationData)
+            
+            // 확인용
+            print("예약 데이터: \(reservationData)")
+        }
+
+        // 취소 액션 추가
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+
+        // 알림창에 액션 추가
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+
+        // 알림창 표시
+        present(alertController, animated: true, completion: nil)
+
+
     }
     
     func formatDate(date: Date?) -> String {
@@ -158,6 +175,16 @@ class MovieReservationViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: date)
     }
+    
+    // 화면 이동
+    @IBAction func tappedHomeButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+        guard let myPageViewController = storyboard.instantiateViewController(withIdentifier: "MyPageViewController") as? MyPageViewController else { return }
+        if let navigationController = self.navigationController {
+            navigationController.pushViewController(myPageViewController, animated: true)
+        }
+    }
+    
 
 
 }
