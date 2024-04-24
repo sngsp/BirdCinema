@@ -165,7 +165,7 @@ extension MovieReservationViewController: UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeCell", for: indexPath) as! TimeCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeCell", for: indexPath) as? TimeCell  else { return UICollectionViewCell() }
         
         let items = indexPath.section == 0 ? morningItems : afternoonItems
         cell.titleLabel.text = items[indexPath.item]
@@ -186,7 +186,7 @@ extension MovieReservationViewController: UICollectionViewDataSource, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as? HeaderView else { return UICollectionReusableView() }
             
             // 헤더 뷰 설정
             headerView.titleLabel.text = indexPath.section == 0 ? "오전" : "오후"
