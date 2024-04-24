@@ -14,7 +14,9 @@ class MovieReservationViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
+    let adultPrice = 14000
+    let youthPrice = 10000
+    var totalPrice = 0
 
     /*
     // MARK: - Navigation
