@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
     var upComingMovieData: Welcome?
     var imageData: Result?
     
-    
     @IBOutlet weak var mainSearchBar: UISearchBar!
     @IBOutlet weak var mainPageImage: UIImageView!
     @IBOutlet weak var collectionViewHeaderLabel: UILabel!
@@ -29,10 +28,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var technologyImage2: UIImageView!
     @IBOutlet weak var technologyImage3: UIImageView!
     
-    
     private var currentIndex = 0
     private let images = ["HomeImage", "HomeImage2", "HomeImage4"]
-    
     
     
     override func viewDidLoad() {
@@ -64,33 +61,25 @@ class MainViewController: UIViewController {
 
         technologyImage3.layer.cornerRadius = 20
         technologyImage3.layer.masksToBounds = true
-        
-        self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     
     func setupCollectionView() {
-        let flowLayout = createFirstCollectionViewFlowLayout()
-        mainCollectionView.collectionViewLayout = flowLayout
+        mainCollectionView.collectionViewLayout = createCollectionViewFlowLayout(for: mainCollectionView)
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         mainCollectionView.alwaysBounceHorizontal = true
         
-        let secondflowLayout = createSecondCollectionViewFlowLayout()
-        subCollectionView.collectionViewLayout = secondflowLayout
+        subCollectionView.collectionViewLayout = createCollectionViewFlowLayout(for: subCollectionView)
         subCollectionView.delegate = self
         subCollectionView.dataSource = self
         subCollectionView.alwaysBounceHorizontal = true
         
-        let upComingflowLayout = createUpComingCollectionViewFlowLayout()
-        upComingCollectionView.collectionViewLayout = upComingflowLayout
+        upComingCollectionView.collectionViewLayout = createCollectionViewFlowLayout(for: upComingCollectionView)
         upComingCollectionView.delegate = self
         upComingCollectionView.dataSource = self
         upComingCollectionView.alwaysBounceHorizontal = true
-        
     }
-    
     
     func setupTimer() {
         Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
@@ -101,7 +90,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    
     func fetchImage(for posterPath: String, completion: @escaping (UIImage?) -> Void) {
         let posterURL = URL(string: "https://image.tmdb.org/t/p/w185/\(posterPath)")!
         
@@ -111,7 +99,6 @@ class MainViewController: UIViewController {
                 completion(nil)
                 return
             }
-            
             if let image = UIImage(data: data) {
                 completion(image)
             } else {
@@ -149,7 +136,7 @@ class MainViewController: UIViewController {
                     let decoder = JSONDecoder()
                     self?.secondaryMovieData = try decoder.decode(Welcome.self, from: data)
                     DispatchQueue.main.async {
-                        self?.upComingCollectionView.reloadData()
+                        self?.subCollectionView.reloadData()
                     }
                 } catch {
                     print("\(error)")
@@ -178,42 +165,17 @@ class MainViewController: UIViewController {
             }
         }
     }
-        
     
     
-    func createFirstCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
+    func createCollectionViewFlowLayout(for collectionView: UICollectionView) -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        mainCollectionView.collectionViewLayout = layout
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.itemSize = CGSize(width: 200, height: 350)
-        return layout
-    }
-    
-    
-    func createSecondCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        subCollectionView.collectionViewLayout = layout
+        collectionView.collectionViewLayout = layout
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 20
         layout.itemSize = CGSize(width: 200, height: 350)
         return layout
     }
-    
-    
-    func createUpComingCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        upComingCollectionView.collectionViewLayout = layout
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 20
-        layout.itemSize = CGSize(width: 200, height: 350)
-        return layout
-    }
-    
-    
     
     
     @IBAction func mainPageController(_ sender: UIPageControl) {
@@ -240,9 +202,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == mainCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? MainCollectionViewCell else {
-                fatalError("Failed to dequeue MainCollectionViewCell")
-            }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? MainCollectionViewCell else { fatalError("Failed to dequeue MainCollectionViewCell") }
             
             if let movieData = movieData {
                 let movie = movieData.results[indexPath.item]
