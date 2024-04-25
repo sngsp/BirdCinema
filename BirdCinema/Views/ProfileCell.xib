@@ -67,6 +67,8 @@
             <color key="backgroundColor" red="0.1215686275" green="0.1137254902" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="profileView" destination="GoE-qf-N2Q" id="Hck-3f-aCe"/>
+                <outlet property="userEmailLabel" destination="6BZ-yB-tYu" id="dSR-9T-7lQ"/>
+                <outlet property="userIdLabel" destination="tGY-zv-IIU" id="uUg-dZ-iwT"/>
             </connections>
             <point key="canvasLocation" x="132.06106870229007" y="16.197183098591552"/>
         </tableViewCell>

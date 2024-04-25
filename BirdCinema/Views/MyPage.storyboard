@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
+        <!--MY-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="MyPageViewController" id="Y6W-OH-hqX" customClass="MyPageViewController" customModule="BirdCinema" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,7 +22,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" red="0.1215686275" green="0.1137254902" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lfa-F5-leK" secondAttribute="trailing" id="HVU-gI-Hed"/>
                             <constraint firstItem="lfa-F5-leK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Wh2-NN-k29"/>
@@ -32,14 +32,14 @@
                             <constraint firstItem="lfa-F5-leK" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="tq0-y7-nS5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="LXD-Ix-x5K"/>
+                    <navigationItem key="navigationItem" title="MY" id="LXD-Ix-x5K"/>
                     <connections>
                         <outlet property="tableView" destination="lfa-F5-leK" id="0zj-77-zbo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1883.206106870229" y="-34.507042253521128"/>
+            <point key="canvasLocation" x="2809.9236641221373" y="-34.507042253521128"/>
         </scene>
     </scenes>
 </document>

@@ -25,6 +25,7 @@ class MovieReservationViewController: UIViewController {
     
     var selectedIndexPath: IndexPath?
     var selectedTime: String?
+    var movieTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,9 @@ class MovieReservationViewController: UIViewController {
         if let oneMonthAfterDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) {
             datePicker.maximumDate = oneMonthAfterDate
         }
+    
+        // 영화 제목
+        titleLabel.text = movieTitle
         
         
     }

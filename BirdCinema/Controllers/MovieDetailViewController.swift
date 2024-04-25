@@ -115,21 +115,18 @@ class MovieDetailViewController: UIViewController {
         // 상태 토글
         isShowingFullSummary.toggle()
     }
-
-}
-
-extension UIImage {
-    func applyBlurEffect() -> UIImage? {
-        let context = CIContext(options: nil)
-        guard let currentFilter = CIFilter(name: "CIGaussianBlur") else { return nil }
-        let beginImage = CIImage(image: self)
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        currentFilter.setValue(30, forKey: kCIInputRadiusKey)
-
-        guard let output = currentFilter.outputImage,
-              let cgimg = context.createCGImage(output, from: output.extent) else { return nil }
-
-        let processedImage = UIImage(cgImage: cgimg)
-        return processedImage
+   
+    // MARK: -  예매하기 버튼
+    @IBAction func reservationButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "MovieReservation", bundle: nil)
+        guard let movieReservationViewController = storyboard.instantiateViewController(withIdentifier: "MovieReservationViewController") as? MovieReservationViewController else { return }
+        
+        // 제목 전달
+        movieReservationViewController.movieTitle = selectedMovieDataForStruct?.movieTitle
+        
+        if let navigationController = self.navigationController {
+            navigationController.pushViewController(movieReservationViewController, animated: true)
+        }
     }
+    
 }
