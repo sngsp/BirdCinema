@@ -121,7 +121,7 @@ class MovieDetailViewController: UIViewController {
         let storyboard = UIStoryboard(name: "MovieReservation", bundle: nil)
         guard let movieReservationViewController = storyboard.instantiateViewController(withIdentifier: "MovieReservationViewController") as? MovieReservationViewController else { return }
         
-        // 선택된 영화의 제목을 MovieReservationViewController에 전달합니다.
+        // 제목 전달
         movieReservationViewController.movieTitle = selectedMovieDataForStruct?.movieTitle
         
         if let navigationController = self.navigationController {

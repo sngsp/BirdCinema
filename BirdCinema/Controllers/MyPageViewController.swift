@@ -18,6 +18,16 @@ class MyPageViewController: UIViewController {
         configureTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // 화면이 나타날 때마다 데이터를 업데이트
+        updateData()
+    }
+    
+    func updateData() {
+        tableView.reloadData()
+    }
+    
     func configureUI() {
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
