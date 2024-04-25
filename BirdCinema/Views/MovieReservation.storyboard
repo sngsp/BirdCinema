@@ -22,9 +22,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mc2-1S-stB">
                                 <rect key="frame" x="0.0" y="103" width="393" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="범죄도시4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cf9-JH-WlM">
-                                        <rect key="frame" x="156" y="37" width="82" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="범죄도시4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cf9-JH-WlM">
+                                        <rect key="frame" x="16" y="38" width="361" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -32,7 +31,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.22816337564235006" green="0.22806354128209366" blue="0.55430840542822168" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstItem="cf9-JH-WlM" firstAttribute="centerY" secondItem="Mc2-1S-stB" secondAttribute="centerY" id="DZS-Kf-lvu"/>
+                                    <constraint firstAttribute="trailing" secondItem="cf9-JH-WlM" secondAttribute="trailing" constant="16" id="EMW-85-vTC"/>
+                                    <constraint firstItem="cf9-JH-WlM" firstAttribute="centerX" secondItem="Mc2-1S-stB" secondAttribute="centerX" id="GdZ-5y-BdV"/>
                                     <constraint firstAttribute="height" constant="100" id="adc-ef-3EG"/>
+                                    <constraint firstItem="cf9-JH-WlM" firstAttribute="leading" secondItem="Mc2-1S-stB" secondAttribute="leading" constant="16" id="g4J-iW-FBj"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWz-iu-CkF">

@@ -115,5 +115,18 @@ class MovieDetailViewController: UIViewController {
         // 상태 토글
         isShowingFullSummary.toggle()
     }
-
+   
+    // MARK: -  예매하기 버튼
+    @IBAction func reservationButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "MovieReservation", bundle: nil)
+        guard let movieReservationViewController = storyboard.instantiateViewController(withIdentifier: "MovieReservationViewController") as? MovieReservationViewController else { return }
+        
+        // 선택된 영화의 제목을 MovieReservationViewController에 전달합니다.
+        movieReservationViewController.movieTitle = selectedMovieDataForStruct?.movieTitle
+        
+        if let navigationController = self.navigationController {
+            navigationController.pushViewController(movieReservationViewController, animated: true)
+        }
+    }
+    
 }
