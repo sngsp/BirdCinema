@@ -9,7 +9,6 @@ import UIKit
 
 class MyPageViewController: UIViewController {
 
-    @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -20,39 +19,86 @@ class MyPageViewController: UIViewController {
     }
     
     func configureUI() {
-//        self.navigationController?.navigationBar.tintColor = .white
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-       
-        profileView.layer.cornerRadius = 16
-        profileView.clipsToBounds = true
-        
-        profileView.layer.borderWidth = 1
-        profileView.layer.borderColor = UIColor.systemGray.cgColor
+        //        self.navigationController?.navigationBar.tintColor = .white
+        //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         
-        let nibName = UINib(nibName: "ReservationCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: "ReservationCell")
+        let reservationNib = UINib(nibName: "ReservationCell", bundle: nil)
+        tableView.register(reservationNib, forCellReuseIdentifier: "ReservationCell")
+        
+        let profileNib = UINib(nibName: "ProfileCell", bundle: nil)
+        tableView.register(profileNib, forCellReuseIdentifier: "ProfileCell")
     }
 }
+
 extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ReservationManager.shared.reservations.count
+        if section == 0 {
+            return 1
+        } else {
+            return ReservationManager.shared.reservations.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReservationCell", for: indexPath) as? ReservationCell else { return UITableViewCell() }
-        
-        let reservation = ReservationManager.shared.reservations[indexPath.row]
-        cell.configureCell(reservation)
-        return cell
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as? ProfileCell else { return UITableViewCell() }
+
+            return cell
+            
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReservationCell", for: indexPath) as? ReservationCell else { return UITableViewCell() }
+            
+            let reservation = ReservationManager.shared.reservations[indexPath.row]
+            cell.configureCell(reservation)
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        if indexPath.section == 0 {
+            return 120
+        } else {
+            return 110
+        }
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1 {
+            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 60))
+            headerView.backgroundColor = .clear
+            
+            let borderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 6))
+            borderView.backgroundColor = .systemGray5
+            headerView.addSubview(borderView)
+            
+            let titleLabel = UILabel(frame: CGRect(x: 16, y: 10, width: headerView.frame.width - 32, height: 40))
+            titleLabel.text = "예매/구매 내역"
+            titleLabel.textColor = .white
+            titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+            headerView.addSubview(titleLabel)
+            
+            return headerView
+        } else {
+            return nil
+        }
+    }
+
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 1 {
+            return 60
+        } else {
+            return 0
+        }
+    }
 }
+
