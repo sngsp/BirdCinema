@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     var secondaryMovieData: Welcome?
     var upComingMovieData: Welcome?
     var imageData: Result?
+    var selectedMovieDataForStruct: SelectedMovieData?
     
     @IBOutlet weak var mainSearchBar: UISearchBar!
     @IBOutlet weak var mainPageImage: UIImageView!
@@ -178,6 +179,7 @@ class MainViewController: UIViewController {
     
     
     @IBAction func mainPageController(_ sender: UIPageControl) {
+        
     }
     
     @IBAction func movieRevervationButtonTapped(_ sender: UIButton) {
@@ -185,7 +187,7 @@ class MainViewController: UIViewController {
 }
 
 
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == mainCollectionView {
@@ -297,3 +299,54 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return UICollectionViewCell()
     }
 }
+
+extension MainViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var selectedMovieData = SelectedMovieData()
+        
+        if collectionView == mainCollectionView {
+            if let movie = movieData?.results[indexPath.item] {
+                selectedMovieData.moviePoster = movie.posterPath
+                selectedMovieData.movieTitle = movie.title
+                selectedMovieData.movieReleaseDate = movie.releaseDate
+                selectedMovieData.movieDetailSummary = movie.overview
+            }
+        } else if collectionView == subCollectionView {
+            if let movie = secondaryMovieData?.results[indexPath.item] {
+                selectedMovieData.moviePoster = movie.posterPath
+                selectedMovieData.movieTitle = movie.title
+                selectedMovieData.movieReleaseDate = movie.releaseDate
+                selectedMovieData.movieDetailSummary = movie.overview
+            }
+        } else if collectionView == upComingCollectionView {
+            if let movie = upComingMovieData?.results[indexPath.item] {
+                selectedMovieData.moviePoster = movie.posterPath
+                selectedMovieData.movieTitle = movie.title
+                selectedMovieData.movieReleaseDate = movie.releaseDate
+                selectedMovieData.movieDetailSummary = movie.overview
+            }
+        }
+        
+        // 선택된 영화 데이터를 selectedMovieDataForStruct에 할당
+        selectedMovieDataForStruct = selectedMovieData
+        
+        // 이제 선택된 영화 데이터 확인
+        print("Selected Movie Poster: \(selectedMovieData.moviePoster)")
+        print("Selected Movie Title: \(selectedMovieData.movieTitle)")
+        print("Selected Movie Release Date: \(selectedMovieData.movieReleaseDate)")
+        print("Selected Movie Detail Summary: \(selectedMovieData.movieDetailSummary)")
+        
+        // 선택된 영화 데이터를 다른 곳에서 사용하거나 전달할 수 있습니다.
+        let storyboard = UIStoryboard(name: "MovieDetail", bundle: nil)
+        guard let movieDetailViewController = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController else { return }
+        
+        // MovieDetailViewController에 선택된 영화 데이터를 전달
+        movieDetailViewController.selectedMovieDataForStruct = selectedMovieDataForStruct
+        
+        if let navigationController = self.navigationController {
+            navigationController.pushViewController(movieDetailViewController, animated: true)
+        }
+    }
+}
+
+
