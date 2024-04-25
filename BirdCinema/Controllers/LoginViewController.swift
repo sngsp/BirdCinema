@@ -78,7 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             // 메인 뷰 컨트롤러로 이동
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            guard let viewController = storyboard.instantiateViewController(withIdentifier: "MainView") as? MainViewController else { return }
+            guard let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewTab") as? UITabBarController else { return }
             
             // 커스텀 전환 애니메이션 적용
             let transition = CATransition()

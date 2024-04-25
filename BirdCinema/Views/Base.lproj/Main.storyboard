@@ -603,7 +603,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="lD6-WB-aa4">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="RCA-Gj-0g9" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainViewTab" automaticallyAdjustsScrollViewInsets="NO" id="RCA-Gj-0g9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Vg-2o-HFp">
                         <autoresizingMask key="autoresizingMask"/>
