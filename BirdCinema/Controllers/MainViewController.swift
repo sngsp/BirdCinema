@@ -62,7 +62,6 @@ class MainViewController: UIViewController {
         technologyImage3.layer.masksToBounds = true
     }
     
-    
     func setupCollectionView() {
         mainCollectionView.collectionViewLayout = createCollectionViewFlowLayout(for: mainCollectionView)
         mainCollectionView.delegate = self
@@ -79,6 +78,8 @@ class MainViewController: UIViewController {
         upComingCollectionView.dataSource = self
         upComingCollectionView.alwaysBounceHorizontal = true
     }
+    
+
     
     func setupTimer() {
         Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
@@ -260,8 +261,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     }
                 }
             }
-            
             return cell
+            
         } else if collectionView == upComingCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpComingCell", for: indexPath) as? UpComingCollectionViewCell else {
                 fatalError("Failed to dequeue UpComingCell")
