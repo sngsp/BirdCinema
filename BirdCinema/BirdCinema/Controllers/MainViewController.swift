@@ -12,24 +12,22 @@ class MainViewController: UIViewController {
     let netWorkingManager = NetworkingManager.shared
     var movieData: Welcome?
     var secondaryMovieData: Welcome?
-    var upComingMovieData: Welcome?
     var imageData: Result?
     
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var profileIntro: UILabel!
     @IBOutlet weak var mainSearchBar: UISearchBar!
     @IBOutlet weak var mainPageImage: UIImageView!
     @IBOutlet weak var collectionViewHeaderLabel: UILabel!
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var subCollectionView: UICollectionView!
     @IBOutlet weak var subcollectionViewHeaderLabel: UILabel!
-    @IBOutlet weak var upComingCollectionView: UICollectionView!
-    @IBOutlet weak var upComingCollectionViewHeaderLabel: UILabel!
-    
-    @IBOutlet weak var technologyImage1: UIImageView!
-    @IBOutlet weak var technologyImage2: UIImageView!
-    @IBOutlet weak var technologyImage3: UIImageView!
+    @IBOutlet weak var mainScrollView: UIScrollView!
     
     private var currentIndex = 0
-    private let images = ["HomeImage", "HomeImage2", "HomeImage4"]
+    private let images = ["HomeImage", "HomeImage2", "HomeImage3", "HomeImage4"]
+    
     
     
     override func viewDidLoad() {
@@ -37,48 +35,33 @@ class MainViewController: UIViewController {
         setupCollectionView()
         fetchData()
         fetchSecondaryData()
-        fetchUpcomingData()
         configureUI()
         setupTimer()
     }
     
     
+    
+    
     func configureUI() {
         collectionViewHeaderLabel.text = "박스오피스"
         subcollectionViewHeaderLabel.text = "가장 많이 본 영화"
-        upComingCollectionViewHeaderLabel.text = "개봉 예정 영화"
-        
         mainPageImage.image = UIImage(named: images[currentIndex])
-        technologyImage1.image = UIImage(named: "TechImage")
-        technologyImage2.image = UIImage(named: "TechImage2")
-        technologyImage3.image = UIImage(named: "TechImage3")
         
-        technologyImage1.layer.cornerRadius = 20
-        technologyImage1.layer.masksToBounds = true
-
-        technologyImage2.layer.cornerRadius = 20
-        technologyImage2.layer.masksToBounds = true
-
-        technologyImage3.layer.cornerRadius = 20
-        technologyImage3.layer.masksToBounds = true
+        
     }
     
-    
     func setupCollectionView() {
-        mainCollectionView.collectionViewLayout = createCollectionViewFlowLayout(for: mainCollectionView)
+        let flowLayout = createFirstCollectionViewFlowLayout()
+        mainCollectionView.collectionViewLayout = flowLayout
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         mainCollectionView.alwaysBounceHorizontal = true
         
-        subCollectionView.collectionViewLayout = createCollectionViewFlowLayout(for: subCollectionView)
+        let secondflowLayout = createSecondCollectionViewFlowLayout()
+        subCollectionView.collectionViewLayout = secondflowLayout
         subCollectionView.delegate = self
         subCollectionView.dataSource = self
         subCollectionView.alwaysBounceHorizontal = true
-        
-        upComingCollectionView.collectionViewLayout = createCollectionViewFlowLayout(for: upComingCollectionView)
-        upComingCollectionView.delegate = self
-        upComingCollectionView.dataSource = self
-        upComingCollectionView.alwaysBounceHorizontal = true
     }
     
     func setupTimer() {
@@ -99,6 +82,7 @@ class MainViewController: UIViewController {
                 completion(nil)
                 return
             }
+            
             if let image = UIImage(data: data) {
                 completion(image)
             } else {
@@ -146,36 +130,38 @@ class MainViewController: UIViewController {
             }
         }
     }
+        
     
-    func fetchUpcomingData() {
-        netWorkingManager.fetchUpComingMovies { [weak self] result in
-            switch result {
-            case .success(let data):
-                do {
-                    let decoder = JSONDecoder()
-                    self?.upComingMovieData = try decoder.decode(Welcome.self, from: data)
-                    DispatchQueue.main.async {
-                        self?.upComingCollectionView.reloadData()
-                    }
-                } catch {
-                    print("\(error)")
-                }
-            case .failure(let error):
-                print("\(error)")
-            }
-        }
+    
+    
+    func createFirstCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        mainCollectionView.collectionViewLayout = layout
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.itemSize = CGSize(width: 200, height: 350)
+        return layout
     }
     
     
-    func createCollectionViewFlowLayout(for collectionView: UICollectionView) -> UICollectionViewFlowLayout {
+    func createSecondCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        collectionView.collectionViewLayout = layout
+        subCollectionView.collectionViewLayout = layout
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 20
         layout.itemSize = CGSize(width: 200, height: 350)
         return layout
     }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     @IBAction func mainPageController(_ sender: UIPageControl) {
@@ -193,8 +179,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return movieData?.results.count ?? 0
         } else if collectionView == subCollectionView {
             return secondaryMovieData?.results.count ?? 0
-        } else if collectionView == upComingCollectionView {
-            return upComingMovieData?.results.count ?? 0
         }
         return 0
     }
@@ -202,7 +186,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == mainCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? MainCollectionViewCell else { fatalError("Failed to dequeue MainCollectionViewCell") }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? MainCollectionViewCell else {
+                fatalError("Failed to dequeue MainCollectionViewCell")
+            }
             
             if let movieData = movieData {
                 let movie = movieData.results[indexPath.item]
@@ -232,8 +218,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             return cell
         } else if collectionView == subCollectionView {
+            
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpRateViewCell", for: indexPath) as? UpRateCollectionViewCell else {
-                fatalError("Failed to dequeue UpRateViewCell")
+                fatalError("Failed to dequeue SubCollectionViewCell")
             }
             
             if let movieData = secondaryMovieData {
@@ -263,38 +250,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             
             return cell
-        } else if collectionView == upComingCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpComingCell", for: indexPath) as? UpComingCollectionViewCell else {
-                fatalError("Failed to dequeue UpComingCell")
-            }
-            
-            if let movieData = upComingMovieData {
-                let movie = movieData.results[indexPath.item]
-                cell.upComingMainLabel.text = movie.title
-                
-                let voteCount = movie.voteCount * 1000
-                let formatter = NumberFormatter()
-                formatter.numberStyle = .decimal
-                formatter.maximumFractionDigits = 0
-                if let formattedVoteCount = formatter.string(from: NSNumber(value: voteCount)) {
-                    cell.upComingSubLabel.text = "\(formattedVoteCount)명"
-                }
-            }
-            
-            cell.upComingButton.layer.borderWidth = 1
-            cell.upComingButton.layer.borderColor = UIColor.systemIndigo.cgColor
-            cell.upComingButton.layer.cornerRadius = 15
-            
-            
-            if let movie = upComingMovieData?.results[indexPath.item] {
-                fetchImage(for: movie.posterPath) { image in
-                    DispatchQueue.main.async {
-                        cell.upComingImage.image = image
-                    }
-                }
-            }
-            return cell
         }
         return UICollectionViewCell()
     }
+    
+
 }
+
+
