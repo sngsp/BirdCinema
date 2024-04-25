@@ -169,5 +169,62 @@ class NetworkingManager {
         }
         task.resume()
     }
+    
+    // 세개의 데이터를 모두 한곳에 합친 함수
+    func fetchCombinedMovies(completion: @escaping (Swift.Result<(popular: Data, topRated: Data, upcoming: Data), Error>) -> Void) {
+        let dispatchGroup = DispatchGroup()
+
+        var popularMoviesData: Data?
+        var topRatedMoviesData: Data?
+        var upcomingMoviesData: Data?
+        var error: Error?
+
+        // Fetch popular movies
+        dispatchGroup.enter()
+        fetchPopularMovies { result in
+            defer { dispatchGroup.leave() }
+            switch result {
+            case .success(let data):
+                popularMoviesData = data
+            case .failure(let err):
+                error = err
+            }
+        }
+
+        // Fetch top rated movies
+        dispatchGroup.enter()
+        fetchTopRatedMovies { result in
+            defer { dispatchGroup.leave() }
+            switch result {
+            case .success(let data):
+                topRatedMoviesData = data
+            case .failure(let err):
+                error = err
+            }
+        }
+
+        // Fetch upcoming movies
+        dispatchGroup.enter()
+        fetchUpComingMovies { result in
+            defer { dispatchGroup.leave() }
+            switch result {
+            case .success(let data):
+                upcomingMoviesData = data
+            case .failure(let err):
+                error = err
+            }
+        }
+
+        // Notify when all requests are completed
+        dispatchGroup.notify(queue: .main) {
+            if let error = error {
+                completion(.failure(error))
+            } else if let popularData = popularMoviesData, let topRatedData = topRatedMoviesData, let upcomingData = upcomingMoviesData {
+                completion(.success((popular: popularData, topRated: topRatedData, upcoming: upcomingData)))
+            }
+        }
+    }
+    
+    
 }
 
