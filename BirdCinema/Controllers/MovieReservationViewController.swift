@@ -38,8 +38,15 @@ class MovieReservationViewController: UIViewController {
 //        self.navigationController?.navigationBar.tintColor = .white
 //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        // 오늘 날짜 이전의 날짜는 선택할 수 없도록 설정
-        datePicker.minimumDate = Date()
+        // 날짜 선택 범위 설정
+        let currentDate = Date()
+        datePicker.minimumDate = currentDate
+        
+        if let oneMonthAfterDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) {
+            datePicker.maximumDate = oneMonthAfterDate
+        }
+        
+        
     }
     
     func configureCollectionView() {
@@ -66,7 +73,7 @@ class MovieReservationViewController: UIViewController {
         
         totalPrice = (adultPrice * adultCount) + (youthPrice * youthCount)
 
-        totalPriceLabel.text = "\(totalPrice)원"
+        totalPriceLabel.text = totalPrice.formattedPriceWithWon()
     }
     
     // adultCountLabel 값이 변경
@@ -117,19 +124,12 @@ class MovieReservationViewController: UIViewController {
     @IBAction func tappedPayButton(_ sender: UIButton) {
         // 선택된 날짜와 시간, 그리고 총 가격을 가져옵니다.
         let movieTitle = titleLabel.text ?? ""
-        let selectedDate = datePicker.date
+        let selectedDate = formatDate(date: datePicker.date)
         let selectedTime = selectedTime ?? ""
         let adultCount = Int(adultCountLabel.text ?? "0") ?? 0
         let youthCount = Int(youthCountLabel.text ?? "0") ?? 0
         let totalPrice = totalPrice
-        
-        print(movieTitle)
-        print(selectedDate)
-        print(selectedTime)
-        print(adultCount)
-        print(youthCount)
-        print(totalPrice)
-        
+    
         // AlertAction
         if selectedTime.isEmpty {
             // 알림창을 표시합니다.
@@ -148,10 +148,52 @@ class MovieReservationViewController: UIViewController {
             return
         }
         
-        // 구조체에 데이터 채워넣기
-        let reservationData = ReservationData(movieTitle: movieTitle, date: selectedDate, time: selectedTime, adultCount: adultCount, youthCount: youthCount, totalPrice: totalPrice)
-        print("예약 데이터: \(reservationData)")
+        let alertController = UIAlertController(title: "Notice", message: "결제하시겠습니까?", preferredStyle: .alert)
+
+        // 확인 액션 추가
+        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+            // 예약 데이터 생성 후 추가
+            let reservationData = ReservationData(movieTitle: movieTitle, date: selectedDate, time: selectedTime, adultCount: adultCount, youthCount: youthCount, totalPrice: totalPrice)
+            ReservationManager.shared.addReservation(reservationData)
+            
+            // 확인용
+            print("예약 데이터: \(reservationData)")
+        }
+
+        // 취소 액션 추가
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+
+        // 알림창에 액션 추가
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+
+        // 알림창 표시
+        present(alertController, animated: true, completion: nil)
+
+
     }
+    
+    func formatDate(date: Date?) -> String {
+        guard let date = date else {
+            return ""
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: date)
+    }
+    
+    // 화면 이동
+    @IBAction func tappedHomeButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+        guard let myPageViewController = storyboard.instantiateViewController(withIdentifier: "MyPageViewController") as? MyPageViewController else { return }
+        if let navigationController = self.navigationController {
+            navigationController.pushViewController(myPageViewController, animated: true)
+        }
+    }
+    
+
+
 }
 
 extension MovieReservationViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -165,7 +207,7 @@ extension MovieReservationViewController: UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeCell", for: indexPath) as! TimeCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeCell", for: indexPath) as? TimeCell  else { return UICollectionViewCell() }
         
         let items = indexPath.section == 0 ? morningItems : afternoonItems
         cell.titleLabel.text = items[indexPath.item]
@@ -186,7 +228,7 @@ extension MovieReservationViewController: UICollectionViewDataSource, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as? HeaderView else { return UICollectionReusableView() }
             
             // 헤더 뷰 설정
             headerView.titleLabel.text = indexPath.section == 0 ? "오전" : "오후"
@@ -219,12 +261,3 @@ extension MovieReservationViewController: UICollectionViewDataSource, UICollecti
     }
 }
 
-// 임시 예약 구조체
-struct ReservationData {
-    var movieTitle: String
-    var date: Date
-    var time: String
-    var adultCount: Int
-    var youthCount: Int
-    var totalPrice: Int
-}
