@@ -8,8 +8,6 @@
 import UIKit
 
 class JoinViewController: UIViewController, UITextFieldDelegate {
-
-    
     @IBOutlet weak var joinAddressTextField: UITextField!
     @IBOutlet weak var joinPasswordMainTextField: UITextField!
     @IBOutlet weak var joinPasswordSubTextField: UITextField!
@@ -20,6 +18,7 @@ class JoinViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var kakaoStackView: UIStackView!
     @IBOutlet weak var naverStackView: UIStackView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +58,7 @@ class JoinViewController: UIViewController, UITextFieldDelegate {
             return
         }
         guard password == joinPasswordSubTextField.text else {
-            
-            //일치하지 않을떄 여기 구현
+            showAlert(message: "비밀번호가 일치하지 않습니다.")
             print("비밀번호가 일치하지 않습니다.")
             return
         }
@@ -68,14 +66,30 @@ class JoinViewController: UIViewController, UITextFieldDelegate {
         var saveUserInfo = UserDefaults.standard.dictionary(forKey: "userInfo") ?? [:]
         
         if saveUserInfo[email] != nil {
+            showAlert(message: "이미 등록된 이메일 입니다.")
             print("이미 등록된 이메일")
             return
         }
         saveUserInfo[email] = password
         UserDefaults.standard.set(saveUserInfo, forKey: "userInfo")
         
-        dismiss(animated: true)
-        
+        joinOkAlert(message: "회원가입이 완료되었습니다.")
         print("가입완료")
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func joinOkAlert(message: String) {
+        let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }

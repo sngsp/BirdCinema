@@ -42,7 +42,6 @@ class MainViewController: UIViewController {
         setupTimer()
     }
     
-    
     func configureUI() {
         collectionViewHeaderLabel.text = "박스오피스"
         subcollectionViewHeaderLabel.text = "가장 많이 본 영화"

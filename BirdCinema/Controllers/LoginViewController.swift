@@ -20,7 +20,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var logoImage4: UIImageView!
     @IBOutlet weak var logoImage5: UIImageView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setuplogin()
@@ -61,29 +60,47 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         guard let email = loginIdTextField.text,
               let password = loginPasswordTextField.text else {
             
-            //입력한 정보가 없거나 정보가 틀린경우 로직구현
-            print("정보가 없거나 틀렸다.")
+            showAlert(message: "이메일 또는 패스워드가\n일치하지 않습니다.")
+            print("정보가 없거나 틀렸습니다.")
             return
         }
         
         guard let savedUserInfo = UserDefaults.standard.dictionary(forKey: "userInfo") else {
-            // 저장된 회원가입 정보가 없는 경우 로직 구현
-            print("회원 가입 정보가 없다.")
+            showAlert(message: "저장된 회원정보가 없습니다.")
+            print("회원 가입 정보가 없습니다.")
             return
         }
         
         if let savadPasswod = savedUserInfo[email] as? String, password == savadPasswod {
-            // ** 로그인 성공해서 메인 영화 페이지로 이동하는 로직 구현 **
-            print("로그인 성공")
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            appDelegate.loggedInUserInfo = [email:password]
+            print("\([appDelegate.loggedInUserInfo])로그인 성공")
+            
+            // 메인 뷰 컨트롤러로 이동
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let viewController = storyboard.instantiateViewController(withIdentifier: "MainView") as? MainViewController else { return }
+            
+            // 커스텀 전환 애니메이션 적용
+            let transition = CATransition()
+            transition.duration = 0.4
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            view.window?.layer.add(transition, forKey: kCATransition)
+            
+            viewController.modalPresentationStyle = .fullScreen
+            present(viewController, animated: false, completion: nil)
         } else {
-            // 정보가 맞지 않아 로그인 실패 로직
-            print("이메일 또는 비밀번호가 올바르지 않다.")
+            showAlert(message: "이메일 또는 패스워드가\n일치하지 않습니다.")
+            print("이메일 또는 비밀번호가 올바르지 않습니다.")
         }
     }
     
-    
-    
-    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func joinToggleButton(_ sender: UIButton) {
         if let secondVC = storyboard?.instantiateViewController(withIdentifier: "secondVC") as? JoinViewController {
@@ -91,5 +108,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             present(secondVC, animated: true, completion: nil)
         }
     }
-    
 }
