@@ -10,10 +10,12 @@ import UIKit
 class MyPageViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var userEmail: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        updateUserInfo()
         configureUI()
         configureTableView()
     }
@@ -26,6 +28,18 @@ class MyPageViewController: UIViewController {
     
     func updateData() {
         tableView.reloadData()
+    }
+    
+    func updateUserInfo() {
+        // 로그인 정보 가져오기
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+              let loggedInUserInfo = appDelegate.loggedInUserInfo,
+              let email = loggedInUserInfo.keys.first else {
+            print("로그인 정보 없음")
+            return
+        }
+        print("로그인 사용자 이메일: \(email)")
+        self.userEmail = email
     }
     
     func configureUI() {
@@ -61,7 +75,8 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as? ProfileCell else { return UITableViewCell() }
-
+            
+            cell.userEmailLabel.text = userEmail
             return cell
             
         } else {
