@@ -60,7 +60,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         guard let email = loginIdTextField.text,
               let password = loginPasswordTextField.text else {
             
-            showAlert(message: "이메일 또는 패스워드 정보가\n일치하지 않습니다.")
+            showAlert(message: "이메일 또는 패스워드가\n일치하지 않습니다.")
             print("정보가 없거나 틀렸습니다.")
             return
         }
@@ -72,10 +72,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         if let savadPasswod = savedUserInfo[email] as? String, password == savadPasswod {
-            // ** 로그인 성공해서 메인 영화 페이지로 이동하는 로직 구현 **
-            print("로그인 성공")
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            appDelegate.loggedInUserInfo = [email:password]
+            print("\([appDelegate.loggedInUserInfo])로그인 성공")
+            
+            // 메인 뷰 컨트롤러로 이동
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let viewController = storyboard.instantiateViewController(withIdentifier: "MainView") as? MainViewController else { return }
+            
+            // 커스텀 전환 애니메이션 적용
+            let transition = CATransition()
+            transition.duration = 0.4
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            view.window?.layer.add(transition, forKey: kCATransition)
+            
+            viewController.modalPresentationStyle = .fullScreen
+            present(viewController, animated: false, completion: nil)
         } else {
-            showAlert(message: "이메일 또는 패스워드 정보가\n일치하지 않습니다.")
+            showAlert(message: "이메일 또는 패스워드가\n일치하지 않습니다.")
             print("이메일 또는 비밀번호가 올바르지 않습니다.")
         }
     }
