@@ -19,8 +19,8 @@ class MyPageViewController: UIViewController {
     }
     
     func configureUI() {
-        //        self.navigationController?.navigationBar.tintColor = .white
-        //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     func configureTableView() {
