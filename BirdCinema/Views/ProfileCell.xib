@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GoE-qf-N2Q">
-                        <rect key="frame" x="16" y="16" width="315" height="86"/>
+                        <rect key="frame" x="16" y="0.0" width="315" height="86"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="soa-19-JoV">
                                 <rect key="frame" x="16" y="17" width="54" height="52.666666666666671"/>
@@ -59,7 +59,7 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="GoE-qf-N2Q" secondAttribute="bottom" constant="16" id="dL6-qe-zxB"/>
                     <constraint firstItem="GoE-qf-N2Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="rHw-HR-Dxi"/>
-                    <constraint firstItem="GoE-qf-N2Q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="u0K-SU-wxA"/>
+                    <constraint firstItem="GoE-qf-N2Q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="u0K-SU-wxA"/>
                     <constraint firstAttribute="trailing" secondItem="GoE-qf-N2Q" secondAttribute="trailing" constant="16" id="wz6-RD-Wan"/>
                 </constraints>
             </tableViewCellContentView>
