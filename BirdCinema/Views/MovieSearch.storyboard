@@ -19,15 +19,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="eai-wS-rTh">
-                                <rect key="frame" x="10" y="64" width="393" height="56"/>
+                                <rect key="frame" x="20" y="64" width="353" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="fs7-7T-Mpa"/>
+                                </constraints>
+                                <color key="barTintColor" systemColor="systemGray5Color"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="ZKb-WY-INv"/>
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oOO-u0-vkQ">
-                                <rect key="frame" x="10" y="125" width="373" height="693"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="10" y="124" width="373" height="694"/>
+                                <color key="backgroundColor" red="0.1215686351" green="0.11372549830000001" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XUY-5C-YUp">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -48,12 +52,12 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.1215686351" green="0.11372549830000001" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="eai-wS-rTh" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="10" id="9zN-qL-jzo"/>
-                            <constraint firstItem="oOO-u0-vkQ" firstAttribute="top" secondItem="eai-wS-rTh" secondAttribute="bottom" constant="5" id="MgM-Ac-4IZ"/>
+                            <constraint firstItem="eai-wS-rTh" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-20" id="9zN-qL-jzo"/>
+                            <constraint firstItem="oOO-u0-vkQ" firstAttribute="top" secondItem="eai-wS-rTh" secondAttribute="bottom" constant="20" id="MgM-Ac-4IZ"/>
                             <constraint firstItem="oOO-u0-vkQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="NOx-eC-vaq"/>
-                            <constraint firstItem="eai-wS-rTh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="XAb-so-DEi"/>
+                            <constraint firstItem="eai-wS-rTh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="XAb-so-DEi"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="oOO-u0-vkQ" secondAttribute="bottom" id="ex3-d1-agz"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oOO-u0-vkQ" secondAttribute="trailing" constant="10" id="gyw-Es-7ko"/>
                             <constraint firstItem="eai-wS-rTh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="ziH-4j-ONd"/>
@@ -70,8 +74,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

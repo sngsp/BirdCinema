@@ -31,6 +31,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var technologyImage2: UIImageView!
     @IBOutlet weak var technologyImage3: UIImageView!
     
+    @IBOutlet weak var bottomLogoImage: UIImageView!
+    
+    
+    
     private var currentIndex = 0
     private let images = ["HomeImage", "HomeImage2", "HomeImage4"]
     
@@ -43,6 +47,11 @@ class MainViewController: UIViewController {
         fetchUpcomingData()
         configureUI()
         setupTimer()
+        
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.barTintColor = .systemIndigo
+            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        }
     }
     
     func configureUI() {
@@ -63,6 +72,10 @@ class MainViewController: UIViewController {
 
         technologyImage3.layer.cornerRadius = 20
         technologyImage3.layer.masksToBounds = true
+        
+        bottomLogoImage.image = UIImage(named: "BirdCinemaLogo2")
+        
+        
     }
     
     func setupCollectionView() {
