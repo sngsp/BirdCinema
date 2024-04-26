@@ -107,7 +107,7 @@ class MovieDetailViewController: UIViewController {
         } else {
             // 줄거리를 축약해서 보여주는 상태에서 버튼을 누르면 전체 내용을 보여줌
             UIView.animate(withDuration: 0.3, animations: {
-                self.detailSummaryTextLabel.numberOfLines = 8
+                self.detailSummaryTextLabel.numberOfLines = 10
                 self.view.layoutIfNeeded()
             }) { _ in
                 // 애니메이션이 완료된 후에 버튼 타이틀 변경
