@@ -72,8 +72,10 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             return 1
         } else if section == 1 {
             return ReservationManager.shared.reservations.count
+        } else if section == 2 {
+            return WishMovieManager.shared.wishlist.count
         } else {
-            return 1
+            return 0
         }
     }
     
@@ -90,16 +92,19 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             let reservation = ReservationManager.shared.reservations[indexPath.row]
             cell.configureCell(reservation)
             return cell
+            
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "WishCell", for: indexPath) as? WishCell else { return UITableViewCell() }
             
+            let wish = WishMovieManager.shared.wishlist[indexPath.row]
+            cell.configureCell(wish)
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 2 {
-            return 90
+            return 80
         } else {
             return 110
         }

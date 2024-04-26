@@ -50,6 +50,7 @@
 		F3F95A862BDB6D1D007C7A7E /* WishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F95A842BDB6D1D007C7A7E /* WishCell.swift */; };
 		F3F95A872BDB6D1D007C7A7E /* WishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3F95A852BDB6D1D007C7A7E /* WishCell.xib */; };
 		F3F95A8A2BDB8289007C7A7E /* WishMovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F95A892BDB8289007C7A7E /* WishMovieData.swift */; };
+		F3F95A8C2BDB85F1007C7A7E /* WishMovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F95A8B2BDB85F1007C7A7E /* WishMovieManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		F3F95A842BDB6D1D007C7A7E /* WishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCell.swift; sourceTree = "<group>"; };
 		F3F95A852BDB6D1D007C7A7E /* WishCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishCell.xib; sourceTree = "<group>"; };
 		F3F95A892BDB8289007C7A7E /* WishMovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishMovieData.swift; sourceTree = "<group>"; };
+		F3F95A8B2BDB85F1007C7A7E /* WishMovieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishMovieManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				F3F95A612BD8DA88007C7A7E /* ReservationData.swift */,
 				F3F95A652BD8DE63007C7A7E /* ReservationManager.swift */,
 				F3F95A892BDB8289007C7A7E /* WishMovieData.swift */,
+				F3F95A8B2BDB85F1007C7A7E /* WishMovieManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				4DD8A7EC2BD601F10027438E /* MovieSecrchViewController.swift in Sources */,
 				4DD8A7E42BD6018E0027438E /* LoginViewController.swift in Sources */,
 				F3F95A8A2BDB8289007C7A7E /* WishMovieData.swift in Sources */,
+				F3F95A8C2BDB85F1007C7A7E /* WishMovieManager.swift in Sources */,
 				1B10F77D2BDB373F007443F5 /* SearchedMovieCell.swift in Sources */,
 				F3F95A5C2BD7C96A007C7A7E /* ReservationCell.swift in Sources */,
 				4DD8A7C02BD600610027438E /* SceneDelegate.swift in Sources */,

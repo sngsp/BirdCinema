@@ -35,7 +35,7 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QTc-tS-HiA">
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QTc-tS-HiA" userLabel="Button Stack View">
                         <rect key="frame" x="270.66666666666669" y="11.333333333333334" width="43.333333333333314" height="20.333333333333329"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="♥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWC-hy-bQ3">
@@ -64,6 +64,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateLabel" destination="QOv-gA-a1F" id="bHN-1s-876"/>
+                <outlet property="titleLabel" destination="bwr-7M-aeK" id="6GJ-Rv-yte"/>
+            </connections>
             <point key="canvasLocation" x="-10.687022900763358" y="-2.1126760563380285"/>
         </tableViewCell>
     </objects>

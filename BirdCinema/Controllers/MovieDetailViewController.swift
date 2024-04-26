@@ -22,7 +22,6 @@ class MovieDetailViewController: UIViewController {
     var movieData: Result?
     var posterPath: String?
     var isShowingFullSummary = false
-    var wishMovieList: [WishMovieData] = []
     
     // Custom Struct 사용 시 작동
     var selectedMovieDataForStruct: SelectedMovieData? = SelectedMovieData()
@@ -158,12 +157,9 @@ class MovieDetailViewController: UIViewController {
         guard let title = movieNameLabel.text, let date = releaseYear.text else {
             return
         }
-        
         // 구조체에 데이터 저장
         let wishData = WishMovieData(title: title, date: date)
-        wishMovieList.append(wishData)
-        print("찜한 영화 목록: \(wishMovieList)")
-
+        WishMovieManager.shared.addMovieToWishlist(wishData)
     }
     
     
