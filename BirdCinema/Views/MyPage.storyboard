@@ -25,6 +25,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="systemIndigoColor"/>
+                        <color key="backgroundColor" red="0.1215686275" green="0.1137254902" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lfa-F5-leK" secondAttribute="trailing" id="HVU-gI-Hed"/>
                             <constraint firstItem="lfa-F5-leK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Wh2-NN-k29"/>
