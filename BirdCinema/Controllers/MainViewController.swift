@@ -52,6 +52,8 @@ class MainViewController: UIViewController {
             navigationBar.barTintColor = .systemIndigo
             navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         }
+        
+        
     }
     
     func configureUI() {
@@ -95,7 +97,7 @@ class MainViewController: UIViewController {
         upComingCollectionView.alwaysBounceHorizontal = true
     }
     
-
+    
     
     func setupTimer() {
         Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in

@@ -49,8 +49,13 @@ class JoinViewController: UIViewController, UITextFieldDelegate {
         naverStackView.layer.cornerRadius = 20
         naverStackView.clipsToBounds = true
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 
     @IBAction func joinButtonTapped(_ sender: UIButton) {
         guard let email = joinAddressTextField.text,

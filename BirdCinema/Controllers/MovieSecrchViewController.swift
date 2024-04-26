@@ -53,6 +53,13 @@ class MovieSecrchViewController: UIViewController {
         searchBar.delegate = self
         searchBar.layer.cornerRadius = 20
         searchBar.clipsToBounds = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func createCollectionViewFlowLayout(for collectionView: UICollectionView) -> UICollectionViewFlowLayout {

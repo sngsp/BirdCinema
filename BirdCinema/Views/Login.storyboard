@@ -184,6 +184,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="autoLoginButton" destination="9T2-mI-AqH" id="KzN-Bw-aRA"/>
                         <outlet property="loginButton" destination="NWj-6V-yWK" id="MFk-58-qsx"/>
                         <outlet property="loginIdTextField" destination="flQ-aT-7Yi" id="8NG-lI-SpV"/>
                         <outlet property="loginLogoImage" destination="zhD-xX-xLl" id="Gzv-xO-clA"/>

@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginIdTextField: UITextField!
     @IBOutlet weak var loginPasswordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var autoLoginButton: UIButton!
     
     @IBOutlet weak var logoImage1: UIImageView!
     @IBOutlet weak var logoImage2: UIImageView!
@@ -20,26 +21,36 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var logoImage4: UIImageView!
     @IBOutlet weak var logoImage5: UIImageView!
     
-    var isLoginDataSaved: Bool = false
+    var isAutoLoginEnabled: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setuplogin()
-    
+        saveLoginInfo()
         loginIdTextField.delegate = self
         loginPasswordTextField.delegate = self
+        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if isLoginDataSaved, let appDelegate = UIApplication.shared.delegate as? AppDelegate, let userInfo = appDelegate.loggedInUserInfo, let email = userInfo.keys.first, let password = userInfo.values.first {
-            loginIdTextField.text = email
-            loginPasswordTextField.text = password
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+           let loggedInUserInfo = appDelegate.loggedInUserInfo,
+           let email = loggedInUserInfo.keys.first,
+           let password = loggedInUserInfo.values.first,
+           let isAutoLoginEnabled = UserDefaults.standard.object(forKey: "isAutoLoginEnabled") as? Bool {
+            
+            if isAutoLoginEnabled {
+                loginIdTextField.text = email
+                loginPasswordTextField.text = password
+                autoLoginButton.isSelected = true
+            } else {
+                // 자동 로그인이 비활성화되어 있으면 아무 동작도 하지 않음
+            }
         }
     }
-    
     
     func setuplogin() {
         loginIdTextField.placeholder = "이메일 주소를 입력하세요."
@@ -68,10 +79,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         logoImage5.layer.cornerRadius = logoImage2.bounds.width / 2
         logoImage5.clipsToBounds = true
         
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
+    func saveLoginInfo() {
+        if isAutoLoginEnabled, let savedUserInfo = UserDefaults.standard.dictionary(forKey: "userInfo"),
+           let email = savedUserInfo.keys.first,
+           let password = savedUserInfo.values.first as? String {
+            loginIdTextField.text = email
+            loginPasswordTextField.text = password
+        }
+    }
     
     
     @IBAction func loginToggleButton(_ sender: UIButton) {
@@ -93,6 +116,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             appDelegate.loggedInUserInfo = [email:password]
             print("\([appDelegate.loggedInUserInfo])로그인 성공")
+            
             
             // 메인 뷰 컨트롤러로 이동
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -123,14 +147,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveLoginDataTapped(_ sender: UIButton) {
         sender.isSelected.toggle()
-        UserDefaults.standard.set(sender.isSelected, forKey: "isLoginDataSaved")
+        print(sender.isSelected)
+        UserDefaults.standard.set(sender.isSelected, forKey: "isAutoLoginEnabled")
         
         if sender.isSelected {
-            
+            saveLoginInfo()
         }
-        
-        
-        
     }
     
     @IBAction func joinToggleButton(_ sender: UIButton) {
