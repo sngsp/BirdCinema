@@ -84,8 +84,9 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRk-Qm-LqK">
-                                                                    <rect key="frame" x="30" y="305" width="120" height="40"/>
+                                                                    <rect key="frame" x="30" y="305" width="120" height="35"/>
                                                                     <constraints>
+                                                                        <constraint firstAttribute="height" constant="35" id="03a-zQ-gHc"/>
                                                                         <constraint firstAttribute="width" constant="120" id="PX1-IQ-y86"/>
                                                                     </constraints>
                                                                     <color key="tintColor" systemColor="systemIndigoColor"/>
@@ -105,7 +106,6 @@
                                                                 <constraint firstItem="pqX-Aq-l1e" firstAttribute="top" secondItem="Lqd-UL-avP" secondAttribute="top" id="ZWr-DP-5Mm"/>
                                                                 <constraint firstAttribute="trailing" secondItem="pqX-Aq-l1e" secondAttribute="trailing" id="aBi-Rg-V19"/>
                                                                 <constraint firstItem="RAa-aM-gZx" firstAttribute="leading" secondItem="Lqd-UL-avP" secondAttribute="leading" constant="10" id="j5R-YC-lII"/>
-                                                                <constraint firstAttribute="bottom" secondItem="jRk-Qm-LqK" secondAttribute="bottom" constant="5" id="jIO-sU-9bh"/>
                                                                 <constraint firstAttribute="trailing" secondItem="RAa-aM-gZx" secondAttribute="trailing" constant="10" id="led-mt-Ghy"/>
                                                                 <constraint firstItem="jRk-Qm-LqK" firstAttribute="centerX" secondItem="Lqd-UL-avP" secondAttribute="centerX" id="qtK-Pa-TeF"/>
                                                                 <constraint firstItem="vk8-Ed-8Gv" firstAttribute="top" secondItem="RAa-aM-gZx" secondAttribute="bottom" id="xCK-Ql-dHm"/>
@@ -175,9 +175,10 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DmA-Xv-Xdy">
-                                                                    <rect key="frame" x="30" y="295" width="120" height="50"/>
+                                                                    <rect key="frame" x="30" y="295" width="120" height="35"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="120" id="nby-aE-UUs"/>
+                                                                        <constraint firstAttribute="height" constant="35" id="qhU-LZ-fME"/>
                                                                     </constraints>
                                                                     <color key="tintColor" systemColor="systemIndigoColor"/>
                                                                     <state key="normal" title="Button"/>
@@ -197,7 +198,6 @@
                                                                 <constraint firstAttribute="trailing" secondItem="c6u-FT-a8u" secondAttribute="trailing" id="Zgg-fd-UMv"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Xio-tC-JWg" secondAttribute="trailing" constant="10" id="cCp-Ia-WOJ"/>
                                                                 <constraint firstItem="DmA-Xv-Xdy" firstAttribute="top" secondItem="2lE-6n-HBs" secondAttribute="bottom" constant="5" id="dbA-jQ-CEY"/>
-                                                                <constraint firstAttribute="bottom" secondItem="DmA-Xv-Xdy" secondAttribute="bottom" constant="5" id="fJF-TH-cfv"/>
                                                                 <constraint firstItem="2lE-6n-HBs" firstAttribute="leading" secondItem="g97-lh-2as" secondAttribute="leading" constant="10" id="j2n-KD-Vlt"/>
                                                                 <constraint firstItem="c6u-FT-a8u" firstAttribute="top" secondItem="g97-lh-2as" secondAttribute="top" id="m0f-QO-MEZ"/>
                                                             </constraints>
@@ -265,8 +265,9 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgu-Ip-cTv">
-                                                                    <rect key="frame" x="30" y="305" width="120" height="40"/>
+                                                                    <rect key="frame" x="30" y="305" width="120" height="35"/>
                                                                     <constraints>
+                                                                        <constraint firstAttribute="height" constant="35" id="bHz-4Z-UzA"/>
                                                                         <constraint firstAttribute="width" constant="120" id="gnN-39-BWO"/>
                                                                     </constraints>
                                                                     <color key="tintColor" systemColor="systemIndigoColor"/>
@@ -289,7 +290,6 @@
                                                                 <constraint firstAttribute="trailing" secondItem="nRW-61-uqY" secondAttribute="trailing" constant="10" id="Zdt-tJ-v4X"/>
                                                                 <constraint firstAttribute="trailing" secondItem="qwV-xc-2Hc" secondAttribute="trailing" id="kJs-0g-Goh"/>
                                                                 <constraint firstItem="nRW-61-uqY" firstAttribute="leading" secondItem="C2Q-Hu-dr8" secondAttribute="leading" constant="10" id="ksA-l0-mIx"/>
-                                                                <constraint firstAttribute="bottom" secondItem="zgu-Ip-cTv" secondAttribute="bottom" constant="5" id="psa-4W-dHa"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="180" height="350"/>
