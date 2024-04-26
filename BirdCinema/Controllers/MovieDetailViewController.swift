@@ -49,6 +49,8 @@ class MovieDetailViewController: UIViewController {
         detailSummaryTextLabel.backgroundColor = UIColor(red: 31/255, green: 29/255, blue: 43/255, alpha: 1.0)
         showMoreButton.tintColor = .systemIndigo
         showMoreButton.setTitle("> 더보기", for: .normal)
+        moviePosterImageView.layer.cornerRadius = 10
+        blurredImageView.layer.cornerRadius = 10
         
 //        moviePosterImageView.layer.cornerRadius = 20
 //        moviePosterImageView.clipsToBounds = true
@@ -107,7 +109,7 @@ class MovieDetailViewController: UIViewController {
         } else {
             // 줄거리를 축약해서 보여주는 상태에서 버튼을 누르면 전체 내용을 보여줌
             UIView.animate(withDuration: 0.3, animations: {
-                self.detailSummaryTextLabel.numberOfLines = 10
+                self.detailSummaryTextLabel.numberOfLines = 0
                 self.view.layoutIfNeeded()
             }) { _ in
                 // 애니메이션이 완료된 후에 버튼 타이틀 변경
