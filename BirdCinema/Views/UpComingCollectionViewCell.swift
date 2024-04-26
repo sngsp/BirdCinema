@@ -14,7 +14,11 @@ class UpComingCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var upComingSubLabel: UILabel!
     @IBOutlet weak var upComingButton: UIButton!
     
+    var cellConfiguration: ((UpComingCollectionViewCell) -> Void)?
     
+    @IBAction func collectionButtonTapped(_ sender: UIButton) {
+        cellConfiguration?(self)
+    }
     
     
 }
