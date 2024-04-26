@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // 1. 오타는 없는지
             // 2. 스토리보드 내의 entry point가 있는지 (뷰컨 앞에 있는 화살표)
             // 3. 2번이 안되어있으면 속성에서 "is Initial View Controller" 체크하기.
-            self.move(to: "Main")
+            self.move(to: "Login")
         }
     }
     
