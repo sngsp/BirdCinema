@@ -28,6 +28,7 @@ class MyPageViewController: UIViewController {
     
     func updateData() {
         tableView.reloadData()
+        tableView.separatorColor = UIColor.gray
     }
     
     func updateUserInfo() {
@@ -98,7 +99,6 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             
             let wish = WishMovieManager.shared.wishlist[indexPath.row]
             cell.configureCell(wish)
-            
             // 셀 버튼 삭제
             cell.deleteHandler = {
                 let alert = UIAlertController(title: "Notice", message: "영화를 삭제하시겠습니까?", preferredStyle: .alert)
@@ -116,7 +116,6 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
                 alert.addAction(deleteAction)
                 self.present(alert, animated: true)
             }
-
             return cell
         }
     }
