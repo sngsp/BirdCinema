@@ -20,10 +20,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var logoImage4: UIImageView!
     @IBOutlet weak var logoImage5: UIImageView!
     
+    var isLoginDataSaved: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setuplogin()
-        
+    
         loginIdTextField.delegate = self
         loginPasswordTextField.delegate = self
         
@@ -53,9 +55,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         logoImage4.clipsToBounds = true
         logoImage5.layer.cornerRadius = logoImage2.bounds.width / 2
         logoImage5.clipsToBounds = true
+        
+        
     }
-
-
+    
+    
+    
+    
     @IBAction func loginToggleButton(_ sender: UIButton) {
         guard let email = loginIdTextField.text,
               let password = loginPasswordTextField.text else {
@@ -100,6 +106,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func saveLoginDataTapped(_ sender: UIButton) {
+        if sender.isSelected {
+            sender.isSelected = false
+            print(sender.isSelected)
+        } else {
+            sender.isSelected = true
+            print(sender.isSelected)
+        }
     }
     
     @IBAction func joinToggleButton(_ sender: UIButton) {

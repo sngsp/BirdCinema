@@ -41,20 +41,18 @@ class MovieSecrchViewController: UIViewController {
         netWorkingManager.fetchCombinedMovies { [weak self] result in
             switch result {
             case .success(let data):
-                // Process the combined data
+                
                 let decoder = JSONDecoder()
                 do {
-                    // Decode popular movies
+                    
                     let popularMovies = try decoder.decode(Welcome.self, from: data.popular)
-                    // Decode top rated movies
+                    
                     let topRatedMovies = try decoder.decode(Welcome.self, from: data.topRated)
-                    // Decode upcoming movies
+                    
                     let upcomingMovies = try decoder.decode(Welcome.self, from: data.upcoming)
                     
-                    // Combine the results into one array
                     let allMovies = (popularMovies.results + topRatedMovies.results + upcomingMovies.results)
                     
-                    // Assign searchResults with all movies
                     self?.searchResults = allMovies
                 } catch {
                     print("Error decoding movie data: \(error)")

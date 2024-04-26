@@ -52,6 +52,8 @@ class MovieDetailViewController: UIViewController {
         moviePosterImageView.layer.cornerRadius = 10
         blurredImageView.layer.cornerRadius = 10
         
+//        moviePosterImageView.layer.cornerRadius = 20
+//        moviePosterImageView.clipsToBounds = true
     }
     
 //     Custom Struct 사용 시 작동
