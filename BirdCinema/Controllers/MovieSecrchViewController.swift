@@ -32,7 +32,6 @@ class MovieSecrchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -145,8 +144,6 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
         }
         
         let movie = searchResults[indexPath.item]
-//            cell.movieTitle.text = movie.title
-        
         
         fetchImage(for: movie.posterPath) { image in
             DispatchQueue.main.async {
@@ -158,12 +155,11 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
-    // MARK: selected(컬렉션 뷰의 필터된 영화 포스터 클릭시, 영화 상세페이지로 이동)
+    // MARK: - selected(컬렉션 뷰의 필터된 영화 포스터 클릭시, 영화 상세페이지로 이동)
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath.item)번 Cell 클릭")
     }
 }
-
 
 extension MovieSecrchViewController: UISearchBarDelegate {
     

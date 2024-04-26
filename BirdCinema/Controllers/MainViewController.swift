@@ -30,10 +30,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var technologyImage1: UIImageView!
     @IBOutlet weak var technologyImage2: UIImageView!
     @IBOutlet weak var technologyImage3: UIImageView!
-    
     @IBOutlet weak var bottomLogoImage: UIImageView!
-    
-    
     
     private var currentIndex = 0
     private let images = ["HomeImage", "HomeImage2", "HomeImage4"]
@@ -47,14 +44,9 @@ class MainViewController: UIViewController {
         fetchUpcomingData()
         configureUI()
         setupTimer()
-        
-        if let navigationBar = navigationController?.navigationBar {
-            navigationBar.barTintColor = .systemIndigo
-            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        }
-        
-        
     }
+    
+    
     
     func configureUI() {
         collectionViewHeaderLabel.text = "박스오피스"
@@ -68,16 +60,19 @@ class MainViewController: UIViewController {
         
         technologyImage1.layer.cornerRadius = 20
         technologyImage1.layer.masksToBounds = true
-
+        
         technologyImage2.layer.cornerRadius = 20
         technologyImage2.layer.masksToBounds = true
-
+        
         technologyImage3.layer.cornerRadius = 20
         technologyImage3.layer.masksToBounds = true
         
         bottomLogoImage.image = UIImage(named: "BirdCinemaLogo2")
         
-        
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.barTintColor = .systemIndigo
+            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        }
     }
     
     func setupCollectionView() {
@@ -97,8 +92,7 @@ class MainViewController: UIViewController {
         upComingCollectionView.alwaysBounceHorizontal = true
     }
     
-    
-    
+    // MARK: - 영화 목록 내 상단 이미지 자동 넘어가기 타이머 메소드
     func setupTimer() {
         Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
             self.currentIndex = (self.currentIndex + 1) % self.images.count
@@ -108,6 +102,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    // MARK: - 네트워크 데이터 중 이미지 데이터를 변환하는 메소드
     func fetchImage(for posterPath: String, completion: @escaping (UIImage?) -> Void) {
         let posterURL = URL(string: "https://image.tmdb.org/t/p/w185/\(posterPath)")!
         
@@ -126,7 +121,7 @@ class MainViewController: UIViewController {
         }.resume()
     }
     
-    
+    // MARK: - 네트워킹 된 데이터 가져와 저장 (박스오피스)
     func fetchData() {
         netWorkingManager.fetchPopularMovies { [weak self] result in
             switch result {
@@ -146,6 +141,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    // MARK: - 네트워킹 된 데이터 가져와 저장 (가장 많이 본 영화)
     func fetchSecondaryData() {
         netWorkingManager.fetchTopRatedMovies { [weak self] result in
             switch result {
@@ -165,6 +161,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    // MARK: - 네트워킹 된 데이터 가져와 저장 (개봉 예정 영화)
     func fetchUpcomingData() {
         netWorkingManager.fetchUpComingMovies { [weak self] result in
             switch result {
@@ -184,7 +181,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    
+    // MARK: - 컬렉션 뷰 FlowLayout
     func createCollectionViewFlowLayout(for collectionView: UICollectionView) -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         collectionView.collectionViewLayout = layout
@@ -194,19 +191,12 @@ class MainViewController: UIViewController {
         layout.itemSize = CGSize(width: 160, height: 350)
         return layout
     }
-    
-    
-    @IBAction func mainPageController(_ sender: UIPageControl) {
-        
-    }
-    
-    @IBAction func movieRevervationButtonTapped(_ sender: UIButton) {
-    }
 }
 
-
+    // MARK: - 컬렉션 뷰 데이터소스
 extension MainViewController: UICollectionViewDataSource {
     
+    // 각각 컬렉션 뷰 셀 갯수 데이터 분배
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == mainCollectionView {
             return movieData?.results.count ?? 0
@@ -218,8 +208,9 @@ extension MainViewController: UICollectionViewDataSource {
         return 0
     }
     
-    
+    // MARK: - 컬렉션 뷰 셀
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // 첫번째 컬렉션 뷰 셀 구현
         if collectionView == mainCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? MainCollectionViewCell else { fatalError("Failed to dequeue MainCollectionViewCell") }
             
@@ -227,6 +218,7 @@ extension MainViewController: UICollectionViewDataSource {
                 let movie = movieData.results[indexPath.item]
                 cell.collectionMainLabel.text = movie.title
                 
+                // 관객 수 직관적으로 표시하기 위해 설정
                 let voteCount = movie.voteCount * 1000
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .decimal
@@ -240,7 +232,7 @@ extension MainViewController: UICollectionViewDataSource {
             cell.collectionButton.layer.borderColor = UIColor.systemIndigo.cgColor
             cell.collectionButton.layer.cornerRadius = 15
             
-            
+            // 셀 내 이미지 데이터 변환
             if let movie = movieData?.results[indexPath.item] {
                 fetchImage(for: movie.posterPath) { image in
                     DispatchQueue.main.async {
@@ -264,8 +256,9 @@ extension MainViewController: UICollectionViewDataSource {
                     navigationController.pushViewController(movieReservationViewController, animated: true)
                 }
             }
-            
             return cell
+            
+            // 두번째 컬렉션 뷰 셀 구현
         } else if collectionView == subCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpRateViewCell", for: indexPath) as? UpRateCollectionViewCell else {
                 fatalError("Failed to dequeue UpRateViewCell")
@@ -315,6 +308,7 @@ extension MainViewController: UICollectionViewDataSource {
             
             return cell
             
+            // 세번째 컬렉션 뷰 셀 구현
         } else if collectionView == upComingCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpComingCell", for: indexPath) as? UpComingCollectionViewCell else {
                 fatalError("Failed to dequeue UpComingCell")
