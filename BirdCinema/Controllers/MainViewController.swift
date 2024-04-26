@@ -284,6 +284,22 @@ extension MainViewController: UICollectionViewDataSource {
                     }
                 }
             }
+            
+            // 셀에 클로저 전달
+            cell.cellConfiguration = { cell in
+                // 버튼이 클릭되었을 때 실행될 코드 작성
+                print("예매하기 버튼 클릭")
+                
+                let storyboard = UIStoryboard(name: "MovieReservation", bundle: nil)
+                guard let movieReservationViewController = storyboard.instantiateViewController(withIdentifier: "MovieReservationViewController") as? MovieReservationViewController else { return }
+                
+                movieReservationViewController.movieTitle = cell.upRateCollectionMainLabel.text
+                
+                if let navigationController = self.navigationController {
+                    navigationController.pushViewController(movieReservationViewController, animated: true)
+                }
+            }
+            
             return cell
             
         } else if collectionView == upComingCollectionView {
