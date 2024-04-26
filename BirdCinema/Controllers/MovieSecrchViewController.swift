@@ -19,16 +19,16 @@ class MovieSecrchViewController: UIViewController {
             case posterPath = "poster_path"
             case releaseDate = "release_date"
             case overview = "overview"
-
         }
     }
+    
     struct Welcome: Codable {
         let results: [Movie]
     }
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
 
-    
     var totalMovie: Welcome?
     let netWorkingManager = NetworkingManager.shared
     var selectedMovieDataForStruct: SelectedMovieData?
@@ -38,7 +38,7 @@ class MovieSecrchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        searchBar.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,19 +55,22 @@ class MovieSecrchViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.alwaysBounceVertical = true
+        
+        searchBar.delegate = self
+        searchBar.layer.cornerRadius = 20
+        searchBar.clipsToBounds = true
     }
-    
     
     func createCollectionViewFlowLayout(for collectionView: UICollectionView) -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         collectionView.collectionViewLayout = layout
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 0
-        layout.itemSize = CGSize(width: 180, height: 250)
+        layout.itemSize = CGSize(width: 170, height: 250)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         return layout
     }
-    
     
     func fetchMovieData() {
         netWorkingManager.fetchCombinedMovies { [weak self] result in
@@ -130,8 +133,6 @@ class MovieSecrchViewController: UIViewController {
 }
 
 
-
-
 extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchResults.count
@@ -149,6 +150,8 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
         fetchImage(for: movie.posterPath) { image in
             DispatchQueue.main.async {
                 cell.moviePoster.image = image
+                cell.moviePoster.layer.cornerRadius = 20
+                cell.moviePoster.clipsToBounds = true
             }
         }
         return cell
