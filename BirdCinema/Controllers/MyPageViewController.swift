@@ -98,6 +98,25 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             
             let wish = WishMovieManager.shared.wishlist[indexPath.row]
             cell.configureCell(wish)
+            
+            // 셀 버튼 삭제
+            cell.deleteHandler = {
+                let alert = UIAlertController(title: "Notice", message: "영화를 삭제하시겠습니까?", preferredStyle: .alert)
+                
+                let deleteAction = UIAlertAction(title: "삭제하기", style: .default) { _ in
+                    guard let indexPathToDelete = tableView.indexPath(for: cell) else { return }
+                    
+                    WishMovieManager.shared.removeMovieFromWishlist(at: indexPathToDelete.row)
+                    tableView.reloadData()
+                }
+                
+                let cancelAction = UIAlertAction(title: "취소", style: .default)
+                
+                alert.addAction(cancelAction)
+                alert.addAction(deleteAction)
+                self.present(alert, animated: true)
+            }
+
             return cell
         }
     }
