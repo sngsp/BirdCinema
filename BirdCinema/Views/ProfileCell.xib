@@ -29,16 +29,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gck-ql-Jf2">
-                                <rect key="frame" x="85.999999999999986" y="18.666666666666668" width="205.66666666666663" height="48.666666666666657"/>
+                                <rect key="frame" x="86" y="18.666666666666668" width="63.333333333333343" height="48.666666666666657"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiffany" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGY-zv-IIU">
-                                        <rect key="frame" x="0.0" y="0.0" width="205.66666666666666" height="20.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiffanyjearsey@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BZ-yB-tYu">
-                                        <rect key="frame" x="0.0" y="28.333333333333336" width="205.66666666666666" height="20.333333333333336"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="찜한 영화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BZ-yB-tYu">
+                                        <rect key="frame" x="0.0" y="28.333333333333336" width="63.333333333333336" height="20.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -67,8 +67,7 @@
             <color key="backgroundColor" red="0.1215686275" green="0.1137254902" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="profileView" destination="GoE-qf-N2Q" id="Hck-3f-aCe"/>
-                <outlet property="userEmailLabel" destination="6BZ-yB-tYu" id="dSR-9T-7lQ"/>
-                <outlet property="userIdLabel" destination="tGY-zv-IIU" id="uUg-dZ-iwT"/>
+                <outlet property="userEmailLabel" destination="tGY-zv-IIU" id="0hv-v6-SSi"/>
             </connections>
             <point key="canvasLocation" x="132.06106870229007" y="16.197183098591552"/>
         </tableViewCell>
