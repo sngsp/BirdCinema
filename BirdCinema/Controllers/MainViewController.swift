@@ -238,8 +238,7 @@ extension MainViewController: UICollectionViewDataSource {
             
             // 셀에 클로저 전달
             cell.cellConfiguration = { cell in
-                // 버튼이 클릭되었을 때 실행될 코드 작성
-                print("예매하기 버튼 클릭")
+                print("Main 예매하기 버튼 클릭")
                 
                 let storyboard = UIStoryboard(name: "MovieReservation", bundle: nil)
                 guard let movieReservationViewController = storyboard.instantiateViewController(withIdentifier: "MovieReservationViewController") as? MovieReservationViewController else { return }
@@ -287,8 +286,7 @@ extension MainViewController: UICollectionViewDataSource {
             
             // 셀에 클로저 전달
             cell.cellConfiguration = { cell in
-                // 버튼이 클릭되었을 때 실행될 코드 작성
-                print("예매하기 버튼 클릭")
+                print("UpRate 예매하기 버튼 클릭")
                 
                 let storyboard = UIStoryboard(name: "MovieReservation", bundle: nil)
                 guard let movieReservationViewController = storyboard.instantiateViewController(withIdentifier: "MovieReservationViewController") as? MovieReservationViewController else { return }
@@ -334,6 +332,20 @@ extension MainViewController: UICollectionViewDataSource {
                     }
                 }
             }
+            
+            // 셀에 클로저 전달
+            cell.cellConfiguration = { cell in
+                print("Main 예매하기 버튼 클릭")
+                
+                let storyboard = UIStoryboard(name: "MovieReservation", bundle: nil)
+                guard let movieReservationViewController = storyboard.instantiateViewController(withIdentifier: "MovieReservationViewController") as? MovieReservationViewController else { return }
+                
+                movieReservationViewController.movieTitle = cell.upComingMainLabel.text
+                
+                if let navigationController = self.navigationController {
+                    navigationController.pushViewController(movieReservationViewController, animated: true)
+                }
+            }
             return cell
         }
         return UICollectionViewCell()
@@ -367,21 +379,13 @@ extension MainViewController: UICollectionViewDelegate {
                 selectedMovieData.movieDetailSummary = movie.overview
             }
         }
-        
-        // 선택된 영화 데이터를 selectedMovieDataForStruct에 할당
+    
         selectedMovieDataForStruct = selectedMovieData
         
-        // 이제 선택된 영화 데이터 확인
-        print("Selected Movie Poster: \(selectedMovieData.moviePoster)")
-        print("Selected Movie Title: \(selectedMovieData.movieTitle)")
-        print("Selected Movie Release Date: \(selectedMovieData.movieReleaseDate)")
-        print("Selected Movie Detail Summary: \(selectedMovieData.movieDetailSummary)")
-        
-        // 선택된 영화 데이터를 다른 곳에서 사용하거나 전달할 수 있습니다.
+        // 화면 전환 및 영화 데이터 전달
         let storyboard = UIStoryboard(name: "MovieDetail", bundle: nil)
         guard let movieDetailViewController = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController else { return }
-        
-        // MovieDetailViewController에 선택된 영화 데이터를 전달
+    
         movieDetailViewController.selectedMovieDataForStruct = selectedMovieDataForStruct
         
         if let navigationController = self.navigationController {

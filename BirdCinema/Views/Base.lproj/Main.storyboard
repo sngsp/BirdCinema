@@ -272,6 +272,9 @@
                                                                     <color key="tintColor" systemColor="systemIndigoColor"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" title="예매하기"/>
+                                                                    <connections>
+                                                                        <action selector="collectionButtonTapped:" destination="99V-ab-Som" eventType="touchUpInside" id="red-zh-Glg"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
