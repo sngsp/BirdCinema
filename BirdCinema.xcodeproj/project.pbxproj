@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B10F77D2BDB373F007443F5 /* SearchedMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B10F77B2BDB373F007443F5 /* SearchedMovieCell.swift */; };
+		1B10F77E2BDB373F007443F5 /* SearchedMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B10F77C2BDB373F007443F5 /* SearchedMovieCell.xib */; };
 		4D017C082BDA67D000020731 /* SearchMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D017C072BDA67D000020731 /* SearchMovieCollectionViewCell.swift */; };
 		4DD8A7BE2BD600610027438E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7BD2BD600610027438E /* AppDelegate.swift */; };
 		4DD8A7C02BD600610027438E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8A7BF2BD600610027438E /* SceneDelegate.swift */; };
@@ -49,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B10F77B2BDB373F007443F5 /* SearchedMovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedMovieCell.swift; sourceTree = "<group>"; };
+		1B10F77C2BDB373F007443F5 /* SearchedMovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchedMovieCell.xib; sourceTree = "<group>"; };
 		4D017C072BDA67D000020731 /* SearchMovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DD8A7BA2BD600610027438E /* BirdCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirdCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD8A7BD2BD600610027438E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 				4DD8A7DD2BD601010027438E /* MovieReservation.storyboard */,
 				4DD8A7DF2BD601230027438E /* MovieSecrch.storyboard */,
 				4D017C072BDA67D000020731 /* SearchMovieCollectionViewCell.swift */,
+				1B10F77B2BDB373F007443F5 /* SearchedMovieCell.swift */,
+				1B10F77C2BDB373F007443F5 /* SearchedMovieCell.xib */,
 				4DD8A7E12BD601330027438E /* MyPage.storyboard */,
 				F3F011852BD65C6000578A9B /* TimeCell.xib */,
 				F3F95A572BD79062007C7A7E /* HeaderView.xib */,
@@ -277,6 +283,7 @@
 				F3F95A5D2BD7C96A007C7A7E /* ReservationCell.xib in Resources */,
 				F3F95A6E2BD90F01007C7A7E /* ProfileCell.xib in Resources */,
 				4DD8A7CD2BD600630027438E /* Base in Resources */,
+				1B10F77E2BDB373F007443F5 /* SearchedMovieCell.xib in Resources */,
 				4DD8A7E02BD601230027438E /* MovieSecrch.storyboard in Resources */,
 				4DD8A7C52BD600610027438E /* Base in Resources */,
 				4DD8A7DE2BD601010027438E /* MovieReservation.storyboard in Resources */,
@@ -314,6 +321,7 @@
 				52479F7D2BD75DBE00BD36FF /* SelectedMovieData.swift in Sources */,
 				4DD8A7EC2BD601F10027438E /* MovieSecrchViewController.swift in Sources */,
 				4DD8A7E42BD6018E0027438E /* LoginViewController.swift in Sources */,
+				1B10F77D2BDB373F007443F5 /* SearchedMovieCell.swift in Sources */,
 				F3F95A5C2BD7C96A007C7A7E /* ReservationCell.swift in Sources */,
 				4DD8A7C02BD600610027438E /* SceneDelegate.swift in Sources */,
 				F3F95A582BD79062007C7A7E /* HeaderView.swift in Sources */,
