@@ -31,10 +31,9 @@ class MovieSecrchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
-        
-
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        searchBar.delegate = self
         
 
         let reservationNib = UINib(nibName: "SearchedMovieCell", bundle: nil)
@@ -52,25 +51,44 @@ class MovieSecrchViewController: UIViewController {
     
     
     func fetchMovieData() {
-        netWorkingManager.fetchUpComingMovies { [weak self] result in
-          switch result {
-          case .success(let data):
-            do {
-              let decoder = JSONDecoder()
-              let welcome = try decoder.decode(Welcome.self, from: data)
-              self?.searchResults = welcome.results // 결과를 searchResults에 저장
-              DispatchQueue.main.async {
-                self?.collectionView.reloadData()
-              }
-            } catch {
-              print("\(error)")
+        netWorkingManager.fetchCombinedMovies { [weak self] result in
+            switch result {
+            case .success(let combinedData):
+                let popularData = combinedData.popular
+                let topRatedData = combinedData.topRated
+                let upcomingData = combinedData.upcoming
+                
+                do {
+                    let decoder = JSONDecoder()
+                    
+                    let popularWelcome = try decoder.decode(Welcome.self, from: popularData)
+                    let topRatedWelcome = try decoder.decode(Welcome.self, from: topRatedData)
+                    let upcomingWelcome = try decoder.decode(Welcome.self, from: upcomingData)
+                    
+                    var allMovies: [Movie] = []
+                    allMovies.append(contentsOf: popularWelcome.results)
+                    allMovies.append(contentsOf: topRatedWelcome.results)
+                    allMovies.append(contentsOf: upcomingWelcome.results)
+                    
+                    let combinedWelcome = Welcome(results: allMovies)
+                    
+                    self?.totalMovie = combinedWelcome
+                    self?.searchResults = allMovies
+                    
+                    DispatchQueue.main.async {
+                        self?.collectionView.reloadData()
+                    }
+                } catch {
+                    print("Error decoding movies: \(error)")
+                }
+                
+            case .failure(let error):
+                print("Error fetching combined movies: \(error)")
             }
-          case .failure(let error):
-            print("\(error)")
-          }
         }
-      }
-
+    }
+    
+    
     func fetchImage(for posterPath: String, completion: @escaping (UIImage?) -> Void) {
         let posterURL = URL(string: "https://image.tmdb.org/t/p/w185/\(posterPath)")!
         
@@ -89,12 +107,6 @@ class MovieSecrchViewController: UIViewController {
         }.resume()
     }
 
-
-
-
-
-
-    
     
 }
 
@@ -128,36 +140,63 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
         print("\(indexPath.item)번 Cell 클릭")
     }
     
-    // MARK: cellSize
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        _ = collectionView.bounds.width
-        let _: CGFloat = 2
-        let _: CGFloat = 1
-        
-        return CGSize(width: 160, height: 221)
-    }
-    
-    //MARK: margin in section
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    }
-    
-    // MARK: minimumSpacing
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
+//    // MARK: cellSize
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let collectionViewWidth = collectionView.bounds.width
+//        
+//        // 셀의 너비를 설정합니다. 여기서는 컬렉션 뷰의 너비를 반으로 나누어 두 줄에 한 줄씩 표시합니다.
+//        let cellWidth = (collectionViewWidth - 30) / 2 // 여기서 30은 셀 간의 간격과 섹션의 inset 값을 고려합니다.
+//        
+//        // 셀의 높이를 설정합니다. 여기서는 너비와 동일한 정사각형 모양으로 만듭니다.
+//        let cellHeight = cellWidth
+//        
+//        return CGSize(width: cellWidth, height: cellHeight)
+//    }
+//    
+//    //MARK: margin in section
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+//    }
+//    
+//    // MARK: minimumSpacing
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return 0
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 10
+//    }
 
 }
 
 
-
-
-
-
-
+extension MovieSecrchViewController: UISearchBarDelegate {
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchResults = totalMovie?.results ?? []
+        collectionView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if totalMovie == nil {
+        } else {
+            print("totalMovie is not nil")
+        }
+        
+        if let totalMovie = totalMovie {
+            if searchText.isEmpty {
+                searchResults = totalMovie.results
+            } else {
+                searchResults = totalMovie.results.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+            }
+            collectionView.reloadData()
+        }
+    }
+}
 
 
