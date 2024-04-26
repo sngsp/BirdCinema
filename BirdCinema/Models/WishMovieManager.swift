@@ -16,4 +16,8 @@ class WishMovieManager {
     func addMovieToWishlist(_ movieData: WishMovieData) {
         wishlist.append(movieData)
     }
+    func removeMovieFromWishlist(at index: Int) {
+        guard index >= 0 && index < wishlist.count else { return }
+        wishlist.remove(at: index)
+    }
 }

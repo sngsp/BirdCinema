@@ -21,13 +21,13 @@ class WishCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    func configureCell(_ movie: WishMovieData) {
+        titleLabel.text = movie.title
+        dateLabel.text = movie.date
+    }
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
         deleteHandler?()
     }
     
-    func configureCell(_ movie: WishMovieData) {
-        titleLabel.text = movie.title
-        dateLabel.text = movie.date
-    }
 }
