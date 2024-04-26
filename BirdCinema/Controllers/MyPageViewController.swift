@@ -85,6 +85,18 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as? ProfileCell else { return UITableViewCell() }
             
             cell.userEmailLabel.text = "\(userEmail ?? "")님"
+            
+            // 로그아웃 버튼 누를 경우 로그인 페이지 이동
+            cell.logOutButtonAction = { [weak self] in
+                print("로그아웃 버튼이 눌렸습니다.")
+                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController else { return }
+                
+                loginVC.modalPresentationStyle = .fullScreen
+                self?.present(loginVC, animated: true, completion: nil)
+            }
+            
+            
             return cell
             
         } else if indexPath.section == 1 {

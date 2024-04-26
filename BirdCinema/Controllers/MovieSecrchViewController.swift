@@ -38,7 +38,6 @@ class MovieSecrchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +58,13 @@ class MovieSecrchViewController: UIViewController {
         searchBar.delegate = self
         searchBar.layer.cornerRadius = 20
         searchBar.clipsToBounds = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func createCollectionViewFlowLayout(for collectionView: UICollectionView) -> UICollectionViewFlowLayout {
@@ -144,8 +150,6 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
         }
         
         let movie = searchResults[indexPath.item]
-//            cell.movieTitle.text = movie.title
-        
         
         fetchImage(for: movie.posterPath) { image in
             DispatchQueue.main.async {
@@ -157,6 +161,10 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
+
+    // MARK: - selected(컬렉션 뷰의 필터된 영화 포스터 클릭시, 영화 상세페이지로 이동)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+ 
     // MARK: selected(컬렉션 뷰의 영화 포스터 클릭시, 영화 상세페이지로 이동)
     internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -186,7 +194,6 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
         
 
     }
-
 
 
 extension MovieSecrchViewController: UISearchBarDelegate {

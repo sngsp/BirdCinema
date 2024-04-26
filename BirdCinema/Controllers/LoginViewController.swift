@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginIdTextField: UITextField!
     @IBOutlet weak var loginPasswordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var autoLoginButton: UIButton!
     
     @IBOutlet weak var logoImage1: UIImageView!
     @IBOutlet weak var logoImage2: UIImageView!
@@ -20,27 +21,37 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var logoImage4: UIImageView!
     @IBOutlet weak var logoImage5: UIImageView!
     
-    var isLoginDataSaved: Bool = false
+    var isAutoLoginEnabled: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setuplogin()
-    
+        saveLoginInfo()
         loginIdTextField.delegate = self
         loginPasswordTextField.delegate = self
-        
     }
     
+    // MARK: - 다시 로그인 화면 왔을때 자동로그인 여부 판단 후 값 설정
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if isLoginDataSaved, let appDelegate = UIApplication.shared.delegate as? AppDelegate, let userInfo = appDelegate.loggedInUserInfo, let email = userInfo.keys.first, let password = userInfo.values.first {
-            loginIdTextField.text = email
-            loginPasswordTextField.text = password
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+           let loggedInUserInfo = appDelegate.loggedInUserInfo,
+           let email = loggedInUserInfo.keys.first,
+           let password = loggedInUserInfo.values.first,
+           let isAutoLoginEnabled = UserDefaults.standard.object(forKey: "isAutoLoginEnabled") as? Bool {
+            
+            if isAutoLoginEnabled {
+                loginIdTextField.text = email
+                loginPasswordTextField.text = password
+                autoLoginButton.isSelected = true
+            } else {
+                // 자동 로그인이 비활성화되어 있으면 아무 동작도 하지 않음
+            }
         }
     }
     
-    
+    // MARK: - login 셋업
     func setuplogin() {
         loginIdTextField.placeholder = "이메일 주소를 입력하세요."
         loginPasswordTextField.placeholder = "비밀번호를 입력하세요."
@@ -50,7 +61,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.clipsToBounds = true
         
         loginLogoImage.image = UIImage(named: "BirdCinemaLogo")
-        
         logoImage1.image = UIImage(named: "kakaoLogo")
         logoImage2.image = UIImage(named: "naverLogo")
         logoImage3.image = UIImage(named: "instaLogo")
@@ -68,31 +78,43 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         logoImage5.layer.cornerRadius = logoImage2.bounds.width / 2
         logoImage5.clipsToBounds = true
         
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
+    // MARK: - 빈곳 탭 키보드 내려감
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
+    // MARK: - 로그인 성공 시 로그인 정보 저장
+    func saveLoginInfo() {
+        if isAutoLoginEnabled, let savedUserInfo = UserDefaults.standard.dictionary(forKey: "userInfo"),
+           let email = savedUserInfo.keys.first,
+           let password = savedUserInfo.values.first as? String {
+            loginIdTextField.text = email
+            loginPasswordTextField.text = password
+        }
+    }
     
-    
+    // MARK: - 로그인 버튼 클릭 시 각 상황에 따른 이용자 알럿 로직
     @IBAction func loginToggleButton(_ sender: UIButton) {
+        
         guard let email = loginIdTextField.text,
               let password = loginPasswordTextField.text else {
-            
             showAlert(message: "이메일 또는 패스워드가\n일치하지 않습니다.")
-            print("정보가 없거나 틀렸습니다.")
             return
         }
         
         guard let savedUserInfo = UserDefaults.standard.dictionary(forKey: "userInfo") else {
             showAlert(message: "저장된 회원정보가 없습니다.")
-            print("회원 가입 정보가 없습니다.")
             return
         }
         
+        // 로그인 성공 시 데이터 저장
         if let savadPasswod = savedUserInfo[email] as? String, password == savadPasswod {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             appDelegate.loggedInUserInfo = [email:password]
-            print("\([appDelegate.loggedInUserInfo])로그인 성공")
             
             // 메인 뷰 컨트롤러로 이동
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -109,10 +131,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             present(viewController, animated: false, completion: nil)
         } else {
             showAlert(message: "이메일 또는 패스워드가\n일치하지 않습니다.")
-            print("이메일 또는 비밀번호가 올바르지 않습니다.")
         }
     }
     
+    // MARK: - 로그인 유저 알럿 구현 메소드
     func showAlert(message: String) {
         let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
@@ -120,21 +142,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    
+    // MARK: - 자동 로그인 여부 설정 구현 로직
     @IBAction func saveLoginDataTapped(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        print(sender.isSelected)
+        UserDefaults.standard.set(sender.isSelected, forKey: "isAutoLoginEnabled")
+        
         if sender.isSelected {
-            sender.isSelected = false
-            print(sender.isSelected)
-        } else {
-            sender.isSelected = true
-            print(sender.isSelected)
-            
-            loginIdTextField.text = ""
-            loginPasswordTextField.text = ""
+            saveLoginInfo()
         }
-        isLoginDataSaved = sender.isSelected
     }
     
+    // MARK: - 회원가입 페이지 이동
     @IBAction func joinToggleButton(_ sender: UIButton) {
         if let secondVC = storyboard?.instantiateViewController(withIdentifier: "secondVC") as? JoinViewController {
             secondVC.modalPresentationStyle = .formSheet
