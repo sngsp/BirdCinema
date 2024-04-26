@@ -11,9 +11,14 @@ class MovieSecrchViewController: UIViewController {
     struct Movie:Codable {
         let title: String
         let posterPath: String
+        let releaseDate: String
+        let overview: String
+        
         enum CodingKeys: String, CodingKey {
             case title = "title"
             case posterPath = "poster_path"
+            case releaseDate = "release_date"
+            case overview = "overview"
         }
     }
     
@@ -26,6 +31,7 @@ class MovieSecrchViewController: UIViewController {
 
     var totalMovie: Welcome?
     let netWorkingManager = NetworkingManager.shared
+    var selectedMovieDataForStruct: SelectedMovieData?
     
     var searchResults: [Movie] = []
     
@@ -41,8 +47,8 @@ class MovieSecrchViewController: UIViewController {
     }
     
     func setupCollectionView() {
-        let reservationNib = UINib(nibName: "SearchedMovieCell", bundle: nil)
-        collectionView.register(reservationNib, forCellWithReuseIdentifier: "SearchedMovieCell")
+        let searchedNib = UINib(nibName: "SearchedMovieCell", bundle: nil)
+        collectionView.register(searchedNib, forCellWithReuseIdentifier: "SearchedMovieCell")
         self.fetchMovieData()
         
         collectionView.collectionViewLayout = createCollectionViewFlowLayout(for: collectionView)
@@ -151,11 +157,36 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
-    // MARK: selected(컬렉션 뷰의 필터된 영화 포스터 클릭시, 영화 상세페이지로 이동)
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("\(indexPath.item)번 Cell 클릭")
+    // MARK: selected(컬렉션 뷰의 영화 포스터 클릭시, 영화 상세페이지로 이동)
+    internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        var selectedMovieData = SelectedMovieData()
+        
+             let movie = searchResults[indexPath.item]
+                selectedMovieData.moviePoster = movie.posterPath
+                selectedMovieData.movieTitle = movie.title
+                selectedMovieData.movieReleaseDate = movie.releaseDate
+                selectedMovieData.movieDetailSummary = movie.overview
+            
+        
+        selectedMovieDataForStruct = selectedMovieData
+        
+       
+        
+        // 화면 전환 및 영화 데이터 전달
+        let storyboard = UIStoryboard(name: "MovieDetail", bundle: nil)
+        guard let movieDetailViewController = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController else { return }
+    
+        movieDetailViewController.selectedMovieDataForStruct = selectedMovieDataForStruct
+        
+        if let navigationController = self.navigationController {
+            navigationController.pushViewController(movieDetailViewController, animated: true)
+        }
     }
-}
+        
+
+    }
+
 
 
 extension MovieSecrchViewController: UISearchBarDelegate {
@@ -185,6 +216,33 @@ extension MovieSecrchViewController: UISearchBarDelegate {
             collectionView.reloadData()
         }
     }
+    
+//    // MARK: selected(컬렉션 뷰의 필터링 된 영화 포스터 클릭시, 영화 상세페이지로 이동)
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        var selectedMovieData = SelectedMovieData()
+//        
+//        if collectionView == collectionView {
+//            if let movie = totalMovie?.results[indexPath.item] {
+//                selectedMovieData.moviePoster = movie.posterPath
+//                selectedMovieData.movieTitle = movie.title
+////                selectedMovieData.movieReleaseDate = movie.releaseDate
+////                selectedMovieData.movieDetailSummary = movie.overview
+//            }
+//        }
+//        
+//        selectedMovieDataForStruct = selectedMovieData
+//        
+//        // 화면 전환 및 영화 데이터 전달
+//        let storyboard = UIStoryboard(name: "MovieDetail", bundle: nil)
+//        guard let movieDetailViewController = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController else { return }
+//    
+//        movieDetailViewController.selectedMovieDataForStruct = selectedMovieDataForStruct
+//        
+//        if let navigationController = self.navigationController {
+//            navigationController.pushViewController(movieDetailViewController, animated: true)
+//        }
+//    }
+//    
 }
 
 
