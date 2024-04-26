@@ -159,7 +159,26 @@ class MovieDetailViewController: UIViewController {
         }
         // 구조체에 데이터 저장
         let wishData = WishMovieData(title: title, date: date)
-        WishMovieManager.shared.addMovieToWishlist(wishData)
+        if WishMovieManager.shared.wishlist.contains(where: { $0.title == title && $0.date == date }) {
+            showAlert(title: "Notice", message: "이 영화는 이미 저장되어 있습니다.")
+        } else {
+            showConfirmationAlert(title: "Notice", message: "이 영화를 찜하시겠습니까?", wishData: wishData)
+        }
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showConfirmationAlert(title: String, message: String, wishData: WishMovieData) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "찜하기", style: .default, handler: { _ in
+            WishMovieManager.shared.addMovieToWishlist(wishData)
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
     
