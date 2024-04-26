@@ -36,7 +36,7 @@
                         </subviews>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QTc-tS-HiA" userLabel="Button Stack View">
-                        <rect key="frame" x="270.66666666666669" y="11.333333333333334" width="43.333333333333314" height="20.333333333333329"/>
+                        <rect key="frame" x="274.66666666666669" y="11.333333333333334" width="43.333333333333314" height="20.333333333333329"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="♥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWC-hy-bQ3">
                                 <rect key="frame" x="0.0" y="0.0" width="16" height="20.333333333333332"/>
@@ -63,7 +63,7 @@
                     <constraint firstItem="QTc-tS-HiA" firstAttribute="centerY" secondItem="bwr-7M-aeK" secondAttribute="centerY" id="AmY-ni-14Z"/>
                     <constraint firstItem="9n0-iY-Yn6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Gup-Vk-XzG"/>
                     <constraint firstItem="9n0-iY-Yn6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JnD-jv-ZO2"/>
-                    <constraint firstAttribute="trailing" secondItem="QTc-tS-HiA" secondAttribute="trailing" constant="20" id="fz5-49-Qb8"/>
+                    <constraint firstAttribute="trailing" secondItem="QTc-tS-HiA" secondAttribute="trailing" constant="16" id="fz5-49-Qb8"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

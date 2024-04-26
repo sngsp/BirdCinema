@@ -101,17 +101,12 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             
             // 셀 버튼 삭제
             cell.deleteHandler = {
-                // 얼럿창 생성
                 let alert = UIAlertController(title: "Notice", message: "영화를 삭제하시겠습니까?", preferredStyle: .alert)
                 
-                // 얼럿 액션 추가: 삭제
                 let deleteAction = UIAlertAction(title: "삭제하기", style: .default) { _ in
                     guard let indexPathToDelete = tableView.indexPath(for: cell) else { return }
                     
-                    // 위시리스트에서 영화 삭제
                     WishMovieManager.shared.removeMovieFromWishlist(at: indexPathToDelete.row)
-                    
-                    // 테이블 뷰 새로고침
                     tableView.reloadData()
                 }
                 
@@ -122,7 +117,6 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
                 self.present(alert, animated: true)
             }
 
-            
             return cell
         }
     }

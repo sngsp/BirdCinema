@@ -18,10 +18,12 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var detailSummaryTextLabel: UILabel!
     @IBOutlet weak var moviePosterImageView: UIImageView!
     @IBOutlet weak var blurredImageView: UIImageView!
+    var heartButton = UIButton(type: .system)
     
     var movieData: Result?
     var posterPath: String?
     var isShowingFullSummary = false
+    var isMovieInWishlist = false
     
     // Custom Struct 사용 시 작동
     var selectedMovieDataForStruct: SelectedMovieData? = SelectedMovieData()
@@ -31,7 +33,18 @@ class MovieDetailViewController: UIViewController {
         configureUI()
         
         // Custom Struct 사용 시 작동
-         updateUIForStruct()
+        updateUIForStruct()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+
+        // 기존 버튼이 존재하는지 확인하고, 존재하지 않는다면 추가
+        if reservationButton.subviews.first(where: { $0 == heartButton }) == nil {
+            reservationButton.addSubview(heartButton)
+        }
+        
     }
     
     // MARK: - UI 구성
@@ -53,19 +66,14 @@ class MovieDetailViewController: UIViewController {
         moviePosterImageView.layer.cornerRadius = 10
         blurredImageView.layer.cornerRadius = 10
         
-        configureCustomButton()
-        
 //        moviePosterImageView.layer.cornerRadius = 20
 //        moviePosterImageView.clipsToBounds = true
     }
     
 //     Custom Struct 사용 시 작동
     func updateUIForStruct() {
-        print(1)
         guard let movieData = selectedMovieDataForStruct else { return }
-        print(2)
         DispatchQueue.main.async {
-            print(3)
             let randomScreenTime = Int.random(in: 150...180)
             self.screenTime.text = "\(randomScreenTime)분"
             self.movieNameLabel.text = movieData.movieTitle
@@ -76,6 +84,14 @@ class MovieDetailViewController: UIViewController {
                 self.detailSummaryTextLabel.text = movieData.movieDetailSummary
             }
             self.posterPath = movieData.moviePoster
+            
+            guard let title = self.movieNameLabel.text, let date = self.releaseYear.text else {
+                return
+            }
+            
+            self.isMovieInWishlist = WishMovieManager.shared.wishlist.contains { $0.title == title && $0.date == date }
+            self.configureCustomButton()
+            print(self.isMovieInWishlist)
             
             if let posterPath = self.posterPath {
                 let posterURL = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")!
@@ -138,19 +154,22 @@ class MovieDetailViewController: UIViewController {
     
     // MARK: - 찜하기 버튼
     func configureCustomButton() {
-        let heartButton = UIButton(type: .system)
-        heartButton.setTitle("♡", for: .normal)
-        heartButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        heartButton.tintColor = .white
-
-        heartButton.frame = CGRect(x: 20, y: (reservationButton.frame.height - 20) / 2, width: 20, height: 20)
-
-        reservationButton.addSubview(heartButton)
-        // 액션 메서드 추가
-        heartButton.addTarget(self, action: #selector(heartButtonTapped(_:)), for: .touchUpInside)
+        if isMovieInWishlist {
+            // 이미 찜한 영화
+            heartButton.setTitle("♥", for: .normal)
+            heartButton.tintColor = .red
+        } else {
+            heartButton.setTitle("♡", for: .normal)
+            heartButton.tintColor = .white
+        }
         
-        reservationButton.addSubview(heartButton)
+        heartButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        
+        heartButton.frame = CGRect(x: 20, y: (reservationButton.frame.height - 20) / 2, width: 20, height: 20)
+        
+        heartButton.addTarget(self, action: #selector(heartButtonTapped(_:)), for: .touchUpInside)
     }
+
     
     @objc func heartButtonTapped(_ sender: UIButton) {
         print("찜 버튼 클릭")
@@ -163,6 +182,8 @@ class MovieDetailViewController: UIViewController {
             showAlert(title: "Notice", message: "이 영화는 이미 저장되어 있습니다.")
         } else {
             showConfirmationAlert(title: "Notice", message: "이 영화를 찜하시겠습니까?", wishData: wishData)
+            sender.setTitle("♥", for: .normal)
+            sender.tintColor = .red
         }
     }
     
