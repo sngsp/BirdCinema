@@ -156,12 +156,8 @@
 				4DD8A7E52BD601BE0027438E /* MovieListViewController.swift */,
 				4DD8A7E72BD601CF0027438E /* MovieDetailViewController.swift */,
 				4DD8A7E92BD601E00027438E /* MovieReservationViewController.swift */,
-				4DD8A7EB2BD601F10027438E /* MovieSecrchViewController.swift */,
 				4DD8A7ED2BD602000027438E /* MyPageViewController.swift */,
-				F3F011842BD65C6000578A9B /* TimeCell.swift */,
-				F3F95A562BD79062007C7A7E /* HeaderView.swift */,
-				F3F95A5A2BD7C96A007C7A7E /* ReservationCell.swift */,
-				F3F95A6B2BD90F01007C7A7E /* ProfileCell.swift */,
+				4DD8A7EB2BD601F10027438E /* MovieSecrchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,18 +166,14 @@
 			isa = PBXGroup;
 			children = (
 				4DD8A7C32BD600610027438E /* Main.storyboard */,
-				4DD8A7F92BD6A2BC0027438E /* MainCollectionViewCell.swift */,
-				4DD8A7FB2BD7A8B40027438E /* UpRateCollectionViewCell.swift */,
-				4DD8A8202BD8C9020027438E /* UpComingCollectionViewCell.swift */,
 				4DD8A7D72BD600BB0027438E /* Login.storyboard */,
 				4DD8A7D92BD600CD0027438E /* MovieList.storyboard */,
 				4DD8A7DB2BD600DF0027438E /* MovieDetail.storyboard */,
 				4DD8A7DD2BD601010027438E /* MovieReservation.storyboard */,
 				4D017C092BDB62C500020731 /* MovieSearch.storyboard */,
-				1B10F77B2BDB373F007443F5 /* SearchedMovieCell.swift */,
-				1B10F77C2BDB373F007443F5 /* SearchedMovieCell.xib */,
 				4DD8A7E12BD601330027438E /* MyPage.storyboard */,
-				F3F95A7D2BDB68C5007C7A7E /* Cell */,
+				F3F95A8F2BDB90C4007C7A7E /* CollectionReusableView */,
+				F3F95A7D2BDB68C5007C7A7E /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,17 +208,49 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		F3F95A7D2BDB68C5007C7A7E /* Cell */ = {
+		F3F95A7D2BDB68C5007C7A7E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F3F95A8D2BDB9058007C7A7E /* CollectionViewCells */,
+				F3F95A8E2BDB9076007C7A7E /* TableViewCells */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F3F95A8D2BDB9058007C7A7E /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				4DD8A7F92BD6A2BC0027438E /* MainCollectionViewCell.swift */,
+				4DD8A7FB2BD7A8B40027438E /* UpRateCollectionViewCell.swift */,
+				4DD8A8202BD8C9020027438E /* UpComingCollectionViewCell.swift */,
+				1B10F77C2BDB373F007443F5 /* SearchedMovieCell.xib */,
+				1B10F77B2BDB373F007443F5 /* SearchedMovieCell.swift */,
 				F3F011852BD65C6000578A9B /* TimeCell.xib */,
-				F3F95A572BD79062007C7A7E /* HeaderView.xib */,
+				F3F011842BD65C6000578A9B /* TimeCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		F3F95A8E2BDB9076007C7A7E /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
 				F3F95A5B2BD7C96A007C7A7E /* ReservationCell.xib */,
+				F3F95A5A2BD7C96A007C7A7E /* ReservationCell.swift */,
 				F3F95A6C2BD90F01007C7A7E /* ProfileCell.xib */,
+				F3F95A6B2BD90F01007C7A7E /* ProfileCell.swift */,
 				F3F95A852BDB6D1D007C7A7E /* WishCell.xib */,
 				F3F95A842BDB6D1D007C7A7E /* WishCell.swift */,
 			);
-			path = Cell;
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		F3F95A8F2BDB90C4007C7A7E /* CollectionReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				F3F95A572BD79062007C7A7E /* HeaderView.xib */,
+				F3F95A562BD79062007C7A7E /* HeaderView.swift */,
+			);
+			path = CollectionReusableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
