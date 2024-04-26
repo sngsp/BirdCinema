@@ -31,6 +31,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if isLoginDataSaved, let appDelegate = UIApplication.shared.delegate as? AppDelegate, let userInfo = appDelegate.loggedInUserInfo, let email = userInfo.keys.first, let password = userInfo.values.first {
+            loginIdTextField.text = email
+            loginPasswordTextField.text = password
+        }
+    }
+    
+    
     func setuplogin() {
         loginIdTextField.placeholder = "이메일 주소를 입력하세요."
         loginPasswordTextField.placeholder = "비밀번호를 입력하세요."
@@ -38,6 +48,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         loginButton.layer.cornerRadius = 20
         loginButton.clipsToBounds = true
+        
+        loginLogoImage.image = UIImage(named: "BirdCinemaLogo")
         
         logoImage1.image = UIImage(named: "kakaoLogo")
         logoImage2.image = UIImage(named: "naverLogo")
@@ -116,7 +128,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else {
             sender.isSelected = true
             print(sender.isSelected)
+            
+            loginIdTextField.text = ""
+            loginPasswordTextField.text = ""
         }
+        isLoginDataSaved = sender.isSelected
     }
     
     @IBAction func joinToggleButton(_ sender: UIButton) {
