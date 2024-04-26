@@ -170,10 +170,7 @@
 				4DD8A7DF2BD601230027438E /* MovieSecrch.storyboard */,
 				4D017C072BDA67D000020731 /* SearchMovieCollectionViewCell.swift */,
 				4DD8A7E12BD601330027438E /* MyPage.storyboard */,
-				F3F011852BD65C6000578A9B /* TimeCell.xib */,
-				F3F95A572BD79062007C7A7E /* HeaderView.xib */,
-				F3F95A5B2BD7C96A007C7A7E /* ReservationCell.xib */,
-				F3F95A6C2BD90F01007C7A7E /* ProfileCell.xib */,
+				F3F95A7D2BDB68C5007C7A7E /* Cell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,6 +201,17 @@
 				F3F95A6F2BDA3406007C7A7E /* UIImage+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		F3F95A7D2BDB68C5007C7A7E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F3F011852BD65C6000578A9B /* TimeCell.xib */,
+				F3F95A572BD79062007C7A7E /* HeaderView.xib */,
+				F3F95A5B2BD7C96A007C7A7E /* ReservationCell.xib */,
+				F3F95A6C2BD90F01007C7A7E /* ProfileCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
