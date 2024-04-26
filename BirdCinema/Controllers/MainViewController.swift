@@ -16,7 +16,9 @@ class MainViewController: UIViewController {
     var imageData: Result?
     var selectedMovieDataForStruct: SelectedMovieData?
     
-    @IBOutlet weak var mainSearchBar: UISearchBar!
+    // 셀을 생성할 때 사용할 클로저 정의
+    var cellConfiguration: ((MainCollectionViewCell) -> Void)?
+    
     @IBOutlet weak var mainPageImage: UIImageView!
     @IBOutlet weak var collectionViewHeaderLabel: UILabel!
     @IBOutlet weak var mainCollectionView: UICollectionView!
@@ -172,9 +174,9 @@ class MainViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         collectionView.collectionViewLayout = layout
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 10
+        layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 20
-        layout.itemSize = CGSize(width: 200, height: 350)
+        layout.itemSize = CGSize(width: 160, height: 350)
         return layout
     }
     
@@ -228,7 +230,24 @@ extension MainViewController: UICollectionViewDataSource {
                 fetchImage(for: movie.posterPath) { image in
                     DispatchQueue.main.async {
                         cell.collectionMainImage.image = image
+                        cell.collectionMainImage.layer.cornerRadius = 20
+                        cell.collectionMainImage.clipsToBounds = true
                     }
+                }
+            }
+            
+            // 셀에 클로저 전달
+            cell.cellConfiguration = { cell in
+                // 버튼이 클릭되었을 때 실행될 코드 작성
+                print("예매하기 버튼 클릭")
+                
+                let storyboard = UIStoryboard(name: "MovieReservation", bundle: nil)
+                guard let movieReservationViewController = storyboard.instantiateViewController(withIdentifier: "MovieReservationViewController") as? MovieReservationViewController else { return }
+                
+                movieReservationViewController.movieTitle = cell.collectionMainLabel.text
+                
+                if let navigationController = self.navigationController {
+                    navigationController.pushViewController(movieReservationViewController, animated: true)
                 }
             }
             
@@ -260,9 +279,27 @@ extension MainViewController: UICollectionViewDataSource {
                 fetchImage(for: movie.posterPath) { image in
                     DispatchQueue.main.async {
                         cell.upRateCollectionImage.image = image
+                        cell.upRateCollectionImage.layer.cornerRadius = 20
+                        cell.upRateCollectionImage.clipsToBounds = true
                     }
                 }
             }
+            
+            // 셀에 클로저 전달
+            cell.cellConfiguration = { cell in
+                // 버튼이 클릭되었을 때 실행될 코드 작성
+                print("예매하기 버튼 클릭")
+                
+                let storyboard = UIStoryboard(name: "MovieReservation", bundle: nil)
+                guard let movieReservationViewController = storyboard.instantiateViewController(withIdentifier: "MovieReservationViewController") as? MovieReservationViewController else { return }
+                
+                movieReservationViewController.movieTitle = cell.upRateCollectionMainLabel.text
+                
+                if let navigationController = self.navigationController {
+                    navigationController.pushViewController(movieReservationViewController, animated: true)
+                }
+            }
+            
             return cell
             
         } else if collectionView == upComingCollectionView {
@@ -292,6 +329,8 @@ extension MainViewController: UICollectionViewDataSource {
                 fetchImage(for: movie.posterPath) { image in
                     DispatchQueue.main.async {
                         cell.upComingImage.image = image
+                        cell.upComingImage.layer.cornerRadius = 20
+                        cell.upComingImage.clipsToBounds = true
                     }
                 }
             }
@@ -301,6 +340,7 @@ extension MainViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         var selectedMovieData = SelectedMovieData()

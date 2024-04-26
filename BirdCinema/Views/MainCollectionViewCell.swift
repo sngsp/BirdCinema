@@ -14,10 +14,11 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var collectionButton: UIButton!
     @IBOutlet weak var collectionMainImage: UIImageView!
     
-    
-    
+    var cellConfiguration: ((MainCollectionViewCell) -> Void)?
+
     
     @IBAction func collectionButtonTapped(_ sender: UIButton) {
+        // 클로저 호출
+        cellConfiguration?(self)
     }
-    
 }
