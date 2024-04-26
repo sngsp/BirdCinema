@@ -7,7 +7,7 @@
 
 import UIKit
 class MovieSecrchViewController: UIViewController {
-
+    
     struct Movie:Codable {
         let title: String
         let posterPath: String
@@ -28,7 +28,7 @@ class MovieSecrchViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
-
+    
     var totalMovie: Welcome?
     let netWorkingManager = NetworkingManager.shared
     var selectedMovieDataForStruct: SelectedMovieData?
@@ -38,6 +38,7 @@ class MovieSecrchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,13 +59,6 @@ class MovieSecrchViewController: UIViewController {
         searchBar.delegate = self
         searchBar.layer.cornerRadius = 20
         searchBar.clipsToBounds = true
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
     
     func createCollectionViewFlowLayout(for collectionView: UICollectionView) -> UICollectionViewFlowLayout {
@@ -150,6 +144,8 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
         }
         
         let movie = searchResults[indexPath.item]
+//            cell.movieTitle.text = movie.title
+        
         
         fetchImage(for: movie.posterPath) { image in
             DispatchQueue.main.async {
@@ -161,10 +157,6 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
-
-    // MARK: - selected(컬렉션 뷰의 필터된 영화 포스터 클릭시, 영화 상세페이지로 이동)
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
- 
     // MARK: selected(컬렉션 뷰의 영화 포스터 클릭시, 영화 상세페이지로 이동)
     internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -194,6 +186,7 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
         
 
     }
+
 
 
 extension MovieSecrchViewController: UISearchBarDelegate {
@@ -227,7 +220,7 @@ extension MovieSecrchViewController: UISearchBarDelegate {
 //    // MARK: selected(컬렉션 뷰의 필터링 된 영화 포스터 클릭시, 영화 상세페이지로 이동)
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        var selectedMovieData = SelectedMovieData()
-//        
+//
 //        if collectionView == collectionView {
 //            if let movie = totalMovie?.results[indexPath.item] {
 //                selectedMovieData.moviePoster = movie.posterPath
@@ -236,20 +229,18 @@ extension MovieSecrchViewController: UISearchBarDelegate {
 ////                selectedMovieData.movieDetailSummary = movie.overview
 //            }
 //        }
-//        
+//
 //        selectedMovieDataForStruct = selectedMovieData
-//        
+//
 //        // 화면 전환 및 영화 데이터 전달
 //        let storyboard = UIStoryboard(name: "MovieDetail", bundle: nil)
 //        guard let movieDetailViewController = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController else { return }
-//    
+//
 //        movieDetailViewController.selectedMovieDataForStruct = selectedMovieDataForStruct
-//        
+//
 //        if let navigationController = self.navigationController {
 //            navigationController.pushViewController(movieDetailViewController, animated: true)
 //        }
 //    }
-//    
+//
 }
-
-
