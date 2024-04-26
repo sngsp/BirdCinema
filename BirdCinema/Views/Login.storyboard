@@ -65,7 +65,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2a3-lf-bMd">
-                                <rect key="frame" x="20" y="335.33333333333331" width="353" height="153.33333333333331"/>
+                                <rect key="frame" x="20" y="325.33333333333331" width="353" height="153.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLW-RI-dPQ">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="21.666666666666668"/>
@@ -129,11 +129,13 @@
                                             <constraint firstAttribute="width" secondItem="jex-ui-Qgc" secondAttribute="height" multiplier="1:1" id="2Wt-gx-mil"/>
                                             <constraint firstAttribute="width" constant="50" id="8bp-EY-gQ8"/>
                                             <constraint firstAttribute="height" constant="50" id="QBV-CF-CWS"/>
+                                            <constraint firstAttribute="width" secondItem="jex-ui-Qgc" secondAttribute="height" multiplier="1:1" id="wZn-2P-U1E"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mIc-Kh-bYv">
                                         <rect key="frame" x="225" y="0.0" width="50" height="50"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" secondItem="mIc-Kh-bYv" secondAttribute="height" multiplier="1:1" id="75Z-Gr-mRa"/>
                                             <constraint firstAttribute="width" secondItem="mIc-Kh-bYv" secondAttribute="height" multiplier="1:1" id="8Ka-NJ-5z2"/>
                                             <constraint firstAttribute="height" constant="50" id="GTH-Ct-Gog"/>
                                             <constraint firstAttribute="width" constant="50" id="g55-Dp-xVo"/>
@@ -145,33 +147,44 @@
                                             <constraint firstAttribute="height" constant="50" id="DSH-zB-325"/>
                                             <constraint firstAttribute="width" secondItem="IPS-8p-n5Q" secondAttribute="height" multiplier="1:1" id="FBX-Kw-biC"/>
                                             <constraint firstAttribute="width" constant="50" id="G4P-pb-fgD"/>
+                                            <constraint firstAttribute="width" secondItem="IPS-8p-n5Q" secondAttribute="height" multiplier="1:1" id="zef-1I-bQs"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="mIc-Kh-bYv" firstAttribute="width" secondItem="mIc-Kh-bYv" secondAttribute="height" multiplier="1:1" id="75Z-Gr-mRa"/>
-                                    <constraint firstItem="jex-ui-Qgc" firstAttribute="width" secondItem="jex-ui-Qgc" secondAttribute="height" multiplier="1:1" id="wZn-2P-U1E"/>
-                                    <constraint firstItem="IPS-8p-n5Q" firstAttribute="width" secondItem="IPS-8p-n5Q" secondAttribute="height" multiplier="1:1" id="zef-1I-bQs"/>
-                                </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9T2-mI-AqH">
+                                <rect key="frame" x="19.999999999999993" y="483.66666666666669" width="102.33333333333331" height="30.000000000000057"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WLp-P5-rEr"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title=" 자동로그인" image="square" catalog="system"/>
+                                <state key="selected" title=" 자동로그인" image="checkmark.square" catalog="system"/>
+                                <connections>
+                                    <action selector="saveLoginDataTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CUw-cd-doj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.1215686351" green="0.11372549830000001" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="7Nb-th-0FB" firstAttribute="top" secondItem="zhD-xX-xLl" secondAttribute="bottom" constant="20" id="0k8-JO-44Y"/>
                             <constraint firstItem="Jk1-g2-8Bm" firstAttribute="top" secondItem="aa8-tv-jct" secondAttribute="bottom" constant="40" id="1n4-4V-nhZ"/>
-                            <constraint firstItem="2a3-lf-bMd" firstAttribute="top" secondItem="Dav-ap-8MB" secondAttribute="bottom" constant="50" id="6x2-DX-DdK"/>
+                            <constraint firstItem="2a3-lf-bMd" firstAttribute="top" secondItem="Dav-ap-8MB" secondAttribute="bottom" constant="40" id="6x2-DX-DdK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NWj-6V-yWK" secondAttribute="trailing" constant="20" id="DRL-gD-Sj8"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7Nb-th-0FB" secondAttribute="trailing" constant="20" id="FCF-5P-nzV"/>
                             <constraint firstItem="zhD-xX-xLl" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Hec-OA-E9c"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aa8-tv-jct" secondAttribute="trailing" constant="50" id="OEy-Ps-NE0"/>
                             <constraint firstItem="aa8-tv-jct" firstAttribute="top" secondItem="NWj-6V-yWK" secondAttribute="bottom" constant="40" id="Q8q-8e-JuU"/>
-                            <constraint firstItem="NWj-6V-yWK" firstAttribute="top" secondItem="2a3-lf-bMd" secondAttribute="bottom" constant="50" id="Urv-bW-C1y"/>
+                            <constraint firstItem="NWj-6V-yWK" firstAttribute="top" secondItem="2a3-lf-bMd" secondAttribute="bottom" constant="60" id="Urv-bW-C1y"/>
                             <constraint firstItem="7Nb-th-0FB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="UvV-yg-rRu"/>
                             <constraint firstItem="Dav-ap-8MB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="V1X-8R-jZ4"/>
+                            <constraint firstItem="9T2-mI-AqH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="XIy-bl-Op3"/>
                             <constraint firstItem="2a3-lf-bMd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="XtJ-jg-y25"/>
                             <constraint firstItem="Dav-ap-8MB" firstAttribute="top" secondItem="7Nb-th-0FB" secondAttribute="bottom" constant="30" id="aC8-3W-Xbe"/>
                             <constraint firstItem="7Nb-th-0FB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="b7T-Mf-Xce"/>
+                            <constraint firstItem="9T2-mI-AqH" firstAttribute="top" secondItem="2a3-lf-bMd" secondAttribute="bottom" constant="5" id="b8r-2f-Ces"/>
                             <constraint firstItem="zhD-xX-xLl" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="deX-N3-fSl"/>
                             <constraint firstItem="NWj-6V-yWK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="dtb-UM-TTj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2a3-lf-bMd" secondAttribute="trailing" constant="20" id="e3X-T7-zXu"/>
@@ -396,6 +409,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

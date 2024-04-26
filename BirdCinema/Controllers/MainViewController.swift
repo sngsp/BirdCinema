@@ -16,7 +16,6 @@ class MainViewController: UIViewController {
     var imageData: Result?
     var selectedMovieDataForStruct: SelectedMovieData?
     
-    @IBOutlet weak var mainSearchBar: UISearchBar!
     @IBOutlet weak var mainPageImage: UIImageView!
     @IBOutlet weak var collectionViewHeaderLabel: UILabel!
     @IBOutlet weak var mainCollectionView: UICollectionView!
@@ -172,9 +171,9 @@ class MainViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         collectionView.collectionViewLayout = layout
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 10
+        layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 20
-        layout.itemSize = CGSize(width: 200, height: 350)
+        layout.itemSize = CGSize(width: 160, height: 350)
         return layout
     }
     
@@ -228,6 +227,8 @@ extension MainViewController: UICollectionViewDataSource {
                 fetchImage(for: movie.posterPath) { image in
                     DispatchQueue.main.async {
                         cell.collectionMainImage.image = image
+                        cell.collectionMainImage.layer.cornerRadius = 20
+                        cell.collectionMainImage.clipsToBounds = true
                     }
                 }
             }
@@ -260,6 +261,8 @@ extension MainViewController: UICollectionViewDataSource {
                 fetchImage(for: movie.posterPath) { image in
                     DispatchQueue.main.async {
                         cell.upRateCollectionImage.image = image
+                        cell.upRateCollectionImage.layer.cornerRadius = 20
+                        cell.upRateCollectionImage.clipsToBounds = true
                     }
                 }
             }
@@ -292,6 +295,8 @@ extension MainViewController: UICollectionViewDataSource {
                 fetchImage(for: movie.posterPath) { image in
                     DispatchQueue.main.async {
                         cell.upComingImage.image = image
+                        cell.upComingImage.layer.cornerRadius = 20
+                        cell.upComingImage.clipsToBounds = true
                     }
                 }
             }

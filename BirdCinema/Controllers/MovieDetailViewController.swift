@@ -50,6 +50,8 @@ class MovieDetailViewController: UIViewController {
         showMoreButton.tintColor = .systemIndigo
         showMoreButton.setTitle("> 더보기", for: .normal)
         
+//        moviePosterImageView.layer.cornerRadius = 20
+//        moviePosterImageView.clipsToBounds = true
     }
     
 //     Custom Struct 사용 시 작동
