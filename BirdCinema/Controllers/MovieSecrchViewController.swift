@@ -6,26 +6,23 @@
 //
 
 import UIKit
-
 class MovieSecrchViewController: UIViewController {
-    
+
     struct Movie:Codable {
         let title: String
         let posterPath: String
-        
         enum CodingKeys: String, CodingKey {
             case title = "title"
             case posterPath = "poster_path"
 
         }
     }
-    
     struct Welcome: Codable {
         let results: [Movie]
     }
-    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
+
     
     var totalMovie: Welcome?
     let netWorkingManager = NetworkingManager.shared
@@ -142,6 +139,7 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
+
 }
 
 
