@@ -16,6 +16,7 @@ class MovieReservationViewController: UIViewController {
     @IBOutlet weak var adultCountLabel: UILabel!
     @IBOutlet weak var youthCountLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var paymentButton: UIButton!
     
     let morningItems = ["9:30", "10:00", "10:30", "11:00", "11:30", "12:00"]
     let afternoonItems = ["13:00", "14:00", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "19:30", "20:00", "20:30", "21:00", "22:00"]
@@ -50,6 +51,8 @@ class MovieReservationViewController: UIViewController {
         // 영화 제목
         titleLabel.text = movieTitle
         
+        paymentButton.layer.cornerRadius = 20
+        paymentButton.clipsToBounds = true
         
     }
     
@@ -187,17 +190,6 @@ class MovieReservationViewController: UIViewController {
         return dateFormatter.string(from: date)
     }
     
-    // 화면 이동
-    @IBAction func tappedHomeButton(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
-        guard let myPageViewController = storyboard.instantiateViewController(withIdentifier: "MyPageViewController") as? MyPageViewController else { return }
-        if let navigationController = self.navigationController {
-            navigationController.pushViewController(myPageViewController, animated: true)
-        }
-    }
-    
-
-
 }
 
 extension MovieReservationViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
