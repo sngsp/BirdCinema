@@ -16,7 +16,6 @@ class MainViewController: UIViewController {
     var imageData: Result?
     var selectedMovieDataForStruct: SelectedMovieData?
     
-    @IBOutlet weak var mainSearchBar: UISearchBar!
     @IBOutlet weak var mainPageImage: UIImageView!
     @IBOutlet weak var collectionViewHeaderLabel: UILabel!
     @IBOutlet weak var mainCollectionView: UICollectionView!
