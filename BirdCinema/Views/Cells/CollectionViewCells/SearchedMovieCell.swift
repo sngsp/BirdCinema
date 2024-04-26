@@ -10,14 +10,11 @@ import UIKit
 class SearchedMovieCell: UICollectionViewCell {
 
     @IBOutlet weak var moviePoster: UIImageView!
-    
-    
     @IBOutlet weak var movieTitle: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
 }
