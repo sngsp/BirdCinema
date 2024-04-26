@@ -31,14 +31,8 @@ class MovieSecrchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        setupCollectionView()
         searchBar.delegate = self
-        
-
-        let reservationNib = UINib(nibName: "SearchedMovieCell", bundle: nil)
-        collectionView.register(reservationNib, forCellWithReuseIdentifier: "SearchedMovieCell")
-        self.fetchMovieData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,8 +40,27 @@ class MovieSecrchViewController: UIViewController {
         collectionView.reloadData()
     }
     
+    func setupCollectionView() {
+        let reservationNib = UINib(nibName: "SearchedMovieCell", bundle: nil)
+        collectionView.register(reservationNib, forCellWithReuseIdentifier: "SearchedMovieCell")
+        self.fetchMovieData()
+        
+        collectionView.collectionViewLayout = createCollectionViewFlowLayout(for: collectionView)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.alwaysBounceVertical = true
+    }
     
     
+    func createCollectionViewFlowLayout(for collectionView: UICollectionView) -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        collectionView.collectionViewLayout = layout
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.itemSize = CGSize(width: 180, height: 250)
+        return layout
+    }
     
     
     func fetchMovieData() {
@@ -124,7 +137,7 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
         }
         
         let movie = searchResults[indexPath.item]
-            cell.movieTitle.text = movie.title
+//            cell.movieTitle.text = movie.title
         
         
         fetchImage(for: movie.posterPath) { image in
@@ -139,34 +152,6 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath.item)번 Cell 클릭")
     }
-    
-//    // MARK: cellSize
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let collectionViewWidth = collectionView.bounds.width
-//        
-//        // 셀의 너비를 설정합니다. 여기서는 컬렉션 뷰의 너비를 반으로 나누어 두 줄에 한 줄씩 표시합니다.
-//        let cellWidth = (collectionViewWidth - 30) / 2 // 여기서 30은 셀 간의 간격과 섹션의 inset 값을 고려합니다.
-//        
-//        // 셀의 높이를 설정합니다. 여기서는 너비와 동일한 정사각형 모양으로 만듭니다.
-//        let cellHeight = cellWidth
-//        
-//        return CGSize(width: cellWidth, height: cellHeight)
-//    }
-//    
-//    //MARK: margin in section
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-//    }
-//    
-//    // MARK: minimumSpacing
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 0
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 10
-//    }
-
 }
 
 
