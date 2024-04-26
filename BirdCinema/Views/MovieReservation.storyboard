@@ -29,7 +29,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.22816337564235006" green="0.22806354128209366" blue="0.55430840542822168" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.1137254902" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="cf9-JH-WlM" firstAttribute="centerY" secondItem="Mc2-1S-stB" secondAttribute="centerY" id="DZS-Kf-lvu"/>
                                     <constraint firstAttribute="trailing" secondItem="cf9-JH-WlM" secondAttribute="trailing" constant="16" id="EMW-85-vTC"/>
@@ -162,9 +162,10 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="kIk-CQ-PmU"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="결제하기"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="결제하기"/>
                                                 <connections>
                                                     <action selector="tappedPayButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Aon-gJ-Oda"/>
                                                 </connections>
