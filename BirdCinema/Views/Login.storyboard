@@ -17,21 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bird Cinama" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Nb-th-0FB">
-                                <rect key="frame" x="20" y="199" width="353" height="36"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="textColor" systemColor="systemIndigoColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인 후 이용해 주세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dav-ap-8MB">
-                                <rect key="frame" x="20" y="265" width="353" height="20.333333333333314"/>
+                                <rect key="frame" x="20" y="259" width="353" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWj-6V-yWK">
-                                <rect key="frame" x="20" y="538.66666666666663" width="353" height="50"/>
+                                <rect key="frame" x="20" y="562.66666666666663" width="353" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="SRN-s4-MU2"/>
@@ -43,7 +36,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aa8-tv-jct">
-                                <rect key="frame" x="50" y="628.66666666666663" width="293" height="33.333333333333371"/>
+                                <rect key="frame" x="50" y="652.66666666666663" width="293" height="33.333333333333371"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="아직 로그인 정보가 없으신가요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJ4-52-IB3">
                                         <rect key="frame" x="0.0" y="0.0" width="213.33333333333334" height="33.333333333333336"/>
@@ -65,7 +58,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2a3-lf-bMd">
-                                <rect key="frame" x="20" y="325.33333333333331" width="353" height="153.33333333333331"/>
+                                <rect key="frame" x="20" y="329.33333333333331" width="353" height="153.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLW-RI-dPQ">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="21.666666666666668"/>
@@ -98,14 +91,14 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zhD-xX-xLl">
-                                <rect key="frame" x="136.66666666666666" y="79" width="119.99999999999997" height="100"/>
+                                <rect key="frame" x="111.66666666666669" y="79" width="170" height="170"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="76W-u5-qxT"/>
-                                    <constraint firstAttribute="height" constant="100" id="nlM-gR-Hu6"/>
+                                    <constraint firstAttribute="width" constant="170" id="76W-u5-qxT"/>
+                                    <constraint firstAttribute="height" constant="170" id="nlM-gR-Hu6"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Jk1-g2-8Bm">
-                                <rect key="frame" x="21.666666666666657" y="702" width="350" height="50"/>
+                                <rect key="frame" x="21.666666666666657" y="726" width="350" height="50"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lKb-WF-JJ0">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -153,7 +146,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9T2-mI-AqH">
-                                <rect key="frame" x="19.999999999999993" y="483.66666666666669" width="102.33333333333331" height="30.000000000000057"/>
+                                <rect key="frame" x="19.999999999999993" y="487.66666666666669" width="102.33333333333331" height="30.000000000000057"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="WLp-P5-rEr"/>
                                 </constraints>
@@ -169,21 +162,17 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.1215686351" green="0.11372549830000001" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="7Nb-th-0FB" firstAttribute="top" secondItem="zhD-xX-xLl" secondAttribute="bottom" constant="20" id="0k8-JO-44Y"/>
                             <constraint firstItem="Jk1-g2-8Bm" firstAttribute="top" secondItem="aa8-tv-jct" secondAttribute="bottom" constant="40" id="1n4-4V-nhZ"/>
-                            <constraint firstItem="2a3-lf-bMd" firstAttribute="top" secondItem="Dav-ap-8MB" secondAttribute="bottom" constant="40" id="6x2-DX-DdK"/>
+                            <constraint firstItem="2a3-lf-bMd" firstAttribute="top" secondItem="Dav-ap-8MB" secondAttribute="bottom" constant="50" id="6x2-DX-DdK"/>
+                            <constraint firstItem="Dav-ap-8MB" firstAttribute="top" secondItem="zhD-xX-xLl" secondAttribute="bottom" constant="10" id="Co7-WO-7Ba"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NWj-6V-yWK" secondAttribute="trailing" constant="20" id="DRL-gD-Sj8"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7Nb-th-0FB" secondAttribute="trailing" constant="20" id="FCF-5P-nzV"/>
                             <constraint firstItem="zhD-xX-xLl" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Hec-OA-E9c"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aa8-tv-jct" secondAttribute="trailing" constant="50" id="OEy-Ps-NE0"/>
                             <constraint firstItem="aa8-tv-jct" firstAttribute="top" secondItem="NWj-6V-yWK" secondAttribute="bottom" constant="40" id="Q8q-8e-JuU"/>
-                            <constraint firstItem="NWj-6V-yWK" firstAttribute="top" secondItem="2a3-lf-bMd" secondAttribute="bottom" constant="60" id="Urv-bW-C1y"/>
-                            <constraint firstItem="7Nb-th-0FB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="UvV-yg-rRu"/>
+                            <constraint firstItem="NWj-6V-yWK" firstAttribute="top" secondItem="2a3-lf-bMd" secondAttribute="bottom" constant="80" id="Urv-bW-C1y"/>
                             <constraint firstItem="Dav-ap-8MB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="V1X-8R-jZ4"/>
                             <constraint firstItem="9T2-mI-AqH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="XIy-bl-Op3"/>
                             <constraint firstItem="2a3-lf-bMd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="XtJ-jg-y25"/>
-                            <constraint firstItem="Dav-ap-8MB" firstAttribute="top" secondItem="7Nb-th-0FB" secondAttribute="bottom" constant="30" id="aC8-3W-Xbe"/>
-                            <constraint firstItem="7Nb-th-0FB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="b7T-Mf-Xce"/>
                             <constraint firstItem="9T2-mI-AqH" firstAttribute="top" secondItem="2a3-lf-bMd" secondAttribute="bottom" constant="5" id="b8r-2f-Ces"/>
                             <constraint firstItem="zhD-xX-xLl" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="deX-N3-fSl"/>
                             <constraint firstItem="NWj-6V-yWK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="dtb-UM-TTj"/>

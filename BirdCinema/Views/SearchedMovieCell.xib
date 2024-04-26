@@ -17,35 +17,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="180" height="314"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bTy-ne-fiM">
-                        <rect key="frame" x="0.0" y="0.0" width="180" height="221"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영화제목" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIG-kc-jhY">
-                        <rect key="frame" x="0.0" y="241" width="180" height="30"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mr4-JP-EXU">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="250"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="180" id="lkf-91-d3t"/>
-                            <constraint firstAttribute="height" constant="30" id="mhX-S6-Sxh"/>
+                            <constraint firstAttribute="height" constant="250" id="xxI-HH-Edf"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="bTy-ne-fiM" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="0nI-dl-CBe"/>
-                <constraint firstItem="bTy-ne-fiM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2RX-YD-JRf"/>
-                <constraint firstItem="lIG-kc-jhY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="4Cp-g7-mhJ"/>
-                <constraint firstItem="lIG-kc-jhY" firstAttribute="top" secondItem="bTy-ne-fiM" secondAttribute="bottom" constant="20" id="4cp-ct-288"/>
-                <constraint firstAttribute="trailing" secondItem="bTy-ne-fiM" secondAttribute="trailing" id="9gO-vw-BDB"/>
-                <constraint firstAttribute="bottom" secondItem="lIG-kc-jhY" secondAttribute="bottom" constant="43" id="EtR-pM-eik"/>
-                <constraint firstAttribute="trailing" secondItem="lIG-kc-jhY" secondAttribute="trailing" id="KZV-el-gLM"/>
+                <constraint firstItem="Mr4-JP-EXU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="9sq-yz-mb8"/>
+                <constraint firstItem="Mr4-JP-EXU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="JDe-ZY-iL5"/>
+                <constraint firstAttribute="trailing" secondItem="Mr4-JP-EXU" secondAttribute="trailing" id="d2E-gs-VLr"/>
             </constraints>
             <size key="customSize" width="330" height="310"/>
             <connections>
-                <outlet property="moviePoster" destination="bTy-ne-fiM" id="pVH-LD-H4Z"/>
-                <outlet property="movieTitle" destination="lIG-kc-jhY" id="XVa-5P-lhO"/>
+                <outlet property="moviePoster" destination="Mr4-JP-EXU" id="G4Q-Gk-5it"/>
             </connections>
             <point key="canvasLocation" x="148" y="-76"/>
         </collectionViewCell>
