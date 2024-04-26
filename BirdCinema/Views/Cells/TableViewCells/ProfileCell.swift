@@ -8,9 +8,12 @@
 import UIKit
 
 class ProfileCell: UITableViewCell {
-
+    
+    var logOutButtonAction: (() -> Void)?
+    
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var userEmailLabel: UILabel!
+    @IBOutlet weak var logOutButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,12 +25,20 @@ class ProfileCell: UITableViewCell {
         configureUI()
     }
     
+    
+    @IBAction func logOutButtonTapped(_ sender: UIButton) {
+        logOutButtonAction?()
+    }
+    
     func configureUI() {
         profileView.layer.cornerRadius = 16
         profileView.clipsToBounds = true
         
         profileView.layer.borderWidth = 1
         profileView.layer.borderColor = UIColor.systemGray.cgColor
+        
+        logOutButton.layer.cornerRadius = 16
+        logOutButton.clipsToBounds = true
     }
     
 }

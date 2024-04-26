@@ -122,17 +122,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func saveLoginDataTapped(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        UserDefaults.standard.set(sender.isSelected, forKey: "isLoginDataSaved")
+        
         if sender.isSelected {
-            sender.isSelected = false
-            print(sender.isSelected)
-        } else {
-            sender.isSelected = true
-            print(sender.isSelected)
             
-            loginIdTextField.text = ""
-            loginPasswordTextField.text = ""
         }
-        isLoginDataSaved = sender.isSelected
+        
+        
+        
     }
     
     @IBAction func joinToggleButton(_ sender: UIButton) {
