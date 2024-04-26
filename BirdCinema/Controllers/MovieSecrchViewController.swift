@@ -34,9 +34,22 @@ class MovieSecrchViewController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
-        self.collectionView.register(UINib(nibName: "SearchedMovieCell", bundle: nil), forCellWithReuseIdentifier: "SearchedMovieCell")
+
+        
+
+        let reservationNib = UINib(nibName: "SearchedMovieCell", bundle: nil)
+        collectionView.register(reservationNib, forCellWithReuseIdentifier: "SearchedMovieCell")
         self.fetchMovieData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
+    
+    
+    
+    
     
     func fetchMovieData() {
         netWorkingManager.fetchUpComingMovies { [weak self] result in
@@ -107,9 +120,7 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
                 cell.moviePoster.image = image
             }
         }
-        
         return cell
-        
     }
     
     // MARK: selected(컬렉션 뷰의 필터된 영화 포스터 클릭시, 영화 상세페이지로 이동)
@@ -123,7 +134,7 @@ extension MovieSecrchViewController: UICollectionViewDelegate, UICollectionViewD
         let _: CGFloat = 2
         let _: CGFloat = 1
         
-        return CGSize(width: 180, height: 221)
+        return CGSize(width: 160, height: 221)
     }
     
     //MARK: margin in section
