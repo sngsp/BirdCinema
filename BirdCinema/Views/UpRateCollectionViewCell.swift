@@ -14,5 +14,11 @@ class UpRateCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var upRateCollectionSubLabel: UILabel!
     @IBOutlet weak var upRateButton: UIButton!
     
+    var cellConfiguration: ((UpRateCollectionViewCell) -> Void)?
+    
+    @IBAction func collectionButtonTapped(_ sender: UIButton) {
+        // 클로저 호출
+        cellConfiguration?(self)
+    }
     
 }
