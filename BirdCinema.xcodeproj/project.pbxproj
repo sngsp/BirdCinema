@@ -45,9 +45,7 @@
 		F3F95A662BD8DE63007C7A7E /* ReservationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F95A652BD8DE63007C7A7E /* ReservationManager.swift */; };
 		F3F95A6D2BD90F01007C7A7E /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F95A6B2BD90F01007C7A7E /* ProfileCell.swift */; };
 		F3F95A6E2BD90F01007C7A7E /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3F95A6C2BD90F01007C7A7E /* ProfileCell.xib */; };
-
 		F3F95A702BDA3406007C7A7E /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F95A6F2BDA3406007C7A7E /* UIImage+.swift */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,9 +89,7 @@
 		F3F95A652BD8DE63007C7A7E /* ReservationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationManager.swift; sourceTree = "<group>"; };
 		F3F95A6B2BD90F01007C7A7E /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		F3F95A6C2BD90F01007C7A7E /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
-
 		F3F95A6F2BDA3406007C7A7E /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
