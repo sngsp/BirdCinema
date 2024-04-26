@@ -52,8 +52,21 @@ class MovieDetailViewController: UIViewController {
         moviePosterImageView.layer.cornerRadius = 10
         blurredImageView.layer.cornerRadius = 10
         
+        configureCustomButton()
+        
 //        moviePosterImageView.layer.cornerRadius = 20
 //        moviePosterImageView.clipsToBounds = true
+    }
+    
+    func configureCustomButton() {
+        let heartButton = UIButton(type: .system)
+        heartButton.setTitle("♡", for: .normal)
+        heartButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        heartButton.tintColor = .white
+
+        heartButton.frame = CGRect(x: 20, y: (reservationButton.frame.height - 20) / 2, width: 20, height: 20)
+
+        reservationButton.addSubview(heartButton)
     }
     
 //     Custom Struct 사용 시 작동
