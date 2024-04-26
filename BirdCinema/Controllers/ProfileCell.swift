@@ -10,12 +10,11 @@ import UIKit
 class ProfileCell: UITableViewCell {
 
     @IBOutlet weak var profileView: UIView!
-    @IBOutlet weak var userIdLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
