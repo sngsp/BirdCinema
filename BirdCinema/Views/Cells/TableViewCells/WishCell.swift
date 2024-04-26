@@ -11,6 +11,7 @@ class WishCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    var deleteHandler: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +20,10 @@ class WishCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        deleteHandler?()
     }
     
     func configureCell(_ movie: WishMovieData) {

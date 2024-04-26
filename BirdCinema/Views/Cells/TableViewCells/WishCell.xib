@@ -52,6 +52,9 @@
                                 <state key="normal" image="xmark.app.fill" catalog="system">
                                     <color key="titleColor" systemColor="systemGrayColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="N6d-Gg-JRe"/>
+                                </connections>
                             </button>
                         </subviews>
                     </stackView>
