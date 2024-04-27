@@ -65,9 +65,7 @@ class MovieDetailViewController: UIViewController {
         showMoreButton.setTitle("> 더보기", for: .normal)
         moviePosterImageView.layer.cornerRadius = 10
         blurredImageView.layer.cornerRadius = 10
-        
-//        moviePosterImageView.layer.cornerRadius = 20
-//        moviePosterImageView.clipsToBounds = true
+        self.navigationController?.navigationBar.tintColor = .systemIndigo
     }
     
 //     Custom Struct 사용 시 작동
