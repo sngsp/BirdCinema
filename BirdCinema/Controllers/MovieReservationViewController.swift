@@ -17,6 +17,8 @@ class MovieReservationViewController: UIViewController {
     @IBOutlet weak var youthCountLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var paymentButton: UIButton!
+    @IBOutlet weak var adultCountStackView: UIStackView!
+    @IBOutlet weak var youthCountStackView: UIStackView!
     
     let morningItems = ["9:30", "10:00", "10:30", "11:00", "11:30", "12:00"]
     let afternoonItems = ["13:00", "14:00", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "19:30", "20:00", "20:30", "21:00", "22:00"]
@@ -37,9 +39,6 @@ class MovieReservationViewController: UIViewController {
     
     // MARK: - Configure
     func configureUI() {
-//        self.navigationController?.navigationBar.tintColor = .white
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
         // 날짜 선택 범위 설정
         let currentDate = Date()
         datePicker.minimumDate = currentDate
@@ -53,6 +52,16 @@ class MovieReservationViewController: UIViewController {
         
         paymentButton.layer.cornerRadius = 20
         paymentButton.clipsToBounds = true
+        
+        adultCountStackView.layer.borderWidth = 2
+        adultCountStackView.layer.borderColor = UIColor.systemGray5.cgColor
+        adultCountStackView.layer.cornerRadius = 8
+        adultCountStackView.clipsToBounds = true
+        
+        youthCountStackView.layer.borderWidth = 2
+        youthCountStackView.layer.borderColor = UIColor.systemGray5.cgColor
+        youthCountStackView.layer.cornerRadius = 8
+        youthCountStackView.clipsToBounds = true
         
     }
     

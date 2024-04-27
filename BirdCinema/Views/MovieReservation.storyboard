@@ -156,6 +156,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5QV-2q-cLJ">
+                                                <rect key="frame" x="76" y="509" width="240" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOS-hP-boo">
                                                 <rect key="frame" x="20" y="1065" width="353" height="52"/>
                                                 <color key="backgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -278,6 +283,7 @@
                     <size key="freeformSize" width="393" height="1500"/>
                     <connections>
                         <outlet property="adultCountLabel" destination="3SW-cx-RPQ" id="vQP-NQ-EtD"/>
+                        <outlet property="adultCountStackView" destination="WDm-R0-cmh" id="rII-Rd-NgX"/>
                         <outlet property="datePicker" destination="UX4-fg-k0V" id="jMj-xQ-dhQ"/>
                         <outlet property="paymentButton" destination="sOS-hP-boo" id="sy7-aG-cnA"/>
                         <outlet property="timeCollectionView" destination="SBe-wQ-L3A" id="GxT-xO-2l6"/>
@@ -285,6 +291,7 @@
                         <outlet property="titleView" destination="Mc2-1S-stB" id="LfV-36-DlT"/>
                         <outlet property="totalPriceLabel" destination="xek-cK-dAz" id="Zqa-V6-6oW"/>
                         <outlet property="youthCountLabel" destination="92s-A2-sNh" id="vRk-oK-YF9"/>
+                        <outlet property="youthCountStackView" destination="bmc-2g-c9d" id="7qs-8Z-wbj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -314,6 +321,9 @@
     <resources>
         <image name="minus" catalog="system" width="128" height="26"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
