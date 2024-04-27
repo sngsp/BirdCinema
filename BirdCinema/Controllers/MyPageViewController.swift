@@ -28,7 +28,6 @@ class MyPageViewController: UIViewController {
     
     func updateData() {
         tableView.reloadData()
-        tableView.separatorColor = UIColor.gray
     }
     
     func updateUserInfo() {
@@ -133,10 +132,12 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 2 {
-            return 80
-        } else {
+        if indexPath.section == 0 {
             return 110
+        } else if indexPath.section == 1 {
+            return 100
+        } else {
+            return 80
         }
     }
     

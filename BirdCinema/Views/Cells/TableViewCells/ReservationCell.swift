@@ -12,10 +12,13 @@ class ReservationCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var completionView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        completionView.layer.cornerRadius = 2
+        completionView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
