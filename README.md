@@ -152,7 +152,7 @@
     - 데이터 병합
 *  **금세미** ([pond1225](https://github.com/pond1225))
     - 영화 검색 페이지 구현
-    - 
+    - 영화 검색 페이지 상세페이지 연결
 *  **김시종** ([SijongKim93](https://github.com/SijongKim93))
     - 데이터 모델링
     - 영화 목록 페이지 구현
