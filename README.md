@@ -96,7 +96,7 @@
 
 </br>
 
-### 4) Reseervation
+### 4) Reservation
 <img width="200" src ="https://github.com/sngsp/BirdCinema/assets/129912074/28f255ab-8bdc-495b-8018-41df6ac7ef76)">
 <img width="200" src ="https://github.com/sngsp/BirdCinema/assets/129912074/5fcc3ac3-f146-4403-9e60-28a4514372ed)">
 <img width="200" src ="https://github.com/sngsp/BirdCinema/assets/129912074/2210dd2c-efac-4552-8bc5-38584c4c8093)"><br><br>
